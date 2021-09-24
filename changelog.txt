@@ -1,0 +1,15 @@
+v22.1.0.0:
+    - Added "Players Editor" (basic, without fitness, sharpness, morale, player contract etc.)
+    - Added "Database Tables":
+        - Players Table
+        - Editedplayernames Table
+        - Dcplayernames Table
+        - Teamplayerlinks Table
+        - Teams Table
+        - Leagueteamlinks Table
+        - Manager Table
+        - career_calendar Table
+        - career_users Table
+        - career_playercontract Table
+        - default_mentalities Table
+        - default_teamsheets Table
