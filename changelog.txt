@@ -1,3 +1,35 @@
+v22.1.0.1:
+    - Added "Players Development"
+    - Added "Side Changer" (CPU vs CPU)
+    - Added "Club Finances"
+        - Transfer Budget
+    - Added "Youth Academy"
+        - Send scout to any country
+        - Allow multiple scouts in same country
+    - Added "Hire Scouts"
+        - "Free 5/5 Scouts"
+        - Scout Detailed Info
+    - Added "Free & Unlimited Releasing Players"
+    - Added "Global Transfer Network"
+        - Reveal player data (scouting players not needed)
+    - Added "Non-CM Related":
+        - "Dont Pause Game on AltTab
+    - Added to "Gameplay"
+        - Match Timer
+        - Never Tired Player IDs
+        - Home Team
+            - Injured players
+            - 5 stars skill moves
+            - NeverTired players
+            - Tired players
+            - Goals scored
+        - Away Team
+            - Injured players
+            - 5 stars skill moves
+            - NeverTired players
+            - Tired players
+            - Goals scored
+
 v22.1.0.0:
     - Added "Players Editor" (basic, without fitness, sharpness, morale, player contract etc.)
     - Added "Database Tables":
