@@ -1,3 +1,16 @@
+v22.1.0.2:
+    - Fixed default start date (changed year from 2020 to 2021)
+    - Added "Transfer HUB"
+        - Change Release Clause value to 1
+        - Allow Transfer Approach
+        - Allow Loan approach
+    - Added to "Gameplay"
+        - Unlimited Substitutions (USER)
+        - Home Team
+            - Disable Substitutions (CPU)
+        - Away Team
+            - Disable Substitutions (CPU)
+
 v22.1.0.1:
     - Added "Players Development"
     - Added "Side Changer" (CPU vs CPU)
