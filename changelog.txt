@@ -1,3 +1,45 @@
+v22.1.0.3:
+    - Added to "Players Editor"
+        - Injury Status
+        - Fitness
+        - Release Clause
+        - Sharpness
+        - Morale
+        - Form
+    - Added "Morale"
+        - Mass edit players morale in team
+    - Added "Form"
+        - Mass edit players form in team
+    - Added "Sharpness"
+        - Mass edit players sharpness in team
+        - Mass edit players sharpness in game
+    - Added "Job Offers"
+        - Club Team
+        - National Team
+    - Added "Manager"
+        - Manager Never Retire
+        - Manager Rating - 99
+        - "Make ManagerID editable"
+    - Added scripts to "users scripts" folder:
+        - "1ovr_99pot.lua"
+        - "99ovr_99pot.lua"
+        - "99ovr_99pot_in_given_team.lua"
+        - "99pot_in_given_team.lua"
+        - "99pot.lua"
+        - "custom_headasset_to_manager.lua"
+        - "custom_headasset_to_playerids.lua"
+        - "custom_tattoos_to_playerids.lua"
+        - "isretiring=0.lua"
+        - "isretiring=1.lua"
+        - "medium_socklenghtcode.lua"
+        - "modifier=0.lua"
+        - "randomize.lua"
+        - "randomize_shoe_models.lua"
+        - "mass_edit_age.lua"
+        - "set_generic_heads.lua"
+        - "set_generic_heads_alt.lua"
+        - "untuck_shirts.lua"
+
 v22.1.0.2:
     - Fixed default start date (changed year from 2020 to 2021)
     - Added "Transfer HUB"
