@@ -1,3 +1,39 @@
+v22.1.0.4:
+    - Added "Play As Player"
+        - Positive decision on transfer request
+        - Create Transfer Offer
+    - Added to "Youth Academy"
+        - Settings
+            - Age Range Low
+            - Age Range High
+            - Min Age For Promotion
+        - 15 Players Per Report
+        - Free Missions
+        - Revel Ovr & Pot
+    - Added "Sim Match Settings"
+        - Max Cards
+        - Perc Chance
+        - Perc Drop
+        - Chance Of Red
+        - Chance Of Two Reds
+        - Max Injures
+        - Don't lose Stamina
+        - Base Fatigue
+    - Added "Match Settings"
+        - Change Stadium
+        - Half Length
+        - Time Of Day
+        - Weather
+    - Added "Fitness"
+        - "Set at 100 on change"
+        - "Heal All Players in your team"
+        - "Refill all players energy in your team"
+    - Added "Editing Player"
+        - Player Data
+            - Name
+            - Birthdate
+            - Kit Number
+
 v22.1.0.3:
     - Added to "Players Editor"
         - Injury Status
