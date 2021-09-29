@@ -1,3 +1,16 @@
+v22.1.0.5:
+    - Added "Training":
+        - "Created Player CM" -> "Grade Achieved XP"
+    - Moved "Players Development" to "Training" -> "Manager CM"
+    - Added to "Play As Player":
+        - 999 Skill Points
+    - Fixed assigning release clause to player that don't have one.
+    - Changed "15 Players Per Report" (now it's midfunc hook)
+    - Changed "Reveal Ovr & Pot" (now it's midfunc hook)
+    - Added to "Sharpness"
+        - "Set at 100 on change"
+
+
 v22.1.0.4:
     - Added "Play As Player"
         - Positive decision on transfer request
