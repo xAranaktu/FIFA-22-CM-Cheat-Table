@@ -1,3 +1,13 @@
+v22.1.0.6:
+    - Fixed "Youth Academy" -> Age Range
+    - Added to "Youth Academy":
+        - Generate new report
+        - Generate players with custom ID
+        - Potential Range
+        - 100% chance for 5* weak foot
+        - 100% chance for 5* skill moves
+        - Attribute Modifier Range
+
 v22.1.0.5:
     - Added "Training":
         - "Created Player CM" -> "Grade Achieved XP"
