@@ -60,7 +60,7 @@ function FormManager:load_img(path, url)
     ))
     local img = nil
     local cache_dir = self.dirs["CACHE"]
-    
+
     local f=io.open(cache_dir .. path, "rb")
     local err = nil
     if f ~= nil then

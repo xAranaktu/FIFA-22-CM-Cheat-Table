@@ -37,28 +37,38 @@ CT_MEMORY_RECORDS = {
 
 AOB_PATTERNS = {
     fnGetColData = '40 53 48 83 EC 30 4C 8B D2 4D 8B D8 8B 12 8D 42 FD 83 F8 01',
+    AltTab = '48 83 EC 48 48 83 3D ?? ?? ?? ?? ?? 74 4F 48 8D 0D',
+    pModeManagers = '4C 89 3D ?? ?? ?? ?? 48 89 3D ?? ?? ?? ?? EB 03 48 8B C3',
+    DatabaseBasePtr = '48 0F 44 2D ?? ?? ?? ?? 45 33 FF 8B 4D 08 8B F1 0F AF 75 00 8D 41 01',
+    ScreenID = '4C 8D 3D ?? ?? ?? ?? C1 E8 07 49 8B F4 A8 01 4C 0F 45 3D',
+    GTNRevealPlayerData = '8B 8D 9C 02 00 00 39',
+    UnlimitedPlayerRelease = '39 47 54 BA 58 13 00 00',
+    ReleasePlayerMsgBox = '4C 8B E0 85 FF 0F',
+    ReleasePlayerFee = '41 8B D7 49 8B CD 44 8B F0',
+    HireScout = '89 84 24 28 01 00 00 48 8D 4C 24 60',
+    YouthAcademyAllCountriesAvailable = '8B 0C 90 41 8D 57 21',
+    YACountryIsBeingScouted = '40 80 FE 01 75 0C 4C 8D 05',
+    SideManipulator = '48 8B 84 CF 18 01 00 00 83',
+    PGMApplyXp = 'F3 0F 2C C1 41 01 07',
+    MatchScore = '8B 90 B4 26 02 00',
+    DisableSubstitutions = '44 8B B4 1E 5C A7 00 00',
+    IngameStamina = '89 83 A0 04 00 00 8B 47',
 
-    pModeManagers = '4C 89 3D ? ? ? ? 48 89 3D ? ? ? ? EB 03 48 8B C3',
+    -- TODO Update FIFA 22
     pCareerModeSmth = '48 89 35 ?? ?? ?? ?? 41 B8 01 00 00 00 48 8D 15',
     UpdateManagerRating = '42 8D 04 2B 85 C0',
     GetManagerRating = 'C3 CC CC CC CC CC 48 8B 41 08 8B 40 08',
     ManagerNeverRetire = '8B B0 C4 02 00 00 8B 59',
     DisablePGM = '85 C0 0F 95 85 ?? ?? ?? ?? 32 DB 41 8B F6',
-    PGMApplyXp = 'F3 0F 2C C1 48 8B 8D A0 00 00 00',
-    ScreenID = '4C 8D 3D ?? ?? ?? ?? C1 E8 07 49 8B F4 A8 01 4C 0F 45 3D',
-    DatabaseBasePtr = '48 0F 44 2D ?? ?? ?? ?? 45 33 FF 8B 4D 08 8B F1 0F AF 75 00 8D 41 01',
-    SideManipulator = '48 8B 84 CF 20 01 00 00 83',
     PAPTrainingBestGrade = '8B 93 B0 00 00 00 48 8B CD',
     PAPMoreEfficientTraining = '66 0F 6E 5E 1C',
     PAPUnlimitedTrainingSessions = '41 8B 5F 38 45 8B 7F 3C',
     PAPTrainingEveryday = '83 6F 3C 01 ?? ?? ?? ?? ?? ?? B9 07 00 00 00 89 4F 3C',
     PAPIgnoreDayWithMatch = '48 8B CE FF 50 20 85 C0 74 05 40',
     PAPUnlockPlayButtons = '80 79 41 00 74 0C',
-    GTNRevealPlayerData = '8B 8D 9C 02 00 00 39',
     OnSharpnessChange = '41 88 71 24 48 8B 5C 24 50',
     OnStaminaChange1 = '0F BE C2 88 51 11',
     OnStaminaChange2 = '88 43 11 0F B6 47 0D',
-    HireScout = '41 8B 01 89 45 38',
     ChangeStadium = '45 8B AC 24 C4 18 00 00',
     MatchHalfLength = '44 8B 83 E8 18 00 00',
     MatchWeather = '83 F8 FF 0F 44 C6 EB',
@@ -83,15 +93,11 @@ AOB_PATTERNS = {
     GameSettings = '49 63 C4 8B 74 C3 58',
     CPUDontChangeLineup = '66 83 F9 01 0F 85 99 00 00 00',
     MatchTimer = '8B 41 50 89 47 10',
-    MatchScore = '45 8B 90 B0 26 02 00',
-    IngameStamina = '8B 43 68 41 89 82 28 04 00 00',
-    DisableSubstitutions = '41 8B BC 1C FC A3 00 00 45',
+    
+    
+    
     AgreeTransferRequest = '44 8B E8 48 8B 89 98 01 00 00',
-    UnlimitedPlayerRelease = '39 47 54 41 0F 9C C4',
-    ReleasePlayerMsgBox = '4C 8B E0 85 FF 0F',
-    ReleasePlayerFee = '41 8B D7 49 8B CD 44',
-    YouthAcademyAllCountriesAvailable = '8B 0C 90 41 8D 51 20',
-    YACountryIsBeingScouted = '80 FB 01 75 0C 4C 8D',
+
     MaxYAPlayersPerReport = '48 8B 01 FF 50 08 84 C0 0F 84 ?? ?? ?? ?? 49 8B ?? 08 48 8B 82 78 0F 00 00',
     YARevealOvrAndPot = '48 8B 51 28 48 8D 8D 30 01 00 00 48 83 C2 08 41 B8 A4 08 00 00 E8 ?? ?? ?? ?? 48 63 44 24 38',
     YASomeScoutIni = '48 8D 4C 24 20 48 83 C2 08 41',
@@ -100,7 +106,7 @@ AOB_PATTERNS = {
     CustomTransfers = '84 C0 48 8B 01 74 ?? FF 50 10 41',
     NegStatusCheck = 'FF 90 30 01 00 00 89 47 18',
     ContractNeg = '48 8B 50 38 48 83 EA 40 49 FF 60 08 CC CC CC CC CC',
-    AltTab = '48 83 EC 48 48 83 3D ?? ?? ?? ?? ?? 74',
+    
 
     UniqueSprint = '45 8B 8A 84 01 00 00',
     PAPAccompl = "8B 84 A9 18 07 00 00",
@@ -6524,6 +6530,8 @@ DB_TABLES_META = {
 }
 
 MODE_MANAGERS_OFFSETS = {
+    FinanceManager = 0x578,
+    TcmFinanceManager = 0x7F8,
     PlayerGrowthManager = 0x958
 }
 

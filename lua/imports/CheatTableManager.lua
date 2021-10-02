@@ -329,34 +329,43 @@ function TableManager:initialize()
     self.dirs["CONFIG_FILE"] = self.dirs["DATA"] .. 'config.ini';
     self.dirs["OFFSETS_FILE"] = self.dirs["DATA"] .. 'offsets.ini';
 
+    self.cfg = self:load_config()
+    if (self.cfg.flags == nil) then
+        local critical_error = "\nError!\nCorrupted config.ini\nTo solve this problem:\n1. Turn Off FIFA and Cheat Engine\n2. Go to Documents -> FIFA 22 -> Cheat Table -> data\n3. Delete the config.ini file"
+        self.logger:critical(critical_error)
+        assert(false, critical_error)
+    end
+    DEBUG_MODE = self.cfg.flags.debug_mode
+    self.offsets = self:load_offsets()
+
     self:setup_forms()
 end
 
-function TableManager:hide_mem_scanner()
-    local main_form = getMainForm()
+-- function TableManager:hide_mem_scanner()
+--     local main_form = getMainForm()
 
-    -- local min_h = 378 -- default one
+--     -- local min_h = 378 -- default one
 
-    main_form.Panel5.Constraints.MinHeight = 65
-    main_form.Panel5.Height = 65
+--     main_form.Panel5.Constraints.MinHeight = 65
+--     main_form.Panel5.Height = 65
 
 
-    -- Works for Cheat Engine 6.8.1
-    local comps = {
-        "Label6", "foundcountlabel", "sbOpenProcess", "lblcompareToSavedScan",
-        "ScanText", "lblScanType", "lblValueType", "SpeedButton2", "btnNewScan",
-        "gbScanOptions", "Panel2", "Panel3", "Panel6", "Panel7", "Panel8",
-        "btnNextScan", "ScanType", "VarType", "ProgressBar", "UndoScan",
-        "scanvalue", "btnFirst", "btnNext", "LogoPanel", "pnlScanValueOptions",
-        "Panel9", "Panel10", "Foundlist3", "SpeedButton3", "UndoScan"
-    }
+--     -- Works for Cheat Engine 6.8.1
+--     local comps = {
+--         "Label6", "foundcountlabel", "sbOpenProcess", "lblcompareToSavedScan",
+--         "ScanText", "lblScanType", "lblValueType", "SpeedButton2", "btnNewScan",
+--         "gbScanOptions", "Panel2", "Panel3", "Panel6", "Panel7", "Panel8",
+--         "btnNextScan", "ScanType", "VarType", "ProgressBar", "UndoScan",
+--         "scanvalue", "btnFirst", "btnNext", "LogoPanel", "pnlScanValueOptions",
+--         "Panel9", "Panel10", "Foundlist3", "SpeedButton3", "UndoScan"
+--     }
 
-    for i=1, #comps do
-        if main_form[comps[i]] then
-            main_form[comps[i]].Visible = false
-        end
-    end
-end
+--     for i=1, #comps do
+--         if main_form[comps[i]] then
+--             main_form[comps[i]].Visible = false
+--         end
+--     end
+-- end
 
 
 function TableManager:can_autoactivate(script_id)
@@ -737,9 +746,10 @@ end
 function TableManager:load_config()
     if self:file_exists("config.ini") then
         -- Use files from cwd
-        self.dirs["CACHE"] = "cache/"
-        self.dirs["OFFSETS_FILE"] = "offsets.ini"
-        self.dirs["CONFIG_FILE"] = "config.ini"
+        self.logger:info("Using cwd Config");
+        self.dirs["CACHE"] = 'cache/';
+        self.dirs["OFFSETS_FILE"] = "offsets.ini";
+        self.dirs["CONFIG_FILE"] = "config.ini";
     elseif not self:file_exists(self.dirs["CONFIG_FILE"]) then
         local data = DEFAULT_CFG
         data.directories.cache_dir = self.dirs["CACHE"]
@@ -752,7 +762,7 @@ function TableManager:load_config()
             self.logger:error(
                 string.format('LIP.SAVE FAILED for %s with err: %s', self.dirs["CONFIG_FILE"], err)
             )
-            self.dirs["CACHE"] = "cache/"
+            self.dirs["CACHE"] = 'cache/'
             self.dirs["OFFSETS_FILE"] = "offsets.ini"
             self.dirs["CONFIG_FILE"] = "config.ini"
             data.directories.cache_dir = self.dirs["CACHE"]
@@ -868,26 +878,15 @@ function TableManager:start()
         assert(false, critical_error)
     end
 
-    self.cfg = self:load_config()
-    if (self.cfg.flags == nil) then
-        local critical_error = "\nError!\nCorrupted config.ini\nTo solve this problem:\n1. Turn Off FIFA and Cheat Engine\n2. Go to Documents -> FIFA 22 -> Cheat Table -> data\n3. Delete the config.ini file"
-        self.logger:critical(critical_error)
-        assert(false, critical_error)
-    end
-
-    DEBUG_MODE = self.cfg.flags.debug_mode
-
-    self.offsets = self:load_offsets()
-
     local forms_map = self:get_forms_map()
 
     for k, v in pairs(forms_map) do
         self:get_frm_mgr(k):set_cfg(self.cfg)
     end
 
-    if self.cfg.flags.hide_ce_scanner then
-        self:hide_mem_scanner()
-    end
+    -- if self.cfg.flags.hide_ce_scanner then
+    --     self:hide_mem_scanner()
+    -- end
 
     self:get_frm_mgr("main_form"):update_status(string.format("Waiting for %s...", self.game_name))
 
