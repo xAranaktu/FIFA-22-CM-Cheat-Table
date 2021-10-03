@@ -778,7 +778,7 @@ function thisFormManager:get_components_description()
         local current_date = {
             day = 1,
             month = 7,
-            year = 2020
+            year = 2021
         }
 
         if int_current_date > 20080101 then

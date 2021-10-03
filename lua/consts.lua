@@ -53,6 +53,12 @@ AOB_PATTERNS = {
     MatchScore = '8B 90 B4 26 02 00',
     DisableSubstitutions = '44 8B B4 1E 5C A7 00 00',
     IngameStamina = '89 83 A0 04 00 00 8B 47',
+    UnlimitedSubstitutions = '8B 84 01 0C 9F 00 00',
+    EditReleaseClause = '8B 48 08 83 F9 FF 74 06 89 8B',
+    AllowTransferAppThTxt = '8B D8 83 F8 0E 77',
+    AllowTransferAppBtnClick = '44 8B F0 89 45 67',
+    AllowSign = '41 FF D1 89 45 50',
+    AllowLoanApp = '44 8B F8 89 45 50',
 
     -- TODO Update FIFA 22
     pCareerModeSmth = '48 89 35 ?? ?? ?? ?? 41 B8 01 00 00 00 48 8D 15',
@@ -74,7 +80,7 @@ AOB_PATTERNS = {
     MatchWeather = '83 F8 FF 0F 44 C6 EB',
     MatchTODDisplay = '44 8B 4F 40 C1 FA 05',
     MatchTODReal = '4D 8B CE 49 8B CD B8',
-    UnlimitedSubstitutions = '8B 84 01 EC 9B 00 00',
+    
     fnGenYAReport = '48 33 C4 48 89 45 40 48 8B F9 48 8B 01 FF',    -- -0x2B
     GenNewYAReport = '41 8D 44 24 0E',
     InterceptpScoutManager = '48 8B 0C 03 48 8B 01 FF 50 20',
@@ -83,12 +89,12 @@ AOB_PATTERNS = {
     ClubJobOffer = '48 8B BE D8 00 00 00 48 2B',
     ClubJobOfferAlwaysAccept = 'FF 50 08 3B 47 2C',
     PAPNewOffer = '83 B9 BC 01 00 00 FF 74 0E 44 38 A1 D0 01 00 00 C6 44 24 ?? 01 75 05 44 88 64 24 ?? 83 B9 BC 01 00 00 FF',
-    AllowLoanApp = '41 FF D1 44 8B F8 89 45 58',
-    AllowTransferAppThTxt = '8B D8 83 F8 0E 77',
-    AllowTransferAppBtnClick = '41 FF D1 44 8B F0 89 45 67',
-    AllowSign = '41 FF D1 89 45 58',
+    
+
+    
+    
     AllowSignText = '41 FF D1 89 45 58',
-    EditReleaseClause = '8B 48 08 83 F9 FF 74 06 89 8B',
+
     EditPlayerName = '0F 57 C0 48 C7 44 24 30 00 00 00 00 0F 11 44 24 20 C6 44 24 2F 0F 80 78 01',
     GameSettings = '49 63 C4 8B 74 C3 58',
     CPUDontChangeLineup = '66 83 F9 01 0F 85 99 00 00 00',

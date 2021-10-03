@@ -3,7 +3,7 @@ function onScriptActivate()
     -- local status, error = pcall(gCTManager:memory_manager:get_validated_address)
     -- if not status then
     --     showMessage('Error during script activation, error:\n' .. error)
-    --     print("Read guide to avoid problems like this: https://github.com/xAranaktu/FIFA-21-CM-Cheat-Table/wiki/Getting-Started")
+    --     print("Read guide to avoid problems like this: https://github.com/xAranaktu/FIFA-22-CM-Cheat-Table/wiki/Getting-Started")
     --     assert(false, error)
     -- end
 end

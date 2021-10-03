@@ -21,7 +21,7 @@
   <CheatEntries>
     <CheatEntry>
       <ID>0</ID>
-      <Description>"v22.1.0.1"</Description>
+      <Description>"v22.1.0.2"</Description>
       <LastState Value="" RealAddress="00000000"/>
       <Color>000040</Color>
       <GroupHeader>1</GroupHeader>
@@ -1557,7 +1557,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>98</ID>
                       <Description>"playerid"</Description>
-                      <LastState Value="178589" RealAddress="A99DF1A9"/>
+                      <LastState Value="183714" RealAddress="A99E6195"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>7</BitStart>
                       <BitLength>19</BitLength>
@@ -1789,7 +1789,7 @@ dealloc(newmem_alttab)
 147: 'Zambia'
 148: 'Zimbabwe'
 </DropDownList>
-                      <LastState Value="195" RealAddress="A99DF1A5"/>
+                      <LastState Value="21" RealAddress="A99E6191"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>2</BitStart>
                       <BitLength>12</BitLength>
@@ -1814,7 +1814,7 @@ dealloc(newmem_alttab)
 9: '4'
 10: '5'
 </DropDownList>
-                      <LastState Value="7" RealAddress="A99DF19D"/>
+                      <LastState Value="5" RealAddress="A99E6189"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>5</BitStart>
                       <BitLength>4</BitLength>
@@ -1927,7 +1927,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                      <LastState Value="65" RealAddress="A99DF1B1"/>
+                      <LastState Value="74" RealAddress="A99E619D"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>0</BitStart>
                       <BitLength>7</BitLength>
@@ -2040,7 +2040,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                      <LastState Value="65" RealAddress="A99DF168"/>
+                      <LastState Value="74" RealAddress="A99E6154"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>7</BitStart>
                       <BitLength>7</BitLength>
@@ -2082,7 +2082,7 @@ dealloc(newmem_alttab)
 26: 'LS'
 27: 'LW'
 </DropDownList>
-                      <LastState Value="7" RealAddress="A99DF17F"/>
+                      <LastState Value="25" RealAddress="A99E616B"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>7</BitStart>
                       <BitLength>5</BitLength>
@@ -2125,7 +2125,7 @@ dealloc(newmem_alttab)
 27: 'LS'
 28: 'LW'
 </DropDownList>
-                      <LastState Value="0" RealAddress="A99DF17A"/>
+                      <LastState Value="0" RealAddress="A99E6166"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>4</BitStart>
                       <BitLength>6</BitLength>
@@ -2168,7 +2168,7 @@ dealloc(newmem_alttab)
 27: 'LS'
 28: 'LW'
 </DropDownList>
-                      <LastState Value="0" RealAddress="A99DF161"/>
+                      <LastState Value="0" RealAddress="A99E614D"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>5</BitStart>
                       <BitLength>6</BitLength>
@@ -2211,7 +2211,7 @@ dealloc(newmem_alttab)
 27: 'LS'
 28: 'LW'
 </DropDownList>
-                      <LastState Value="0" RealAddress="A99DF1BB"/>
+                      <LastState Value="0" RealAddress="A99E61A7"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>2</BitStart>
                       <BitLength>6</BitLength>
@@ -2227,7 +2227,7 @@ dealloc(newmem_alttab)
                       <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0: 'Right'
 1: 'Left'
 </DropDownList>
-                      <LastState Value="1" RealAddress="A99DF1A6"/>
+                      <LastState Value="0" RealAddress="A99E6192"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>6</BitStart>
                       <BitLength>1</BitLength>
@@ -2240,7 +2240,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>36</ID>
                       <Description>"firstnameid"</Description>
-                      <LastState Value="28815" RealAddress="A99DF14C"/>
+                      <LastState Value="29655" RealAddress="A99E6138"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>0</BitStart>
                       <BitLength>16</BitLength>
@@ -2253,7 +2253,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>61</ID>
                       <Description>"lastnameid"</Description>
-                      <LastState Value="14745" RealAddress="A99DF14E"/>
+                      <LastState Value="31315" RealAddress="A99E613A"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>0</BitStart>
                       <BitLength>16</BitLength>
@@ -2266,7 +2266,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>118</ID>
                       <Description>"commonnameid"</Description>
-                      <LastState Value="0" RealAddress="A99DF152"/>
+                      <LastState Value="0" RealAddress="A99E613E"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>0</BitStart>
                       <BitLength>16</BitLength>
@@ -2279,7 +2279,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>115</ID>
                       <Description>"playerjerseynameid"</Description>
-                      <LastState Value="14745" RealAddress="A99DF150"/>
+                      <LastState Value="31315" RealAddress="A99E613C"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>0</BitStart>
                       <BitLength>16</BitLength>
@@ -2296,7 +2296,7 @@ dealloc(newmem_alttab)
 0: 'Medium'
 2: 'High'
 </DropDownList>
-                      <LastState Value="2" RealAddress="A99DF195"/>
+                      <LastState Value="2" RealAddress="A99E6181"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>0</BitStart>
                       <BitLength>2</BitLength>
@@ -2313,7 +2313,7 @@ dealloc(newmem_alttab)
 0: 'Medium'
 2: 'High'
 </DropDownList>
-                      <LastState Value="0" RealAddress="A99DF1A3"/>
+                      <LastState Value="0" RealAddress="A99E618F"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>6</BitStart>
                       <BitLength>2</BitLength>
@@ -2326,7 +2326,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>85</ID>
                       <Description>"playerjointeamdate"</Description>
-                      <LastState Value="158778" RealAddress="A99DF1A1"/>
+                      <LastState Value="160236" RealAddress="A99E618D"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>0</BitStart>
                       <BitLength>20</BitLength>
@@ -2339,7 +2339,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>29</ID>
                       <Description>"contractvaliduntil"</Description>
-                      <LastState Value="2023" RealAddress="A99DF16F"/>
+                      <LastState Value="2022" RealAddress="A99E615B"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>3</BitStart>
                       <BitLength>11</BitLength>
@@ -2365,7 +2365,7 @@ dealloc(newmem_alttab)
 10: 'Invalid'
 11: 'Invalid'
 </DropDownList>
-                      <LastState Value="0" RealAddress="A99DF190"/>
+                      <LastState Value="0" RealAddress="A99E617C"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>6</BitStart>
                       <BitLength>3</BitLength>
@@ -2391,7 +2391,7 @@ dealloc(newmem_alttab)
 10: 'Invalid'
 11: 'Invalid'
 </DropDownList>
-                      <LastState Value="1" RealAddress="A99DF1AF"/>
+                      <LastState Value="1" RealAddress="A99E619B"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>1</BitStart>
                       <BitLength>3</BitLength>
@@ -2417,7 +2417,7 @@ dealloc(newmem_alttab)
 10: 'Invalid'
 11: 'Invalid'
 </DropDownList>
-                      <LastState Value="1" RealAddress="A99DF192"/>
+                      <LastState Value="2" RealAddress="A99E617E"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>7</BitStart>
                       <BitLength>3</BitLength>
@@ -2443,7 +2443,7 @@ dealloc(newmem_alttab)
 10: 'Invalid'
 11: 'Invalid'
 </DropDownList>
-                      <LastState Value="2" RealAddress="A99DF1A7"/>
+                      <LastState Value="2" RealAddress="A99E6193"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>1</BitStart>
                       <BitLength>3</BitLength>
@@ -2456,7 +2456,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>45</ID>
                       <Description>"birthdate"</Description>
-                      <LastState Value="148288" RealAddress="A99DF17D"/>
+                      <LastState Value="148063" RealAddress="A99E6169"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>3</BitStart>
                       <BitLength>20</BitLength>
@@ -2472,7 +2472,7 @@ dealloc(newmem_alttab)
                       <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0: 'No'
 1: 'Yes'
 </DropDownList>
-                      <LastState Value="0" RealAddress="A99DF164"/>
+                      <LastState Value="1" RealAddress="A99E6150"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>5</BitStart>
                       <BitLength>1</BitLength>
@@ -2488,7 +2488,7 @@ dealloc(newmem_alttab)
                       <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0: 'Male'
 1: 'Female'
 </DropDownList>
-                      <LastState Value="0" RealAddress="A99DF18C"/>
+                      <LastState Value="0" RealAddress="A99E6178"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>4</BitStart>
                       <BitLength>1</BitLength>
@@ -2510,7 +2510,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>121</ID>
                       <Description>"pacdiv"</Description>
-                      <LastState Value="64" RealAddress="A99DF1B8"/>
+                      <LastState Value="54" RealAddress="A99E61A4"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>2</BitStart>
                       <BitLength>7</BitLength>
@@ -2523,7 +2523,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>37</ID>
                       <Description>"driref"</Description>
-                      <LastState Value="61" RealAddress="A99DF176"/>
+                      <LastState Value="66" RealAddress="A99E6162"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>2</BitStart>
                       <BitLength>7</BitLength>
@@ -2536,7 +2536,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>105</ID>
                       <Description>"shohan"</Description>
-                      <LastState Value="52" RealAddress="A99DF1AF"/>
+                      <LastState Value="78" RealAddress="A99E619B"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>4</BitStart>
                       <BitLength>7</BitLength>
@@ -2549,7 +2549,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>62</ID>
                       <Description>"defspe"</Description>
-                      <LastState Value="63" RealAddress="A99DF18F"/>
+                      <LastState Value="38" RealAddress="A99E617B"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>7</BitStart>
                       <BitLength>7</BitLength>
@@ -2562,7 +2562,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>74</ID>
                       <Description>"paskic"</Description>
-                      <LastState Value="61" RealAddress="A99DF199"/>
+                      <LastState Value="54" RealAddress="A99E6185"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>1</BitStart>
                       <BitLength>7</BitLength>
@@ -2575,7 +2575,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>49</ID>
                       <Description>"phypos"</Description>
-                      <LastState Value="78" RealAddress="A99DF182"/>
+                      <LastState Value="78" RealAddress="A99E616E"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>5</BitStart>
                       <BitLength>7</BitLength>
@@ -2704,7 +2704,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="58" RealAddress="A99DF171"/>
+                          <LastState Value="63" RealAddress="A99E615D"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>5</BitStart>
                           <BitLength>7</BitLength>
@@ -2817,7 +2817,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="64" RealAddress="A99DF160"/>
+                          <LastState Value="40" RealAddress="A99E614C"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>6</BitStart>
                           <BitLength>7</BitLength>
@@ -2930,7 +2930,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="63" RealAddress="A99DF172"/>
+                          <LastState Value="18" RealAddress="A99E615E"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>4</BitStart>
                           <BitLength>7</BitLength>
@@ -3043,7 +3043,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="62" RealAddress="A99DF168"/>
+                          <LastState Value="48" RealAddress="A99E6154"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>0</BitStart>
                           <BitLength>7</BitLength>
@@ -3156,7 +3156,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="59" RealAddress="A99DF191"/>
+                          <LastState Value="63" RealAddress="A99E617D"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>1</BitStart>
                           <BitLength>7</BitLength>
@@ -3269,7 +3269,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="59" RealAddress="A99DF181"/>
+                          <LastState Value="71" RealAddress="A99E616D"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>6</BitStart>
                           <BitLength>7</BitLength>
@@ -3382,7 +3382,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="54" RealAddress="A99DF19A"/>
+                          <LastState Value="80" RealAddress="A99E6186"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>0</BitStart>
                           <BitLength>7</BitLength>
@@ -3495,7 +3495,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="56" RealAddress="A99DF162"/>
+                          <LastState Value="38" RealAddress="A99E614E"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>3</BitStart>
                           <BitLength>7</BitLength>
@@ -3608,7 +3608,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="60" RealAddress="A99DF1AC"/>
+                          <LastState Value="36" RealAddress="A99E6198"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>2</BitStart>
                           <BitLength>7</BitLength>
@@ -3721,7 +3721,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="69" RealAddress="A99DF159"/>
+                          <LastState Value="37" RealAddress="A99E6145"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>4</BitStart>
                           <BitLength>7</BitLength>
@@ -3834,7 +3834,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="20" RealAddress="A99DF1BC"/>
+                          <LastState Value="76" RealAddress="A99E61A8"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>0</BitStart>
                           <BitLength>7</BitLength>
@@ -3947,7 +3947,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="65" RealAddress="A99DF192"/>
+                          <LastState Value="43" RealAddress="A99E617E"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>0</BitStart>
                           <BitLength>7</BitLength>
@@ -4060,7 +4060,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="64" RealAddress="A99DF183"/>
+                          <LastState Value="79" RealAddress="A99E616F"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>4</BitStart>
                           <BitLength>7</BitLength>
@@ -4173,7 +4173,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="50" RealAddress="A99DF170"/>
+                          <LastState Value="80" RealAddress="A99E615C"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>6</BitStart>
                           <BitLength>7</BitLength>
@@ -4286,7 +4286,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="48" RealAddress="A99DF164"/>
+                          <LastState Value="68" RealAddress="A99E6150"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>6</BitStart>
                           <BitLength>7</BitLength>
@@ -4399,7 +4399,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="41" RealAddress="A99DF163"/>
+                          <LastState Value="72" RealAddress="A99E614F"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>2</BitStart>
                           <BitLength>7</BitLength>
@@ -4521,7 +4521,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="81" RealAddress="A99DF1A7"/>
+                          <LastState Value="74" RealAddress="A99E6193"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>4</BitStart>
                           <BitLength>7</BitLength>
@@ -4634,7 +4634,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="73" RealAddress="A99DF17B"/>
+                          <LastState Value="84" RealAddress="A99E6167"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>2</BitStart>
                           <BitLength>7</BitLength>
@@ -4747,7 +4747,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="67" RealAddress="A99DF18B"/>
+                          <LastState Value="57" RealAddress="A99E6177"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>5</BitStart>
                           <BitLength>7</BitLength>
@@ -4860,7 +4860,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="88" RealAddress="A99DF1A9"/>
+                          <LastState Value="66" RealAddress="A99E6195"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>0</BitStart>
                           <BitLength>7</BitLength>
@@ -4973,7 +4973,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="68" RealAddress="A99DF198"/>
+                          <LastState Value="50" RealAddress="A99E6184"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>2</BitStart>
                           <BitLength>7</BitLength>
@@ -5086,7 +5086,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="67" RealAddress="A99DF15A"/>
+                          <LastState Value="50" RealAddress="A99E6146"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>4</BitStart>
                           <BitLength>7</BitLength>
@@ -5199,7 +5199,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="59" RealAddress="A99DF177"/>
+                          <LastState Value="53" RealAddress="A99E6163"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>1</BitStart>
                           <BitLength>7</BitLength>
@@ -5321,7 +5321,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="63" RealAddress="A99DF15D"/>
+                          <LastState Value="79" RealAddress="A99E6149"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>3</BitStart>
                           <BitLength>7</BitLength>
@@ -5434,7 +5434,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="55" RealAddress="A99DF16C"/>
+                          <LastState Value="75" RealAddress="A99E6158"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>6</BitStart>
                           <BitLength>7</BitLength>
@@ -5547,7 +5547,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="62" RealAddress="A99DF16D"/>
+                          <LastState Value="72" RealAddress="A99E6159"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>5</BitStart>
                           <BitLength>7</BitLength>
@@ -5660,7 +5660,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="63" RealAddress="A99DF166"/>
+                          <LastState Value="21" RealAddress="A99E6152"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>4</BitStart>
                           <BitLength>7</BitLength>
@@ -5773,7 +5773,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="74" RealAddress="A99DF197"/>
+                          <LastState Value="74" RealAddress="A99E6183"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>3</BitStart>
                           <BitLength>7</BitLength>
@@ -5886,7 +5886,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="57" RealAddress="A99DF16E"/>
+                          <LastState Value="58" RealAddress="A99E615A"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>4</BitStart>
                           <BitLength>7</BitLength>
@@ -6008,7 +6008,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="14" RealAddress="A99DF165"/>
+                          <LastState Value="7" RealAddress="A99E6151"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>5</BitStart>
                           <BitLength>7</BitLength>
@@ -6121,7 +6121,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="7" RealAddress="A99DF19E"/>
+                          <LastState Value="8" RealAddress="A99E618A"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>1</BitStart>
                           <BitLength>7</BitLength>
@@ -6234,7 +6234,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="10" RealAddress="A99DF18F"/>
+                          <LastState Value="14" RealAddress="A99E617B"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>0</BitStart>
                           <BitLength>7</BitLength>
@@ -6347,7 +6347,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="10" RealAddress="A99DF1AD"/>
+                          <LastState Value="15" RealAddress="A99E6199"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>5</BitStart>
                           <BitLength>7</BitLength>
@@ -6460,7 +6460,7 @@ dealloc(newmem_alttab)
 97: '98'
 98: '99'
 </DropDownList>
-                          <LastState Value="8" RealAddress="A99DF169"/>
+                          <LastState Value="7" RealAddress="A99E6155"/>
                           <VariableType>Binary</VariableType>
                           <BitStart>6</BitStart>
                           <BitLength>7</BitLength>
@@ -6491,7 +6491,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4901</ID>
                           <Description>"Long Throw-in"</Description>
-                          <LastState Value="0" RealAddress="A99DF184"/>
+                          <LastState Value="0" RealAddress="A99E6170"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>3</BitStart>
@@ -6505,7 +6505,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4902</ID>
                           <Description>"Power FK"</Description>
-                          <LastState Value="0" RealAddress="A99DF184"/>
+                          <LastState Value="0" RealAddress="A99E6170"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>4</BitStart>
@@ -6519,7 +6519,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4903</ID>
                           <Description>"Injury Prone"</Description>
-                          <LastState Value="0" RealAddress="A99DF184"/>
+                          <LastState Value="0" RealAddress="A99E6170"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>5</BitStart>
@@ -6533,7 +6533,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4904</ID>
                           <Description>"Solid Player"</Description>
-                          <LastState Value="0" RealAddress="A99DF184"/>
+                          <LastState Value="0" RealAddress="A99E6170"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>6</BitStart>
@@ -6547,7 +6547,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4905</ID>
                           <Description>"Dives into Tackles (CPU)"</Description>
-                          <LastState Value="0" RealAddress="A99DF184"/>
+                          <LastState Value="0" RealAddress="A99E6170"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>7</BitStart>
@@ -6561,7 +6561,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4906</ID>
                           <Description>"Unused"</Description>
-                          <LastState Value="0" RealAddress="A99DF185"/>
+                          <LastState Value="0" RealAddress="A99E6171"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>0</BitStart>
@@ -6575,7 +6575,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4907</ID>
                           <Description>"Leadership"</Description>
-                          <LastState Value="1" RealAddress="A99DF185"/>
+                          <LastState Value="0" RealAddress="A99E6171"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>1</BitStart>
@@ -6589,7 +6589,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4908</ID>
                           <Description>"Early Crosser"</Description>
-                          <LastState Value="1" RealAddress="A99DF185"/>
+                          <LastState Value="0" RealAddress="A99E6171"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>2</BitStart>
@@ -6603,7 +6603,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4909</ID>
                           <Description>"Finesse Shot"</Description>
-                          <LastState Value="0" RealAddress="A99DF185"/>
+                          <LastState Value="0" RealAddress="A99E6171"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>3</BitStart>
@@ -6617,7 +6617,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4913</ID>
                           <Description>"Flair"</Description>
-                          <LastState Value="0" RealAddress="A99DF185"/>
+                          <LastState Value="0" RealAddress="A99E6171"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>4</BitStart>
@@ -6631,7 +6631,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4912</ID>
                           <Description>"Long Passer (CPU)"</Description>
-                          <LastState Value="0" RealAddress="A99DF185"/>
+                          <LastState Value="0" RealAddress="A99E6171"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>5</BitStart>
@@ -6645,7 +6645,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4911</ID>
                           <Description>"Long Shot Taker (CPU)"</Description>
-                          <LastState Value="0" RealAddress="A99DF185"/>
+                          <LastState Value="0" RealAddress="A99E6171"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>6</BitStart>
@@ -6659,7 +6659,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4910</ID>
                           <Description>"Speed Dribbler (CPU)"</Description>
-                          <LastState Value="0" RealAddress="A99DF185"/>
+                          <LastState Value="0" RealAddress="A99E6171"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>7</BitStart>
@@ -6673,7 +6673,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4914</ID>
                           <Description>"Playmaker (CPU)"</Description>
-                          <LastState Value="0" RealAddress="A99DF186"/>
+                          <LastState Value="0" RealAddress="A99E6172"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>0</BitStart>
@@ -6687,7 +6687,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4921</ID>
                           <Description>"GK Long Throw"</Description>
-                          <LastState Value="0" RealAddress="A99DF186"/>
+                          <LastState Value="0" RealAddress="A99E6172"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>1</BitStart>
@@ -6701,7 +6701,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4920</ID>
                           <Description>"Power Header"</Description>
-                          <LastState Value="0" RealAddress="A99DF186"/>
+                          <LastState Value="1" RealAddress="A99E6172"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>2</BitStart>
@@ -6715,7 +6715,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4919</ID>
                           <Description>"Giant Throw-in"</Description>
-                          <LastState Value="0" RealAddress="A99DF186"/>
+                          <LastState Value="0" RealAddress="A99E6172"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>3</BitStart>
@@ -6729,7 +6729,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4918</ID>
                           <Description>"Outside Foot Shot"</Description>
-                          <LastState Value="0" RealAddress="A99DF186"/>
+                          <LastState Value="0" RealAddress="A99E6172"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>4</BitStart>
@@ -6743,7 +6743,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4917</ID>
                           <Description>"Swerve Pass"</Description>
-                          <LastState Value="0" RealAddress="A99DF186"/>
+                          <LastState Value="0" RealAddress="A99E6172"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>5</BitStart>
@@ -6757,7 +6757,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4916</ID>
                           <Description>"Second Wind"</Description>
-                          <LastState Value="0" RealAddress="A99DF186"/>
+                          <LastState Value="0" RealAddress="A99E6172"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>6</BitStart>
@@ -6771,7 +6771,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4915</ID>
                           <Description>"Flair Passes"</Description>
-                          <LastState Value="0" RealAddress="A99DF186"/>
+                          <LastState Value="0" RealAddress="A99E6172"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>7</BitStart>
@@ -6785,7 +6785,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4922</ID>
                           <Description>"Bicycle Kicks"</Description>
-                          <LastState Value="0" RealAddress="A99DF187"/>
+                          <LastState Value="0" RealAddress="A99E6173"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>0</BitStart>
@@ -6799,7 +6799,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4930</ID>
                           <Description>"GK Flat Kick"</Description>
-                          <LastState Value="0" RealAddress="A99DF187"/>
+                          <LastState Value="0" RealAddress="A99E6173"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>1</BitStart>
@@ -6813,7 +6813,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4929</ID>
                           <Description>"One Club Player"</Description>
-                          <LastState Value="0" RealAddress="A99DF187"/>
+                          <LastState Value="0" RealAddress="A99E6173"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>2</BitStart>
@@ -6827,7 +6827,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4928</ID>
                           <Description>"Team Player"</Description>
-                          <LastState Value="0" RealAddress="A99DF187"/>
+                          <LastState Value="0" RealAddress="A99E6173"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>3</BitStart>
@@ -6841,7 +6841,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4927</ID>
                           <Description>"Chip Shot (CPU)"</Description>
-                          <LastState Value="0" RealAddress="A99DF187"/>
+                          <LastState Value="0" RealAddress="A99E6173"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>4</BitStart>
@@ -6855,7 +6855,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4926</ID>
                           <Description>"Technical Dribbler (CPU)"</Description>
-                          <LastState Value="0" RealAddress="A99DF187"/>
+                          <LastState Value="0" RealAddress="A99E6173"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>5</BitStart>
@@ -6869,7 +6869,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4925</ID>
                           <Description>"GK Rushes Out of Goal"</Description>
-                          <LastState Value="0" RealAddress="A99DF187"/>
+                          <LastState Value="0" RealAddress="A99E6173"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>6</BitStart>
@@ -6883,7 +6883,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4924</ID>
                           <Description>"GK Cautious with Crosses"</Description>
-                          <LastState Value="0" RealAddress="A99DF187"/>
+                          <LastState Value="0" RealAddress="A99E6173"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>7</BitStart>
@@ -6897,7 +6897,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4923</ID>
                           <Description>"GK Comes for Crosses"</Description>
-                          <LastState Value="0" RealAddress="A99DF188"/>
+                          <LastState Value="0" RealAddress="A99E6174"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>0</BitStart>
@@ -6920,7 +6920,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>104</ID>
                           <Description>"Unused"</Description>
-                          <LastState Value="0" RealAddress="A99DF155"/>
+                          <LastState Value="0" RealAddress="A99E6141"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>0</BitStart>
@@ -6934,7 +6934,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4932</ID>
                           <Description>"GK Saves with Feet"</Description>
-                          <LastState Value="0" RealAddress="A99DF155"/>
+                          <LastState Value="0" RealAddress="A99E6141"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>1</BitStart>
@@ -6948,7 +6948,7 @@ dealloc(newmem_alttab)
                         <CheatEntry>
                           <ID>4933</ID>
                           <Description>"Set Play Specialist"</Description>
-                          <LastState Value="0" RealAddress="A99DF155"/>
+                          <LastState Value="0" RealAddress="A99E6141"/>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>2</BitStart>
@@ -6973,7 +6973,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>55</ID>
                       <Description>"gkglovetypecode"</Description>
-                      <LastState Value="0" RealAddress="A99DF189"/>
+                      <LastState Value="0" RealAddress="A99E6175"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>4</BitStart>
                       <BitLength>7</BitLength>
@@ -6986,7 +6986,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>109</ID>
                       <Description>"smallsidedshoetypecode"</Description>
-                      <LastState Value="502" RealAddress="A99DF1B1"/>
+                      <LastState Value="502" RealAddress="A99E619D"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>7</BitStart>
                       <BitLength>10</BitLength>
@@ -6999,7 +6999,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>44</ID>
                       <Description>"shoetypecode"</Description>
-                      <LastState Value="231" RealAddress="A99DF17C"/>
+                      <LastState Value="28" RealAddress="A99E6168"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>1</BitStart>
                       <BitLength>10</BitLength>
@@ -7012,7 +7012,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>116</ID>
                       <Description>"shoecolorcode1"</Description>
-                      <LastState Value="30" RealAddress="A99DF1B5"/>
+                      <LastState Value="30" RealAddress="A99E61A1"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>3</BitStart>
                       <BitLength>5</BitLength>
@@ -7025,7 +7025,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>21</ID>
                       <Description>"shoecolorcode2"</Description>
-                      <LastState Value="31" RealAddress="A99DF167"/>
+                      <LastState Value="31" RealAddress="A99E6153"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>3</BitStart>
                       <BitLength>5</BitLength>
@@ -7038,7 +7038,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>114</ID>
                       <Description>"shoedesigncode"</Description>
-                      <LastState Value="0" RealAddress="A99DF1B5"/>
+                      <LastState Value="0" RealAddress="A99E61A1"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>1</BitStart>
                       <BitLength>2</BitLength>
@@ -7051,7 +7051,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>84</ID>
                       <Description>"accessorycode1"</Description>
-                      <LastState Value="0" RealAddress="A99DF1A0"/>
+                      <LastState Value="0" RealAddress="A99E618C"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>3</BitStart>
                       <BitLength>5</BitLength>
@@ -7064,7 +7064,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>113</ID>
                       <Description>"accessorycode2"</Description>
-                      <LastState Value="0" RealAddress="A99DF1B4"/>
+                      <LastState Value="0" RealAddress="A99E61A0"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>4</BitStart>
                       <BitLength>5</BitLength>
@@ -7077,7 +7077,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>33</ID>
                       <Description>"accessorycode3"</Description>
-                      <LastState Value="0" RealAddress="A99DF173"/>
+                      <LastState Value="0" RealAddress="A99E615F"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>3</BitStart>
                       <BitLength>5</BitLength>
@@ -7090,7 +7090,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>4875</ID>
                       <Description>"accessorycode4"</Description>
-                      <LastState Value="0" RealAddress="A99DF15C"/>
+                      <LastState Value="0" RealAddress="A99E6148"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>5</BitStart>
                       <BitLength>5</BitLength>
@@ -7103,7 +7103,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>34</ID>
                       <Description>"accessorycolourcode1"</Description>
-                      <LastState Value="0" RealAddress="A99DF174"/>
+                      <LastState Value="0" RealAddress="A99E6160"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>0</BitStart>
                       <BitLength>4</BitLength>
@@ -7116,7 +7116,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>125</ID>
                       <Description>"accessorycolourcode2"</Description>
-                      <LastState Value="0" RealAddress="A99DF1BC"/>
+                      <LastState Value="0" RealAddress="A99E61A8"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>7</BitStart>
                       <BitLength>4</BitLength>
@@ -7129,7 +7129,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>83</ID>
                       <Description>"accessorycolourcode3"</Description>
-                      <LastState Value="0" RealAddress="A99DF19F"/>
+                      <LastState Value="0" RealAddress="A99E618B"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>7</BitStart>
                       <BitLength>4</BitLength>
@@ -7142,7 +7142,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>100</ID>
                       <Description>"accessorycolourcode4"</Description>
-                      <LastState Value="0" RealAddress="A99DF1AD"/>
+                      <LastState Value="0" RealAddress="A99E6199"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>1</BitStart>
                       <BitLength>4</BitLength>
@@ -7164,7 +7164,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>59</ID>
                       <Description>"headassetid"</Description>
-                      <LastState Value="178589" RealAddress="A99DF18C"/>
+                      <LastState Value="183714" RealAddress="A99E6178"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>5</BitStart>
                       <BitLength>19</BitLength>
@@ -7449,7 +7449,7 @@ dealloc(newmem_alttab)
 10501: '10501'
 10502: '10502'
 </DropDownList>
-                      <LastState Value="4001" RealAddress="A99DF174"/>
+                      <LastState Value="9" RealAddress="A99E6160"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>4</BitStart>
                       <BitLength>14</BitLength>
@@ -7462,7 +7462,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>4881</ID>
                       <Description>"hairtypecode"</Description>
-                      <LastState Value="123" RealAddress="A99DF15F"/>
+                      <LastState Value="192" RealAddress="A99E614B"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>4</BitStart>
                       <BitLength>10</BitLength>
@@ -7731,7 +7731,7 @@ dealloc(newmem_alttab)
 253: '383 cm / 12 ft. 6 inch'
 254: '384 cm / 12 ft. 6 inch'
 </DropDownList>
-                      <LastState Value="47" RealAddress="A99DF178"/>
+                      <LastState Value="62" RealAddress="A99E6164"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>0</BitStart>
                       <BitLength>7</BitLength>
@@ -7870,7 +7870,7 @@ dealloc(newmem_alttab)
 123: '153 kg / 338 lb'
 124: '154 kg / 340 lb'
 </DropDownList>
-                      <LastState Value="41" RealAddress="A99DF188"/>
+                      <LastState Value="53" RealAddress="A99E6174"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>4</BitStart>
                       <BitLength>7</BitLength>
@@ -7900,7 +7900,7 @@ dealloc(newmem_alttab)
 14: 'Blue'
 15: 'Blue'
 </DropDownList>
-                      <LastState Value="5" RealAddress="A99DF158"/>
+                      <LastState Value="5" RealAddress="A99E6144"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>0</BitStart>
                       <BitLength>6</BitLength>
@@ -7930,7 +7930,7 @@ dealloc(newmem_alttab)
 14: '15'
 15: '16'
 </DropDownList>
-                      <LastState Value="1" RealAddress="A99DF19F"/>
+                      <LastState Value="7" RealAddress="A99E618B"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>0</BitStart>
                       <BitLength>4</BitLength>
@@ -7943,7 +7943,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>127</ID>
                       <Description>"facialhaircolorcode"</Description>
-                      <LastState Value="1" RealAddress="A99DF1BE"/>
+                      <LastState Value="2" RealAddress="A99E61AA"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>5</BitStart>
                       <BitLength>4</BitLength>
@@ -7956,7 +7956,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>86</ID>
                       <Description>"headclasscode"</Description>
-                      <LastState Value="1" RealAddress="A99DF1A3"/>
+                      <LastState Value="0" RealAddress="A99E618F"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>4</BitStart>
                       <BitLength>2</BitLength>
@@ -7969,7 +7969,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>4</ID>
                       <Description>"jerseystylecode"</Description>
-                      <LastState Value="1" RealAddress="A99DF15A"/>
+                      <LastState Value="1" RealAddress="A99E6146"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>3</BitStart>
                       <BitLength>1</BitLength>
@@ -7982,7 +7982,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>94</ID>
                       <Description>"skintypecode"</Description>
-                      <LastState Value="1" RealAddress="A99DF154"/>
+                      <LastState Value="2" RealAddress="A99E6140"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>0</BitStart>
                       <BitLength>8</BitLength>
@@ -8007,7 +8007,7 @@ dealloc(newmem_alttab)
 9: 'Dark Brown'
 10: '11'
 </DropDownList>
-                      <LastState Value="1" RealAddress="A99DF1B0"/>
+                      <LastState Value="2" RealAddress="A99E619C"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>3</BitStart>
                       <BitLength>4</BitLength>
@@ -8023,7 +8023,7 @@ dealloc(newmem_alttab)
                       <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0: 'No'
 1: 'Yes'
 </DropDownList>
-                      <LastState Value="0" RealAddress="A99DF189"/>
+                      <LastState Value="1" RealAddress="A99E6175"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>3</BitStart>
                       <BitLength>1</BitLength>
@@ -8036,7 +8036,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>102</ID>
                       <Description>"headvariation"</Description>
-                      <LastState Value="0" RealAddress="A99DF1AE"/>
+                      <LastState Value="0" RealAddress="A99E619A"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>4</BitStart>
                       <BitLength>5</BitLength>
@@ -8192,7 +8192,7 @@ dealloc(newmem_alttab)
 379: 'Alphonso Davies'
 380: 'Zlatan Ibrahimovic'
 </DropDownList>
-                      <LastState Value="1" RealAddress="A99DF1B6"/>
+                      <LastState Value="4" RealAddress="A99E61A2"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>5</BitStart>
                       <BitLength>9</BitLength>
@@ -8205,7 +8205,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>117</ID>
                       <Description>"hairstylecode"</Description>
-                      <LastState Value="0" RealAddress="A99DF1B6"/>
+                      <LastState Value="0" RealAddress="A99E61A2"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>0</BitStart>
                       <BitLength>5</BitLength>
@@ -8218,7 +8218,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>91</ID>
                       <Description>"sideburnscode"</Description>
-                      <LastState Value="0" RealAddress="A99DF1A6"/>
+                      <LastState Value="0" RealAddress="A99E6192"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>7</BitStart>
                       <BitLength>2</BitLength>
@@ -8231,7 +8231,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>4878</ID>
                       <Description>"facialhairtypecode"</Description>
-                      <LastState Value="5" RealAddress="A99DF158"/>
+                      <LastState Value="4" RealAddress="A99E6144"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>6</BitStart>
                       <BitLength>6</BitLength>
@@ -8244,7 +8244,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>77</ID>
                       <Description>"eyebrowcode"</Description>
-                      <LastState Value="0" RealAddress="A99DF19B"/>
+                      <LastState Value="2" RealAddress="A99E6187"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>0</BitStart>
                       <BitLength>4</BitLength>
@@ -8257,7 +8257,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>4888</ID>
                       <Description>"tattooback"</Description>
-                      <LastState Value="0" RealAddress="A99DF15B"/>
+                      <LastState Value="0" RealAddress="A99E6147"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>3</BitStart>
                       <BitLength>10</BitLength>
@@ -8270,7 +8270,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>88</ID>
                       <Description>"tattoofront"</Description>
-                      <LastState Value="0" RealAddress="A99DF1A4"/>
+                      <LastState Value="0" RealAddress="A99E6190"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>0</BitStart>
                       <BitLength>10</BitLength>
@@ -8283,7 +8283,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>41</ID>
                       <Description>"tattoohead"</Description>
-                      <LastState Value="0" RealAddress="A99DF179"/>
+                      <LastState Value="0" RealAddress="A99E6165"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>2</BitStart>
                       <BitLength>10</BitLength>
@@ -8296,7 +8296,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>4889</ID>
                       <Description>"tattooleftarm"</Description>
-                      <LastState Value="0" RealAddress="A99DF15E"/>
+                      <LastState Value="0" RealAddress="A99E614A"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>2</BitStart>
                       <BitLength>10</BitLength>
@@ -8309,7 +8309,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>47</ID>
                       <Description>"tattooleftleg"</Description>
-                      <LastState Value="0" RealAddress="A99DF180"/>
+                      <LastState Value="0" RealAddress="A99E616C"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>4</BitStart>
                       <BitLength>10</BitLength>
@@ -8322,7 +8322,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>56</ID>
                       <Description>"tattoorightarm"</Description>
-                      <LastState Value="0" RealAddress="A99DF18A"/>
+                      <LastState Value="0" RealAddress="A99E6176"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>3</BitStart>
                       <BitLength>10</BitLength>
@@ -8335,7 +8335,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>126</ID>
                       <Description>"tattoorightleg"</Description>
-                      <LastState Value="0" RealAddress="A99DF1BD"/>
+                      <LastState Value="0" RealAddress="A99E61A9"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>3</BitStart>
                       <BitLength>10</BitLength>
@@ -8348,7 +8348,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>107</ID>
                       <Description>"shortstyle"</Description>
-                      <LastState Value="0" RealAddress="A99DF1B0"/>
+                      <LastState Value="0" RealAddress="A99E619C"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>7</BitStart>
                       <BitLength>1</BitLength>
@@ -8361,7 +8361,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>112</ID>
                       <Description>"jerseyfit"</Description>
-                      <LastState Value="0" RealAddress="A99DF1B4"/>
+                      <LastState Value="0" RealAddress="A99E61A0"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>2</BitStart>
                       <BitLength>2</BitLength>
@@ -8374,7 +8374,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>82</ID>
                       <Description>"jerseysleevelengthcode"</Description>
-                      <LastState Value="0" RealAddress="A99DF19F"/>
+                      <LastState Value="0" RealAddress="A99E618B"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>4</BitStart>
                       <BitLength>3</BitLength>
@@ -8387,7 +8387,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>52</ID>
                       <Description>"socklengthcode"</Description>
-                      <LastState Value="0" RealAddress="A99DF188"/>
+                      <LastState Value="0" RealAddress="A99E6174"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>1</BitStart>
                       <BitLength>3</BitLength>
@@ -8409,7 +8409,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>69</ID>
                       <Description>"avatarpomid"</Description>
-                      <LastState Value="0" RealAddress="A99DF193"/>
+                      <LastState Value="0" RealAddress="A99E617F"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>7</BitStart>
                       <BitLength>9</BitLength>
@@ -8422,7 +8422,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>96</ID>
                       <Description>"gkkickstyle"</Description>
-                      <LastState Value="0" RealAddress="A99DF1A8"/>
+                      <LastState Value="0" RealAddress="A99E6194"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>6</BitStart>
                       <BitLength>2</BitLength>
@@ -8435,7 +8435,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>4879</ID>
                       <Description>"gksavetype"</Description>
-                      <LastState Value="0" RealAddress="A99DF15D"/>
+                      <LastState Value="0" RealAddress="A99E6149"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>2</BitStart>
                       <BitLength>1</BitLength>
@@ -8448,7 +8448,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>67</ID>
                       <Description>"faceposerpreset"</Description>
-                      <LastState Value="4" RealAddress="A99DF193"/>
+                      <LastState Value="0" RealAddress="A99E617F"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>2</BitStart>
                       <BitLength>4</BitLength>
@@ -8468,7 +8468,7 @@ dealloc(newmem_alttab)
 4: '5'
      
 </DropDownList>
-                      <LastState Value="2" RealAddress="A99DF1B3"/>
+                      <LastState Value="1" RealAddress="A99E619F"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>1</BitStart>
                       <BitLength>3</BitLength>
@@ -8481,7 +8481,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>40</ID>
                       <Description>"hasseasonaljersey"</Description>
-                      <LastState Value="3" RealAddress="A99DF178"/>
+                      <LastState Value="0" RealAddress="A99E6164"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>7</BitStart>
                       <BitLength>3</BitLength>
@@ -8501,7 +8501,7 @@ dealloc(newmem_alttab)
 4: '5'
      
 </DropDownList>
-                      <LastState Value="1" RealAddress="A99DF1A8"/>
+                      <LastState Value="3" RealAddress="A99E6194"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>3</BitStart>
                       <BitLength>3</BitLength>
@@ -8514,7 +8514,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>16</ID>
                       <Description>"animfreekickstartposcode"</Description>
-                      <LastState Value="2" RealAddress="A99DF164"/>
+                      <LastState Value="0" RealAddress="A99E6150"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>1</BitStart>
                       <BitLength>4</BitLength>
@@ -8527,7 +8527,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>120</ID>
                       <Description>"animpenaltiesstartposcode"</Description>
-                      <LastState Value="0" RealAddress="A99DF1B7"/>
+                      <LastState Value="1" RealAddress="A99E61A3"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>6</BitStart>
                       <BitLength>4</BitLength>
@@ -8540,7 +8540,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>111</ID>
                       <Description>"runstylecode"</Description>
-                      <LastState Value="0" RealAddress="A99DF1B3"/>
+                      <LastState Value="0" RealAddress="A99E619F"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>4</BitStart>
                       <BitLength>6</BitLength>
@@ -8553,7 +8553,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>122</ID>
                       <Description>"runningcode1"</Description>
-                      <LastState Value="0" RealAddress="A99DF1B9"/>
+                      <LastState Value="10" RealAddress="A99E61A5"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>1</BitStart>
                       <BitLength>17</BitLength>
@@ -8566,7 +8566,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>78</ID>
                       <Description>"runningcode2"</Description>
-                      <LastState Value="0" RealAddress="A99DF19B"/>
+                      <LastState Value="0" RealAddress="A99E6187"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>4</BitStart>
                       <BitLength>17</BitLength>
@@ -8579,7 +8579,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>25</ID>
                       <Description>"finishingcode1"</Description>
-                      <LastState Value="0" RealAddress="A99DF16A"/>
+                      <LastState Value="83" RealAddress="A99E6156"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>5</BitStart>
                       <BitLength>17</BitLength>
@@ -8592,7 +8592,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>71</ID>
                       <Description>"finishingcode2"</Description>
-                      <LastState Value="0" RealAddress="A99DF195"/>
+                      <LastState Value="25" RealAddress="A99E6181"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>2</BitStart>
                       <BitLength>17</BitLength>
@@ -8605,7 +8605,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>76</ID>
                       <Description>"iscustomized"</Description>
-                      <LastState Value="0" RealAddress="A99DF19A"/>
+                      <LastState Value="0" RealAddress="A99E6186"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>7</BitStart>
                       <BitLength>1</BitLength>
@@ -8618,7 +8618,7 @@ dealloc(newmem_alttab)
                     <CheatEntry>
                       <ID>68</ID>
                       <Description>"usercaneditname"</Description>
-                      <LastState Value="0" RealAddress="A99DF193"/>
+                      <LastState Value="0" RealAddress="A99E617F"/>
                       <VariableType>Binary</VariableType>
                       <BitStart>6</BitStart>
                       <BitLength>1</BitLength>
@@ -8642,7 +8642,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4936</ID>
                   <Description>"firstname"</Description>
-                  <LastState RealAddress="A9CAAC58"/>
+                  <LastState RealAddress="A9CAFD90"/>
                   <VariableType>String</VariableType>
                   <Length>44</Length>
                   <Unicode>0</Unicode>
@@ -8656,7 +8656,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4937</ID>
                   <Description>"commonname"</Description>
-                  <LastState RealAddress="A9CAAC85"/>
+                  <LastState RealAddress="A9CAFDBD"/>
                   <VariableType>String</VariableType>
                   <Length>44</Length>
                   <Unicode>0</Unicode>
@@ -8670,7 +8670,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4938</ID>
                   <Description>"playerjerseyname"</Description>
-                  <LastState RealAddress="A9CAACB2"/>
+                  <LastState RealAddress="A9CAFDEA"/>
                   <VariableType>String</VariableType>
                   <Length>44</Length>
                   <Unicode>0</Unicode>
@@ -8684,7 +8684,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4939</ID>
                   <Description>"surname"</Description>
-                  <LastState RealAddress="A9CAACDF"/>
+                  <LastState RealAddress="A9CAFE17"/>
                   <VariableType>String</VariableType>
                   <Length>44</Length>
                   <Unicode>0</Unicode>
@@ -8698,7 +8698,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4940</ID>
                   <Description>"playerid"</Description>
-                  <LastState Value="281041" RealAddress="A9CAAD0C"/>
+                  <LastState Value="239530" RealAddress="A9CAFE44"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>19</BitLength>
@@ -8720,7 +8720,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4942</ID>
                   <Description>"nameid"</Description>
-                  <LastState Value="0" RealAddress="A90DCF2E"/>
+                  <LastState Value="611" RealAddress="A90E2EA6"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>13</BitLength>
@@ -8733,7 +8733,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4943</ID>
                   <Description>"name"</Description>
-                  <LastState RealAddress="A90DCF08"/>
+                  <LastState RealAddress="A90E2E80"/>
                   <VariableType>String</VariableType>
                   <Length>37</Length>
                   <Unicode>0</Unicode>
@@ -8756,7 +8756,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4945</ID>
                   <Description>"artificialkey"</Description>
-                  <LastState Value="16547" RealAddress="A9E0232B"/>
+                  <LastState Value="4652" RealAddress="A9DD3BBB"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>5</BitStart>
                   <BitLength>19</BitLength>
@@ -8769,7 +8769,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4946</ID>
                   <Description>"form"</Description>
-                  <LastState Value="3" RealAddress="A9E02335"/>
+                  <LastState Value="4" RealAddress="A9DD3BC5"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>3</BitStart>
                   <BitLength>3</BitLength>
@@ -8782,7 +8782,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4947</ID>
                   <Description>"injury"</Description>
-                  <LastState Value="0" RealAddress="A9E02330"/>
+                  <LastState Value="0" RealAddress="A9DD3BC0"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>6</BitStart>
                   <BitLength>6</BitLength>
@@ -8795,7 +8795,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4948</ID>
                   <Description>"isamongtopscorers"</Description>
-                  <LastState Value="0" RealAddress="A9E02329"/>
+                  <LastState Value="1" RealAddress="A9DD3BB9"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>1</BitLength>
@@ -8808,7 +8808,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4949</ID>
                   <Description>"isamongtopscorersinteam"</Description>
-                  <LastState Value="0" RealAddress="A9E02329"/>
+                  <LastState Value="1" RealAddress="A9DD3BB9"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>1</BitLength>
@@ -8821,7 +8821,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4950</ID>
                   <Description>"istopscorer"</Description>
-                  <LastState Value="0" RealAddress="A9E02332"/>
+                  <LastState Value="1" RealAddress="A9DD3BC2"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>2</BitStart>
                   <BitLength>1</BitLength>
@@ -8935,7 +8935,7 @@ dealloc(newmem_alttab)
 98: '99'
      
 </DropDownList>
-                  <LastState Value="37" RealAddress="A9E0232A"/>
+                  <LastState Value="8" RealAddress="A9DD3BBA"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>7</BitLength>
@@ -8948,7 +8948,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4952</ID>
                   <Description>"leagueappearances"</Description>
-                  <LastState Value="0" RealAddress="A9E02331"/>
+                  <LastState Value="0" RealAddress="A9DD3BC1"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
                   <BitLength>6</BitLength>
@@ -8961,7 +8961,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4953</ID>
                   <Description>"leaguegoals"</Description>
-                  <LastState Value="0" RealAddress="A9E02328"/>
+                  <LastState Value="8" RealAddress="A9DD3BB8"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -8974,7 +8974,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4954</ID>
                   <Description>"leaguegoalsprevmatch"</Description>
-                  <LastState Value="0" RealAddress="A9E02330"/>
+                  <LastState Value="1" RealAddress="A9DD3BC0"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>2</BitStart>
                   <BitLength>4</BitLength>
@@ -8987,7 +8987,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4955</ID>
                   <Description>"leaguegoalsprevthreematches"</Description>
-                  <LastState Value="0" RealAddress="A9E02332"/>
+                  <LastState Value="4" RealAddress="A9DD3BC2"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>3</BitStart>
                   <BitLength>5</BitLength>
@@ -9000,7 +9000,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4956</ID>
                   <Description>"playerid"</Description>
-                  <LastState Value="260521" RealAddress="A9E02333"/>
+                  <LastState Value="183714" RealAddress="A9DD3BC3"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>19</BitLength>
@@ -9013,7 +9013,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4957</ID>
                   <Description>"position"</Description>
-                  <LastState Value="7" RealAddress="A9E0232A"/>
+                  <LastState Value="25" RealAddress="A9DD3BBA"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>6</BitLength>
@@ -9026,7 +9026,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4958</ID>
                   <Description>"reds"</Description>
-                  <LastState Value="0" RealAddress="A9E02335"/>
+                  <LastState Value="0" RealAddress="A9DD3BC5"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>6</BitStart>
                   <BitLength>5</BitLength>
@@ -9039,7 +9039,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4959</ID>
                   <Description>"teamid"</Description>
-                  <LastState Value="112223" RealAddress="A9E0232E"/>
+                  <LastState Value="33" RealAddress="A9DD3BBE"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>18</BitLength>
@@ -9052,7 +9052,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4960</ID>
                   <Description>"yellows"</Description>
-                  <LastState Value="0" RealAddress="A9E02329"/>
+                  <LastState Value="0" RealAddress="A9DD3BB9"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>1</BitStart>
                   <BitLength>6</BitLength>
@@ -9074,7 +9074,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4962</ID>
                   <Description>"assetid"</Description>
-                  <LastState Value="2147595872" RealAddress="A92ED288"/>
+                  <LastState Value="2147483682" RealAddress="A92D5000"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>32</BitLength>
@@ -9087,7 +9087,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4963</ID>
                   <Description>"attackrating"</Description>
-                  <LastState Value="69" RealAddress="A92ED2F3"/>
+                  <LastState Value="72" RealAddress="A92D506B"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>6</BitStart>
                   <BitLength>7</BitLength>
@@ -9100,7 +9100,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4964</ID>
                   <Description>"ballid"</Description>
-                  <LastState Value="142" RealAddress="A92ED31D"/>
+                  <LastState Value="51" RealAddress="A92D5095"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>3</BitStart>
                   <BitLength>9</BitLength>
@@ -9113,7 +9113,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4965</ID>
                   <Description>"buildupplay"</Description>
-                  <LastState Value="0" RealAddress="A92ED2F6"/>
+                  <LastState Value="1" RealAddress="A92D506E"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>1</BitStart>
                   <BitLength>2</BitLength>
@@ -9126,7 +9126,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4966</ID>
                   <Description>"captainid"</Description>
-                  <LastState Value="193428" RealAddress="A92ED30F"/>
+                  <LastState Value="201957" RealAddress="A92D5087"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>19</BitLength>
@@ -9139,7 +9139,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4967</ID>
                   <Description>"chancecreation"</Description>
-                  <LastState Value="0" RealAddress="A92ED2E6"/>
+                  <LastState Value="1" RealAddress="A92D505E"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>2</BitLength>
@@ -9152,7 +9152,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4968</ID>
                   <Description>"cityid"</Description>
-                  <LastState Value="311" RealAddress="A92ED2EB"/>
+                  <LastState Value="178" RealAddress="A92D5063"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>5</BitStart>
                   <BitLength>10</BitLength>
@@ -9165,7 +9165,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4969</ID>
                   <Description>"clubworth"</Description>
-                  <LastState Value="12877" RealAddress="A92ED28E"/>
+                  <LastState Value="502090" RealAddress="A92D5006"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>24</BitLength>
@@ -9178,7 +9178,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4970</ID>
                   <Description>"crowdregion"</Description>
-                  <LastState Value="3" RealAddress="A92ED317"/>
+                  <LastState Value="4" RealAddress="A92D508F"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>1</BitStart>
                   <BitLength>5</BitLength>
@@ -9191,7 +9191,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4971</ID>
                   <Description>"crowdskintonecode"</Description>
-                  <LastState Value="2" RealAddress="A92ED325"/>
+                  <LastState Value="2" RealAddress="A92D509D"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>6</BitStart>
                   <BitLength>4</BitLength>
@@ -9204,7 +9204,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4972</ID>
                   <Description>"defenserating"</Description>
-                  <LastState Value="67" RealAddress="A92ED2F8"/>
+                  <LastState Value="70" RealAddress="A92D5070"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>6</BitStart>
                   <BitLength>7</BitLength>
@@ -9319,7 +9319,7 @@ dealloc(newmem_alttab)
 99: '100'
      
 </DropDownList>
-                  <LastState Value="49" RealAddress="A92ED2E4"/>
+                  <LastState Value="49" RealAddress="A92D505C"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>6</BitStart>
                   <BitLength>7</BitLength>
@@ -9332,7 +9332,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4974</ID>
                   <Description>"defensivestyle"</Description>
-                  <LastState Value="0" RealAddress="A92ED2E0"/>
+                  <LastState Value="1" RealAddress="A92D5058"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>3</BitLength>
@@ -9447,7 +9447,7 @@ dealloc(newmem_alttab)
 99: '100'
      
 </DropDownList>
-                  <LastState Value="59" RealAddress="A92ED2EC"/>
+                  <LastState Value="39" RealAddress="A92D5064"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>7</BitLength>
@@ -9460,7 +9460,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4976</ID>
                   <Description>"domesticcups"</Description>
-                  <LastState Value="1" RealAddress="A92ED303"/>
+                  <LastState Value="5" RealAddress="A92D507B"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>10</BitLength>
@@ -9473,7 +9473,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4977</ID>
                   <Description>"domesticprestige"</Description>
-                  <LastState Value="9" RealAddress="A92ED2E3"/>
+                  <LastState Value="10" RealAddress="A92D505B"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>2</BitStart>
                   <BitLength>5</BitLength>
@@ -9499,7 +9499,7 @@ dealloc(newmem_alttab)
 10: '11'
      
 </DropDownList>
-                  <LastState Value="5" RealAddress="A92ED305"/>
+                  <LastState Value="1" RealAddress="A92D507D"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>1</BitStart>
                   <BitLength>4</BitLength>
@@ -9512,7 +9512,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4979</ID>
                   <Description>"favoriteteamsheetid"</Description>
-                  <LastState Value="0" RealAddress="A92ED2F7"/>
+                  <LastState Value="0" RealAddress="A92D506F"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
                   <BitLength>10</BitLength>
@@ -9525,7 +9525,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4980</ID>
                   <Description>"flamethrowercannon"</Description>
-                  <LastState Value="0" RealAddress="A92ED2E2"/>
+                  <LastState Value="0" RealAddress="A92D505A"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>3</BitLength>
@@ -9538,7 +9538,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4981</ID>
                   <Description>"form"</Description>
-                  <LastState Value="0" RealAddress="A92ED328"/>
+                  <LastState Value="0" RealAddress="A92D50A0"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
                   <BitLength>7</BitLength>
@@ -9551,7 +9551,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4982</ID>
                   <Description>"foundationyear"</Description>
-                  <LastState Value="209" RealAddress="A92ED294"/>
+                  <LastState Value="104" RealAddress="A92D500C"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -9564,7 +9564,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4983</ID>
                   <Description>"freekicktakerid"</Description>
-                  <LastState Value="178590" RealAddress="A92ED323"/>
+                  <LastState Value="229156" RealAddress="A92D509B"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>3</BitStart>
                   <BitLength>19</BitLength>
@@ -9577,7 +9577,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4984</ID>
                   <Description>"genericbanner"</Description>
-                  <LastState Value="0" RealAddress="A92ED317"/>
+                  <LastState Value="0" RealAddress="A92D508F"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>1</BitLength>
@@ -9692,7 +9692,7 @@ dealloc(newmem_alttab)
 99: '98'
      
 </DropDownList>
-                  <LastState Value="68" RealAddress="A92ED329"/>
+                  <LastState Value="72" RealAddress="A92D50A1"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>3</BitStart>
                   <BitLength>7</BitLength>
@@ -9807,7 +9807,7 @@ dealloc(newmem_alttab)
 99: '98'
      
 </DropDownList>
-                  <LastState Value="0" RealAddress="A92ED2E3"/>
+                  <LastState Value="0" RealAddress="A92D505B"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>7</BitLength>
@@ -9820,7 +9820,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4987</ID>
                   <Description>"goalnetstanchioncolor1b"</Description>
-                  <LastState Value="1" RealAddress="A92ED297"/>
+                  <LastState Value="210" RealAddress="A92D500F"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -9833,7 +9833,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4988</ID>
                   <Description>"goalnetstanchioncolor1g"</Description>
-                  <LastState Value="1" RealAddress="A92ED2A0"/>
+                  <LastState Value="210" RealAddress="A92D5018"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -9846,7 +9846,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4989</ID>
                   <Description>"goalnetstanchioncolor1r"</Description>
-                  <LastState Value="1" RealAddress="A92ED29E"/>
+                  <LastState Value="210" RealAddress="A92D5016"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -9859,7 +9859,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4990</ID>
                   <Description>"goalnetstanchioncolor2b"</Description>
-                  <LastState Value="1" RealAddress="A92ED29D"/>
+                  <LastState Value="255" RealAddress="A92D5015"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -9872,7 +9872,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4991</ID>
                   <Description>"goalnetstanchioncolor2g"</Description>
-                  <LastState Value="1" RealAddress="A92ED292"/>
+                  <LastState Value="255" RealAddress="A92D500A"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -9885,7 +9885,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4992</ID>
                   <Description>"goalnetstanchioncolor2r"</Description>
-                  <LastState Value="1" RealAddress="A92ED295"/>
+                  <LastState Value="255" RealAddress="A92D500D"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -9898,7 +9898,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4993</ID>
                   <Description>"haslargeflag"</Description>
-                  <LastState Value="0" RealAddress="A92ED326"/>
+                  <LastState Value="0" RealAddress="A92D509E"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>2</BitLength>
@@ -9911,7 +9911,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4994</ID>
                   <Description>"hasstandingcrowd"</Description>
-                  <LastState Value="0" RealAddress="A92ED2F7"/>
+                  <LastState Value="1" RealAddress="A92D506F"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>2</BitStart>
                   <BitLength>2</BitLength>
@@ -9924,7 +9924,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4995</ID>
                   <Description>"hassubstitutionboard"</Description>
-                  <LastState Value="0" RealAddress="A92ED2E0"/>
+                  <LastState Value="0" RealAddress="A92D5058"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>3</BitStart>
                   <BitLength>1</BitLength>
@@ -9937,7 +9937,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4996</ID>
                   <Description>"hastifo"</Description>
-                  <LastState Value="0" RealAddress="A92ED2E7"/>
+                  <LastState Value="1" RealAddress="A92D505F"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>6</BitStart>
                   <BitLength>1</BitLength>
@@ -9950,7 +9950,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4997</ID>
                   <Description>"hasvikingclap"</Description>
-                  <LastState Value="0" RealAddress="A92ED2E5"/>
+                  <LastState Value="0" RealAddress="A92D505D"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>5</BitStart>
                   <BitLength>1</BitLength>
@@ -9963,7 +9963,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4998</ID>
                   <Description>"internationalprestige"</Description>
-                  <LastState Value="3" RealAddress="A92ED326"/>
+                  <LastState Value="4" RealAddress="A92D509E"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>2</BitStart>
                   <BitLength>5</BitLength>
@@ -9976,7 +9976,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>4999</ID>
                   <Description>"isbannerenabled"</Description>
-                  <LastState Value="2" RealAddress="A92ED2F0"/>
+                  <LastState Value="1" RealAddress="A92D5068"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>3</BitStart>
                   <BitLength>2</BitLength>
@@ -9989,7 +9989,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>51</ID>
                   <Description>"iscompetitioncrowdcardsenabled"</Description>
-                  <LastState Value="2" RealAddress="A92ED300"/>
+                  <LastState Value="3" RealAddress="A92D5078"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>1</BitStart>
                   <BitLength>2</BitLength>
@@ -10002,7 +10002,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5000</ID>
                   <Description>"iscompetitionpoleflagenabled"</Description>
-                  <LastState Value="1" RealAddress="A92ED2F9"/>
+                  <LastState Value="1" RealAddress="A92D5071"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>5</BitStart>
                   <BitLength>2</BitLength>
@@ -10015,7 +10015,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5001</ID>
                   <Description>"iscompetitionscarfenabled"</Description>
-                  <LastState Value="1" RealAddress="A92ED2EB"/>
+                  <LastState Value="1" RealAddress="A92D5063"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>3</BitStart>
                   <BitLength>2</BitLength>
@@ -10028,7 +10028,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5002</ID>
                   <Description>"jerseytype"</Description>
-                  <LastState Value="2" RealAddress="A92ED2E5"/>
+                  <LastState Value="2" RealAddress="A92D505D"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>6</BitStart>
                   <BitLength>2</BitLength>
@@ -10133,7 +10133,7 @@ dealloc(newmem_alttab)
 89: '-1'
      
 </DropDownList>
-                  <LastState Value="53" RealAddress="A92ED29A"/>
+                  <LastState Value="141" RealAddress="A92D5012"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -10146,7 +10146,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5004</ID>
                   <Description>"leaguetitles"</Description>
-                  <LastState Value="0" RealAddress="A92ED315"/>
+                  <LastState Value="7" RealAddress="A92D508D"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>6</BitStart>
                   <BitLength>10</BitLength>
@@ -10159,7 +10159,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5005</ID>
                   <Description>"leftcornerkicktakerid"</Description>
-                  <LastState Value="246010" RealAddress="A92ED305"/>
+                  <LastState Value="215369" RealAddress="A92D507D"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>5</BitStart>
                   <BitLength>19</BitLength>
@@ -10172,7 +10172,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5006</ID>
                   <Description>"leftfreekicktakerid"</Description>
-                  <LastState Value="212233" RealAddress="A92ED313"/>
+                  <LastState Value="199354" RealAddress="A92D508B"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>3</BitStart>
                   <BitLength>19</BitLength>
@@ -10185,7 +10185,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5007</ID>
                   <Description>"longitude"</Description>
-                  <LastState Value="324" RealAddress="A92ED2F5"/>
+                  <LastState Value="187" RealAddress="A92D506D"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>9</BitLength>
@@ -10198,7 +10198,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5008</ID>
                   <Description>"longkicktakerid"</Description>
-                  <LastState Value="212233" RealAddress="A92ED2FB"/>
+                  <LastState Value="183715" RealAddress="A92D5073"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>1</BitStart>
                   <BitLength>19</BitLength>
@@ -10211,7 +10211,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5009</ID>
                   <Description>"matchdayattackrating"</Description>
-                  <LastState Value="69" RealAddress="A92ED32C"/>
+                  <LastState Value="72" RealAddress="A92D50A4"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>7</BitLength>
@@ -10224,7 +10224,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5010</ID>
                   <Description>"matchdaydefenserating"</Description>
-                  <LastState Value="67" RealAddress="A92ED2F6"/>
+                  <LastState Value="70" RealAddress="A92D506E"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>3</BitStart>
                   <BitLength>7</BitLength>
@@ -10237,7 +10237,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5011</ID>
                   <Description>"matchdaymidfieldrating"</Description>
-                  <LastState Value="65" RealAddress="A92ED2F2"/>
+                  <LastState Value="69" RealAddress="A92D506A"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>7</BitLength>
@@ -10250,7 +10250,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5012</ID>
                   <Description>"matchdayoverallrating"</Description>
-                  <LastState Value="66" RealAddress="A92ED2F2"/>
+                  <LastState Value="70" RealAddress="A92D506A"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>7</BitLength>
@@ -10263,7 +10263,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5013</ID>
                   <Description>"midfieldrating"</Description>
-                  <LastState Value="65" RealAddress="A92ED2F0"/>
+                  <LastState Value="71" RealAddress="A92D5068"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>5</BitStart>
                   <BitLength>7</BitLength>
@@ -10276,7 +10276,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5014</ID>
                   <Description>"numtransfersin"</Description>
-                  <LastState Value="0" RealAddress="A92ED30E"/>
+                  <LastState Value="0" RealAddress="A92D5086"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
                   <BitLength>5</BitLength>
@@ -10289,7 +10289,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5015</ID>
                   <Description>"offensivestyle"</Description>
-                  <LastState Value="0" RealAddress="A92ED312"/>
+                  <LastState Value="2" RealAddress="A92D508A"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>2</BitStart>
                   <BitLength>2</BitLength>
@@ -10404,7 +10404,7 @@ dealloc(newmem_alttab)
 99: '100'
      
 </DropDownList>
-                  <LastState Value="59" RealAddress="A92ED31E"/>
+                  <LastState Value="69" RealAddress="A92D5096"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
                   <BitLength>7</BitLength>
@@ -10519,7 +10519,7 @@ dealloc(newmem_alttab)
 99: '-1'
      
 </DropDownList>
-                  <LastState Value="101" RealAddress="A92ED29C"/>
+                  <LastState Value="101" RealAddress="A92D5014"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -10634,7 +10634,7 @@ dealloc(newmem_alttab)
 99: '-1'
      
 </DropDownList>
-                  <LastState Value="101" RealAddress="A92ED299"/>
+                  <LastState Value="101" RealAddress="A92D5011"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -10647,7 +10647,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5019</ID>
                   <Description>"overallrating"</Description>
-                  <LastState Value="66" RealAddress="A92ED31C"/>
+                  <LastState Value="71" RealAddress="A92D5094"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
                   <BitLength>7</BitLength>
@@ -10660,7 +10660,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5020</ID>
                   <Description>"penaltytakerid"</Description>
-                  <LastState Value="212233" RealAddress="A92ED320"/>
+                  <LastState Value="183715" RealAddress="A92D5098"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
                   <BitLength>19</BitLength>
@@ -10673,7 +10673,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5021</ID>
                   <Description>"personalityid"</Description>
-                  <LastState Value="1" RealAddress="A92ED312"/>
+                  <LastState Value="0" RealAddress="A92D508A"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
                   <BitLength>2</BitLength>
@@ -10686,7 +10686,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5022</ID>
                   <Description>"pitchcolor"</Description>
-                  <LastState Value="0" RealAddress="A92ED2E6"/>
+                  <LastState Value="0" RealAddress="A92D505E"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>2</BitStart>
                   <BitLength>4</BitLength>
@@ -10699,7 +10699,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5023</ID>
                   <Description>"pitchlinecolor"</Description>
-                  <LastState Value="0" RealAddress="A92ED322"/>
+                  <LastState Value="0" RealAddress="A92D509A"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>4</BitLength>
@@ -10712,7 +10712,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5024</ID>
                   <Description>"pitchwear"</Description>
-                  <LastState Value="0" RealAddress="A92ED2E6"/>
+                  <LastState Value="0" RealAddress="A92D505E"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>6</BitStart>
                   <BitLength>4</BitLength>
@@ -10725,7 +10725,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5025</ID>
                   <Description>"playersinboxcorner"</Description>
-                  <LastState Value="2" RealAddress="A92ED2F4"/>
+                  <LastState Value="2" RealAddress="A92D506C"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>5</BitStart>
                   <BitLength>3</BitLength>
@@ -10738,7 +10738,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5026</ID>
                   <Description>"playersinboxcross"</Description>
-                  <LastState Value="3" RealAddress="A92ED312"/>
+                  <LastState Value="3" RealAddress="A92D508A"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>6</BitStart>
                   <BitLength>4</BitLength>
@@ -10751,7 +10751,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5027</ID>
                   <Description>"playersinboxfk"</Description>
-                  <LastState Value="2" RealAddress="A92ED30F"/>
+                  <LastState Value="2" RealAddress="A92D5087"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>1</BitStart>
                   <BitLength>3</BitLength>
@@ -10764,7 +10764,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5028</ID>
                   <Description>"playsurfacetype"</Description>
-                  <LastState Value="0" RealAddress="A92ED2F0"/>
+                  <LastState Value="0" RealAddress="A92D5068"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>3</BitLength>
@@ -10789,7 +10789,7 @@ dealloc(newmem_alttab)
 9: '9'
 10: '10'
 </DropDownList>
-                  <LastState Value="4" RealAddress="A92ED2E7"/>
+                  <LastState Value="7" RealAddress="A92D505F"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>2</BitStart>
                   <BitLength>4</BitLength>
@@ -10802,7 +10802,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5030</ID>
                   <Description>"powid"</Description>
-                  <LastState Value="0" RealAddress="A92ED2DE"/>
+                  <LastState Value="0" RealAddress="A92D5056"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>1</BitStart>
                   <BitLength>15</BitLength>
@@ -10815,7 +10815,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5031</ID>
                   <Description>"presassetone"</Description>
-                  <LastState Value="0" RealAddress="A92ED2DE"/>
+                  <LastState Value="0" RealAddress="A92D5056"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>1</BitLength>
@@ -10828,7 +10828,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5032</ID>
                   <Description>"presassettwo"</Description>
-                  <LastState Value="0" RealAddress="A92ED2E7"/>
+                  <LastState Value="0" RealAddress="A92D505F"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>2</BitLength>
@@ -10841,7 +10841,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5033</ID>
                   <Description>"prev_el_champ"</Description>
-                  <LastState Value="0" RealAddress="A92ED313"/>
+                  <LastState Value="0" RealAddress="A92D508B"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>2</BitStart>
                   <BitLength>1</BitLength>
@@ -10854,7 +10854,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5034</ID>
                   <Description>"profitability"</Description>
-                  <LastState Value="1" RealAddress="A92ED31F"/>
+                  <LastState Value="10" RealAddress="A92D5097"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>3</BitStart>
                   <BitLength>4</BitLength>
@@ -10867,7 +10867,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5035</ID>
                   <Description>"rightcornerkicktakerid"</Description>
-                  <LastState Value="195034" RealAddress="A92ED300"/>
+                  <LastState Value="215369" RealAddress="A92D5078"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>3</BitStart>
                   <BitLength>19</BitLength>
@@ -10880,7 +10880,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5036</ID>
                   <Description>"rightfreekicktakerid"</Description>
-                  <LastState Value="212233" RealAddress="A92ED2E0"/>
+                  <LastState Value="199354" RealAddress="A92D5058"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
                   <BitLength>19</BitLength>
@@ -10893,7 +10893,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5037</ID>
                   <Description>"rivalteam"</Description>
-                  <LastState Value="111396" RealAddress="A92ED2ED"/>
+                  <LastState Value="21" RealAddress="A92D5065"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>6</BitStart>
                   <BitLength>18</BitLength>
@@ -10906,7 +10906,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5038</ID>
                   <Description>"skinnyflags"</Description>
-                  <LastState Value="0" RealAddress="A92ED2F9"/>
+                  <LastState Value="0" RealAddress="A92D5071"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>1</BitLength>
@@ -10919,7 +10919,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5039</ID>
                   <Description>"stadiumgoalnetpattern"</Description>
-                  <LastState Value="0" RealAddress="A92ED30F"/>
+                  <LastState Value="0" RealAddress="A92D5087"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>6</BitStart>
                   <BitLength>1</BitLength>
@@ -10932,7 +10932,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5040</ID>
                   <Description>"stadiumgoalnetstyle"</Description>
-                  <LastState Value="0" RealAddress="A92ED2EA"/>
+                  <LastState Value="3" RealAddress="A92D5062"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>5</BitStart>
                   <BitLength>6</BitLength>
@@ -10945,7 +10945,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5041</ID>
                   <Description>"stadiummowpattern_code"</Description>
-                  <LastState Value="1" RealAddress="A92ED2F1"/>
+                  <LastState Value="1" RealAddress="A92D5069"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
                   <BitLength>4</BitLength>
@@ -10958,7 +10958,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5042</ID>
                   <Description>"stanchionflamethrower"</Description>
-                  <LastState Value="0" RealAddress="A92ED30F"/>
+                  <LastState Value="0" RealAddress="A92D5087"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
                   <BitLength>2</BitLength>
@@ -10971,7 +10971,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5043</ID>
                   <Description>"teamcolor1b"</Description>
-                  <LastState Value="223" RealAddress="A92ED298"/>
+                  <LastState Value="156" RealAddress="A92D5010"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -10984,7 +10984,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5044</ID>
                   <Description>"teamcolor1g"</Description>
-                  <LastState Value="173" RealAddress="A92ED28C"/>
+                  <LastState Value="75" RealAddress="A92D5004"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -10997,7 +10997,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5045</ID>
                   <Description>"teamcolor1r"</Description>
-                  <LastState Value="108" RealAddress="A92ED28D"/>
+                  <LastState Value="1" RealAddress="A92D5005"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -11010,7 +11010,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5046</ID>
                   <Description>"teamcolor2b"</Description>
-                  <LastState Value="255" RealAddress="A92ED291"/>
+                  <LastState Value="255" RealAddress="A92D5009"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -11023,7 +11023,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5047</ID>
                   <Description>"teamcolor2g"</Description>
-                  <LastState Value="255" RealAddress="A92ED29F"/>
+                  <LastState Value="255" RealAddress="A92D5017"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -11036,7 +11036,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5048</ID>
                   <Description>"teamcolor2r"</Description>
-                  <LastState Value="255" RealAddress="A92ED293"/>
+                  <LastState Value="255" RealAddress="A92D500B"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -11049,7 +11049,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5049</ID>
                   <Description>"teamcolor3b"</Description>
-                  <LastState Value="37" RealAddress="A92ED2DD"/>
+                  <LastState Value="223" RealAddress="A92D5055"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -11062,7 +11062,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5050</ID>
                   <Description>"teamcolor3g"</Description>
-                  <LastState Value="25" RealAddress="A92ED29B"/>
+                  <LastState Value="70" RealAddress="A92D5013"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -11075,7 +11075,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5051</ID>
                   <Description>"teamcolor3r"</Description>
-                  <LastState Value="255" RealAddress="A92ED296"/>
+                  <LastState Value="13" RealAddress="A92D500E"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -11088,7 +11088,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5052</ID>
                   <Description>"teamid"</Description>
-                  <LastState Value="112223" RealAddress="A92ED308"/>
+                  <LastState Value="33" RealAddress="A92D5080"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
                   <BitLength>18</BitLength>
@@ -11101,7 +11101,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5053</ID>
                   <Description>"teamname"</Description>
-                  <LastState RealAddress="A92ED2A1"/>
+                  <LastState RealAddress="A92D5019"/>
                   <VariableType>String</VariableType>
                   <Length>59</Length>
                   <Unicode>0</Unicode>
@@ -11115,7 +11115,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5054</ID>
                   <Description>"teamstadiumcapacity"</Description>
-                  <LastState Value="30050" RealAddress="A92ED2E8"/>
+                  <LastState Value="62271" RealAddress="A92D5060"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>1</BitStart>
                   <BitLength>20</BitLength>
@@ -11128,7 +11128,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5055</ID>
                   <Description>"trainingstadium"</Description>
-                  <LastState Value="316" RealAddress="A92ED327"/>
+                  <LastState Value="366" RealAddress="A92D509F"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>1</BitStart>
                   <BitLength>11</BitLength>
@@ -11141,7 +11141,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5056</ID>
                   <Description>"trait1vequal"</Description>
-                  <LastState Value="558082" RealAddress="A92ED30B"/>
+                  <LastState Value="282625" RealAddress="A92D5083"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>21</BitLength>
@@ -11154,7 +11154,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5057</ID>
                   <Description>"trait1vstrong"</Description>
-                  <LastState Value="532482" RealAddress="A92ED32A"/>
+                  <LastState Value="1050625" RealAddress="A92D50A2"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>2</BitStart>
                   <BitLength>21</BitLength>
@@ -11167,7 +11167,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5058</ID>
                   <Description>"trait1vweak"</Description>
-                  <LastState Value="1049602" RealAddress="A92ED2FD"/>
+                  <LastState Value="139265" RealAddress="A92D5075"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
                   <BitLength>21</BitLength>
@@ -11180,7 +11180,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5059</ID>
                   <Description>"transferbudget"</Description>
-                  <LastState Value="2000000" RealAddress="A92ED317"/>
+                  <LastState Value="20000000" RealAddress="A92D508F"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>6</BitStart>
                   <BitLength>29</BitLength>
@@ -11193,7 +11193,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5060</ID>
                   <Description>"uefa_cl_wins"</Description>
-                  <LastState Value="0" RealAddress="A92ED302"/>
+                  <LastState Value="0" RealAddress="A92D507A"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>6</BitStart>
                   <BitLength>9</BitLength>
@@ -11206,7 +11206,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5061</ID>
                   <Description>"uefa_consecutive_wins"</Description>
-                  <LastState Value="0" RealAddress="A92ED2FA"/>
+                  <LastState Value="0" RealAddress="A92D5072"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>9</BitLength>
@@ -11219,7 +11219,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5062</ID>
                   <Description>"uefa_el_wins"</Description>
-                  <LastState Value="0" RealAddress="A92ED30A"/>
+                  <LastState Value="1" RealAddress="A92D5082"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>6</BitStart>
                   <BitLength>9</BitLength>
@@ -11232,7 +11232,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5063</ID>
                   <Description>"uefa_uecl_wins"</Description>
-                  <LastState Value="0" RealAddress="A92ED31B"/>
+                  <LastState Value="0" RealAddress="A92D5093"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>3</BitStart>
                   <BitLength>9</BitLength>
@@ -11260,7 +11260,7 @@ dealloc(newmem_alttab)
 12: '0'
      
 </DropDownList>
-                  <LastState Value="22" RealAddress="A92ED31F"/>
+                  <LastState Value="13" RealAddress="A92D5097"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>5</BitLength>
@@ -11273,7 +11273,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5065</ID>
                   <Description>"youthdevelopment"</Description>
-                  <LastState Value="2" RealAddress="A92ED308"/>
+                  <LastState Value="10" RealAddress="A92D5080"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>4</BitLength>
@@ -11295,7 +11295,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5067</ID>
                   <Description>"actualvsexpectations"</Description>
-                  <LastState Value="4" RealAddress="A913461A"/>
+                  <LastState Value="4" RealAddress="A9133C0A"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>1</BitStart>
                   <BitLength>3</BitLength>
@@ -11308,7 +11308,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5068</ID>
                   <Description>"artificialkey"</Description>
-                  <LastState Value="257" RealAddress="A9134612"/>
+                  <LastState Value="165" RealAddress="A9133C02"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>2</BitStart>
                   <BitLength>12</BitLength>
@@ -11321,7 +11321,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5069</ID>
                   <Description>"awaydraws"</Description>
-                  <LastState Value="0" RealAddress="A913461C"/>
+                  <LastState Value="0" RealAddress="A9133C0C"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>2</BitStart>
                   <BitLength>5</BitLength>
@@ -11334,7 +11334,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5070</ID>
                   <Description>"awayga"</Description>
-                  <LastState Value="0" RealAddress="A9134609"/>
+                  <LastState Value="0" RealAddress="A9133BF9"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -11347,7 +11347,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5071</ID>
                   <Description>"awaygf"</Description>
-                  <LastState Value="0" RealAddress="A9134608"/>
+                  <LastState Value="0" RealAddress="A9133BF8"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -11360,7 +11360,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5072</ID>
                   <Description>"awaylosses"</Description>
-                  <LastState Value="0" RealAddress="A913461B"/>
+                  <LastState Value="0" RealAddress="A9133C0B"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>5</BitStart>
                   <BitLength>5</BitLength>
@@ -11373,7 +11373,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5073</ID>
                   <Description>"awaywins"</Description>
-                  <LastState Value="0" RealAddress="A9134617"/>
+                  <LastState Value="0" RealAddress="A9133C07"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>3</BitStart>
                   <BitLength>5</BitLength>
@@ -11386,7 +11386,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5074</ID>
                   <Description>"champion"</Description>
-                  <LastState Value="0" RealAddress="A913460B"/>
+                  <LastState Value="0" RealAddress="A9133BFB"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>3</BitStart>
                   <BitLength>1</BitLength>
@@ -11399,7 +11399,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5075</ID>
                   <Description>"currenttableposition"</Description>
-                  <LastState Value="7" RealAddress="A9134607"/>
+                  <LastState Value="10" RealAddress="A9133BF7"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -11412,7 +11412,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5076</ID>
                   <Description>"grouping"</Description>
-                  <LastState Value="3" RealAddress="A9134616"/>
+                  <LastState Value="3" RealAddress="A9133C06"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>6</BitStart>
                   <BitLength>5</BitLength>
@@ -11425,7 +11425,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5077</ID>
                   <Description>"hasachievedobjective"</Description>
-                  <LastState Value="0" RealAddress="A913460A"/>
+                  <LastState Value="0" RealAddress="A9133BFA"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>1</BitLength>
@@ -11438,7 +11438,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5078</ID>
                   <Description>"highestpossible"</Description>
-                  <LastState Value="0" RealAddress="A913460E"/>
+                  <LastState Value="6" RealAddress="A9133BFE"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
                   <BitLength>5</BitLength>
@@ -11451,7 +11451,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5079</ID>
                   <Description>"highestprobable"</Description>
-                  <LastState Value="2" RealAddress="A9134611"/>
+                  <LastState Value="3" RealAddress="A9133C01"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>5</BitLength>
@@ -11464,7 +11464,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5080</ID>
                   <Description>"homedraws"</Description>
-                  <LastState Value="0" RealAddress="A913461C"/>
+                  <LastState Value="0" RealAddress="A9133C0C"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>5</BitLength>
@@ -11477,7 +11477,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5081</ID>
                   <Description>"homega"</Description>
-                  <LastState Value="0" RealAddress="A9134604"/>
+                  <LastState Value="0" RealAddress="A9133BF4"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -11490,7 +11490,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5082</ID>
                   <Description>"homegf"</Description>
-                  <LastState Value="0" RealAddress="A9134606"/>
+                  <LastState Value="0" RealAddress="A9133BF6"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -11503,7 +11503,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5083</ID>
                   <Description>"homelosses"</Description>
-                  <LastState Value="0" RealAddress="A913461A"/>
+                  <LastState Value="0" RealAddress="A9133C0A"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
                   <BitLength>5</BitLength>
@@ -11516,7 +11516,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5084</ID>
                   <Description>"homewins"</Description>
-                  <LastState Value="0" RealAddress="A9134611"/>
+                  <LastState Value="0" RealAddress="A9133C01"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>5</BitStart>
                   <BitLength>5</BitLength>
@@ -11533,7 +11533,7 @@ dealloc(newmem_alttab)
 1: '0'
      
 </DropDownList>
-                  <LastState Value="2" RealAddress="A913461B"/>
+                  <LastState Value="3" RealAddress="A9133C0B"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>2</BitStart>
                   <BitLength>2</BitLength>
@@ -11546,7 +11546,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5086</ID>
                   <Description>"leagueid"</Description>
-                  <LastState Value="52" RealAddress="A913460B"/>
+                  <LastState Value="19" RealAddress="A9133BFB"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
                   <BitLength>12</BitLength>
@@ -11559,7 +11559,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5087</ID>
                   <Description>"nummatchesplayed"</Description>
-                  <LastState Value="4" RealAddress="A9134613"/>
+                  <LastState Value="7" RealAddress="A9133C03"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>6</BitStart>
                   <BitLength>6</BitLength>
@@ -11572,7 +11572,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5088</ID>
                   <Description>"objective"</Description>
-                  <LastState Value="0" RealAddress="A9134618"/>
+                  <LastState Value="6" RealAddress="A9133C08"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>5</BitLength>
@@ -11585,7 +11585,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5089</ID>
                   <Description>"points"</Description>
-                  <LastState Value="0" RealAddress="A9134618"/>
+                  <LastState Value="0" RealAddress="A9133C08"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>5</BitStart>
                   <BitLength>12</BitLength>
@@ -11598,7 +11598,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5090</ID>
                   <Description>"previousyeartableposition"</Description>
-                  <LastState Value="2" RealAddress="A9134605"/>
+                  <LastState Value="17" RealAddress="A9133BF5"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -11611,7 +11611,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5091</ID>
                   <Description>"prevleagueid"</Description>
-                  <LastState Value="52" RealAddress="A913460D"/>
+                  <LastState Value="18" RealAddress="A9133BFD"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>12</BitLength>
@@ -11624,7 +11624,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5092</ID>
                   <Description>"teamform"</Description>
-                  <LastState Value="2121" RealAddress="A913460F"/>
+                  <LastState Value="10220" RealAddress="A9133BFF"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>1</BitStart>
                   <BitLength>15</BitLength>
@@ -11637,7 +11637,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5093</ID>
                   <Description>"teamid"</Description>
-                  <LastState Value="240" RealAddress="A9134614"/>
+                  <LastState Value="33" RealAddress="A9133C04"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
                   <BitLength>18</BitLength>
@@ -11650,7 +11650,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5094</ID>
                   <Description>"teamlongform"</Description>
-                  <LastState Value="66" RealAddress="A913461D"/>
+                  <LastState Value="47" RealAddress="A9133C0D"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
                   <BitLength>7</BitLength>
@@ -11663,7 +11663,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5095</ID>
                   <Description>"teamshortform"</Description>
-                  <LastState Value="66" RealAddress="A913460A"/>
+                  <LastState Value="46" RealAddress="A9133BFA"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>7</BitLength>
@@ -11676,7 +11676,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5096</ID>
                   <Description>"unbeatenallcomps"</Description>
-                  <LastState Value="0" RealAddress="A913460B"/>
+                  <LastState Value="0" RealAddress="A9133BFB"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>1</BitStart>
                   <BitLength>1</BitLength>
@@ -11689,7 +11689,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5097</ID>
                   <Description>"unbeatenaway"</Description>
-                  <LastState Value="1" RealAddress="A913461B"/>
+                  <LastState Value="0" RealAddress="A9133C0B"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
                   <BitLength>1</BitLength>
@@ -11702,7 +11702,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5098</ID>
                   <Description>"unbeatenhome"</Description>
-                  <LastState Value="1" RealAddress="A913461B"/>
+                  <LastState Value="0" RealAddress="A9133C0B"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>1</BitStart>
                   <BitLength>1</BitLength>
@@ -11715,7 +11715,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5099</ID>
                   <Description>"unbeatenleague"</Description>
-                  <LastState Value="1" RealAddress="A913460B"/>
+                  <LastState Value="0" RealAddress="A9133BFB"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>2</BitStart>
                   <BitLength>1</BitLength>
@@ -11728,7 +11728,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5100</ID>
                   <Description>"yettowin"</Description>
-                  <LastState Value="0" RealAddress="A913460B"/>
+                  <LastState Value="0" RealAddress="A9133BFB"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>1</BitLength>
@@ -11750,7 +11750,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5102</ID>
                   <Description>"bodytypecode"</Description>
-                  <LastState Value="82" RealAddress="A99320D1"/>
+                  <LastState Value="82" RealAddress="A9932719"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
                   <BitLength>9</BitLength>
@@ -11763,7 +11763,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5103</ID>
                   <Description>"commonname"</Description>
-                  <LastState RealAddress="A9932018"/>
+                  <LastState RealAddress="A9932660"/>
                   <VariableType>String</VariableType>
                   <Length>79</Length>
                   <Unicode>0</Unicode>
@@ -11790,7 +11790,7 @@ dealloc(newmem_alttab)
 10: '11'
      
 </DropDownList>
-                  <LastState Value="3" RealAddress="A99320C6"/>
+                  <LastState Value="2" RealAddress="A993270E"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>6</BitStart>
                   <BitLength>4</BitLength>
@@ -11803,7 +11803,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5105</ID>
                   <Description>"eyebrowcode"</Description>
-                  <LastState Value="1" RealAddress="A99320CA"/>
+                  <LastState Value="0" RealAddress="A9932712"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>4</BitLength>
@@ -11834,7 +11834,7 @@ dealloc(newmem_alttab)
 15: '16'
      
 </DropDownList>
-                  <LastState Value="8" RealAddress="A99320CA"/>
+                  <LastState Value="5" RealAddress="A9932712"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
                   <BitLength>4</BitLength>
@@ -11847,7 +11847,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5107</ID>
                   <Description>"faceposerpreset"</Description>
-                  <LastState Value="0" RealAddress="A99320C7"/>
+                  <LastState Value="0" RealAddress="A993270F"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>2</BitStart>
                   <BitLength>4</BitLength>
@@ -11860,7 +11860,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5108</ID>
                   <Description>"facialhaircolorcode"</Description>
-                  <LastState Value="0" RealAddress="A99320D2"/>
+                  <LastState Value="3" RealAddress="A993271A"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>5</BitStart>
                   <BitLength>4</BitLength>
@@ -11873,7 +11873,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5109</ID>
                   <Description>"facialhairtypecode"</Description>
-                  <LastState Value="6" RealAddress="A99320B9"/>
+                  <LastState Value="6" RealAddress="A9932701"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>6</BitStart>
                   <BitLength>6</BitLength>
@@ -11886,7 +11886,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5110</ID>
                   <Description>"firstname"</Description>
-                  <LastState RealAddress="A9931FC8"/>
+                  <LastState RealAddress="A9932610"/>
                   <VariableType>String</VariableType>
                   <Length>79</Length>
                   <Unicode>0</Unicode>
@@ -11900,7 +11900,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5111</ID>
                   <Description>"gender"</Description>
-                  <LastState Value="0" RealAddress="A99320C4"/>
+                  <LastState Value="0" RealAddress="A993270C"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>2</BitStart>
                   <BitLength>1</BitLength>
@@ -11913,7 +11913,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5112</ID>
                   <Description>"haircolorcode"</Description>
-                  <LastState Value="1" RealAddress="A99320B9"/>
+                  <LastState Value="9" RealAddress="A9932701"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>6</BitLength>
@@ -11926,7 +11926,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5113</ID>
                   <Description>"hairstylecode"</Description>
-                  <LastState Value="0" RealAddress="A99320D0"/>
+                  <LastState Value="0" RealAddress="A9932718"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>5</BitLength>
@@ -11939,7 +11939,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5114</ID>
                   <Description>"hairtypecode"</Description>
-                  <LastState Value="160" RealAddress="A99320BC"/>
+                  <LastState Value="290" RealAddress="A9932704"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>10</BitLength>
@@ -11952,7 +11952,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5115</ID>
                   <Description>"hashighqualityhead"</Description>
-                  <LastState Value="0" RealAddress="A99320C4"/>
+                  <LastState Value="0" RealAddress="A993270C"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>1</BitStart>
                   <BitLength>1</BitLength>
@@ -11965,7 +11965,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5116</ID>
                   <Description>"headassetid"</Description>
-                  <LastState Value="254782" RealAddress="A99320C4"/>
+                  <LastState Value="249979" RealAddress="A993270C"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>3</BitStart>
                   <BitLength>19</BitLength>
@@ -11978,7 +11978,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5117</ID>
                   <Description>"headclasscode"</Description>
-                  <LastState Value="1" RealAddress="A99320CB"/>
+                  <LastState Value="1" RealAddress="A9932713"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>2</BitStart>
                   <BitLength>2</BitLength>
@@ -11991,7 +11991,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5118</ID>
                   <Description>"headtypecode"</Description>
-                  <LastState Value="2016" RealAddress="A99320BE"/>
+                  <LastState Value="2007" RealAddress="A9932706"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>1</BitStart>
                   <BitLength>14</BitLength>
@@ -12004,7 +12004,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5119</ID>
                   <Description>"headvariation"</Description>
-                  <LastState Value="0" RealAddress="A99320CD"/>
+                  <LastState Value="0" RealAddress="A9932715"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>2</BitStart>
                   <BitLength>5</BitLength>
@@ -12017,7 +12017,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5120</ID>
                   <Description>"height"</Description>
-                  <LastState Value="45" RealAddress="A99320BF"/>
+                  <LastState Value="54" RealAddress="A9932707"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>7</BitLength>
@@ -12030,7 +12030,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5121</ID>
                   <Description>"managerid"</Description>
-                  <LastState Value="254781" RealAddress="A99320BA"/>
+                  <LastState Value="249978" RealAddress="A9932702"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
                   <BitLength>19</BitLength>
@@ -12043,7 +12043,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5122</ID>
                   <Description>"nationality"</Description>
-                  <LastState Value="45" RealAddress="A99320CB"/>
+                  <LastState Value="52" RealAddress="A9932713"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>4</BitStart>
                   <BitLength>12</BitLength>
@@ -12056,7 +12056,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5123</ID>
                   <Description>"outfitid"</Description>
-                  <LastState Value="5500" RealAddress="A99320CE"/>
+                  <LastState Value="5520" RealAddress="A9932716"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>3</BitStart>
                   <BitLength>20</BitLength>
@@ -12069,7 +12069,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5124</ID>
                   <Description>"personalityid"</Description>
-                  <LastState Value="0" RealAddress="A99320CB"/>
+                  <LastState Value="1" RealAddress="A9932713"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>2</BitLength>
@@ -12082,7 +12082,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5125</ID>
                   <Description>"seasonaloutfitid"</Description>
-                  <LastState Value="5529" RealAddress="A99320C0"/>
+                  <LastState Value="5511" RealAddress="A9932708"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>6</BitStart>
                   <BitLength>20</BitLength>
@@ -12095,7 +12095,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5126</ID>
                   <Description>"sideburnscode"</Description>
-                  <LastState Value="0" RealAddress="A99320CD"/>
+                  <LastState Value="0" RealAddress="A9932715"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>2</BitLength>
@@ -12121,7 +12121,7 @@ dealloc(newmem_alttab)
 10: '11'
      
 </DropDownList>
-                  <LastState Value="3" RealAddress="A99320CD"/>
+                  <LastState Value="2" RealAddress="A9932715"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>4</BitLength>
@@ -12134,7 +12134,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5128</ID>
                   <Description>"skintypecode"</Description>
-                  <LastState Value="2" RealAddress="A99320B8"/>
+                  <LastState Value="51" RealAddress="A9932700"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -12147,7 +12147,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5129</ID>
                   <Description>"surname"</Description>
-                  <LastState RealAddress="A9932068"/>
+                  <LastState RealAddress="A99326B0"/>
                   <VariableType>String</VariableType>
                   <Length>79</Length>
                   <Unicode>0</Unicode>
@@ -12161,7 +12161,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5130</ID>
                   <Description>"teamid"</Description>
-                  <LastState Value="1" RealAddress="A99320C7"/>
+                  <LastState Value="8" RealAddress="A993270F"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>6</BitStart>
                   <BitLength>18</BitLength>
@@ -12174,7 +12174,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5131</ID>
                   <Description>"weight"</Description>
-                  <LastState Value="45" RealAddress="A99320C3"/>
+                  <LastState Value="45" RealAddress="A993270B"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>2</BitStart>
                   <BitLength>7</BitLength>
@@ -12196,7 +12196,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5133</ID>
                   <Description>"currdate"</Description>
-                  <LastState Value="130600" RealAddress="9F7A38D1"/>
+                  <LastState Value="130610" RealAddress="9F7A38D1"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>19</BitLength>
@@ -12261,7 +12261,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5138</ID>
                   <Description>"startdate"</Description>
-                  <LastState Value="130712" RealAddress="9F7A38D3"/>
+                  <LastState Value="130622" RealAddress="9F7A38D3"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>3</BitStart>
                   <BitLength>19</BitLength>
@@ -12349,7 +12349,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5145</ID>
                   <Description>"clubteamid"</Description>
-                  <LastState Value="242" RealAddress="A964298E"/>
+                  <LastState Value="35" RealAddress="A964298E"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>18</BitLength>
@@ -12389,7 +12389,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5148</ID>
                   <Description>"leagueid"</Description>
-                  <LastState Value="54" RealAddress="A964298D"/>
+                  <LastState Value="21" RealAddress="A964298D"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>3</BitStart>
                   <BitLength>12</BitLength>
@@ -12415,7 +12415,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5150</ID>
                   <Description>"nationalityid"</Description>
-                  <LastState Value="14" RealAddress="A9642988"/>
+                  <LastState Value="109" RealAddress="A9642988"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -12458,7 +12458,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5153</ID>
                   <Description>"primarycompobjid"</Description>
-                  <LastState Value="1360" RealAddress="A9642995"/>
+                  <LastState Value="988" RealAddress="A9642995"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>11</BitLength>
@@ -12639,7 +12639,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5159</ID>
                   <Description>"wage"</Description>
-                  <LastState Value="71000" RealAddress="A9642991"/>
+                  <LastState Value="15000" RealAddress="A9642991"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>1</BitStart>
                   <BitLength>31</BitLength>
@@ -12661,7 +12661,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5161</ID>
                   <Description>"contract_date"</Description>
-                  <LastState Value="130529" RealAddress="A908DF48"/>
+                  <LastState Value="130529" RealAddress="A908DBC8"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>2</BitStart>
                   <BitLength>19</BitLength>
@@ -12674,7 +12674,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5162</ID>
                   <Description>"contract_status"</Description>
-                  <LastState Value="0" RealAddress="A908DF39"/>
+                  <LastState Value="0" RealAddress="A908DBB9"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>1</BitStart>
                   <BitLength>4</BitLength>
@@ -12687,7 +12687,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5163</ID>
                   <Description>"duration_months"</Description>
-                  <LastState Value="25" RealAddress="A908DF38"/>
+                  <LastState Value="49" RealAddress="A908DBB8"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>8</BitLength>
@@ -12700,7 +12700,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5164</ID>
                   <Description>"isperformancebonusachieved"</Description>
-                  <LastState Value="0" RealAddress="A908DF39"/>
+                  <LastState Value="0" RealAddress="A908DBB9"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>1</BitLength>
@@ -12713,7 +12713,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5165</ID>
                   <Description>"last_status_change_date"</Description>
-                  <LastState Value="130529" RealAddress="A908DF45"/>
+                  <LastState Value="130529" RealAddress="A908DBC5"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>19</BitLength>
@@ -12828,7 +12828,7 @@ dealloc(newmem_alttab)
 99: '98'
      
 </DropDownList>
-                  <LastState Value="0" RealAddress="A908DF4D"/>
+                  <LastState Value="0" RealAddress="A908DBCD"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>7</BitLength>
@@ -12841,7 +12841,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5167</ID>
                   <Description>"performancebonuscount"</Description>
-                  <LastState Value="0" RealAddress="A908DF39"/>
+                  <LastState Value="0" RealAddress="A908DBB9"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>5</BitStart>
                   <BitLength>10</BitLength>
@@ -12854,7 +12854,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5168</ID>
                   <Description>"performancebonuscountachieved"</Description>
-                  <LastState Value="1" RealAddress="A908DF4D"/>
+                  <LastState Value="1" RealAddress="A908DBCD"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>10</BitLength>
@@ -12867,7 +12867,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5169</ID>
                   <Description>"performancebonustype"</Description>
-                  <LastState Value="0" RealAddress="A908DF43"/>
+                  <LastState Value="0" RealAddress="A908DBC3"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>0</BitStart>
                   <BitLength>5</BitLength>
@@ -12880,7 +12880,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5170</ID>
                   <Description>"performancebonusvalue"</Description>
-                  <LastState Value="0" RealAddress="A908DF3F"/>
+                  <LastState Value="0" RealAddress="A908DBBF"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>1</BitStart>
                   <BitLength>31</BitLength>
@@ -12893,7 +12893,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5171</ID>
                   <Description>"playerid"</Description>
-                  <LastState Value="205600" RealAddress="A908DF4A"/>
+                  <LastState Value="179783" RealAddress="A908DBCA"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>5</BitStart>
                   <BitLength>19</BitLength>
@@ -12913,7 +12913,7 @@ dealloc(newmem_alttab)
 4: '3'
      
 </DropDownList>
-                  <LastState Value="0" RealAddress="A908DF3A"/>
+                  <LastState Value="0" RealAddress="A908DBBA"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>7</BitStart>
                   <BitLength>3</BitLength>
@@ -12926,7 +12926,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5173</ID>
                   <Description>"signon_bonus"</Description>
-                  <LastState Value="0" RealAddress="A908DF4F"/>
+                  <LastState Value="0" RealAddress="A908DBCF"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>1</BitStart>
                   <BitLength>31</BitLength>
@@ -12939,7 +12939,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5174</ID>
                   <Description>"teamid"</Description>
-                  <LastState Value="240" RealAddress="A908DF43"/>
+                  <LastState Value="33" RealAddress="A908DBC3"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>5</BitStart>
                   <BitLength>18</BitLength>
@@ -12952,7 +12952,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5175</ID>
                   <Description>"wage"</Description>
-                  <LastState Value="125000" RealAddress="A908DF3B"/>
+                  <LastState Value="8800" RealAddress="A908DBBB"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>2</BitStart>
                   <BitLength>31</BitLength>
@@ -13333,7 +13333,7 @@ dealloc(newmem_alttab)
                 <CheatEntry>
                   <ID>5184</ID>
                   <Description>"mentalityid"</Description>
-                  <LastState Value="0" RealAddress="AA0FF6E5"/>
+                  <LastState Value="1" RealAddress="AA0FF6E5"/>
                   <VariableType>Binary</VariableType>
                   <BitStart>3</BitStart>
                   <BitLength>13</BitLength>
@@ -15667,7 +15667,7 @@ dealloc(newmem_alttab)
             <CheatEntry>
               <ID>5330</ID>
               <Description>"Transfer Budget"</Description>
-              <LastState Value="130038096" RealAddress="5CCE69F8"/>
+              <LastState Value="7006920" RealAddress="5A4587E8"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>4 Bytes</VariableType>
               <Address>pModeManagers</Address>
@@ -15701,7 +15701,7 @@ There might be also other factors which can add exp.
 
 Xp needed for each "level" can be found in "XpLevelRequirements.csv"
 
-More on wiki: https://github.com/xAranaktu/FIFA-21-CM-Cheat-Table/wiki/Players-Development
+More on wiki: https://github.com/xAranaktu/FIFA-22-CM-Cheat-Table/wiki/Players-Development
 
 HOW TO USE:
 1. Activate the script
@@ -18260,6 +18260,393 @@ dealloc(newmem_GTNRevealData)
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
+          <ID>4777</ID>
+          <Description>"Transfer HUB"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>4780</ID>
+              <Description>"Change Release Clause value to 1"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{
+GAME VERSION:
+- Script should always work with newest version of the game which can be downloaded from Origin.
+
+RISK LEVEL:
+- 1/5 (Very small chance that this script will harm your cm save.)
+
+DESCRIPTION:
+  This script will change release clause of all players that got an release clause and are on your shortlist in transfer hub.
+  If player doesn't have any release clause then nothing will happen.
+
+HOW TO USE:
+  1. Add player(s) with release clause to your shortlist in game
+  2. Activate script
+  3. In game go to Transfer Hub and enter shortlist
+  4. Done, all players that got previous release clause got new release clause set at $1.
+
+VIDEO TUTORIAL:
+- https://www.youtube.com/watch?v=qVEnMdiH0Po&amp;list=PLx3DZm1ifjQw5exchXxcZpj0oN7_eDy-Q&amp;index=4&amp;t=2047s
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+{$lua}
+if syntaxcheck then return end
+onScriptActivate()
+
+INJECT_EditReleaseClause = gCTManager.memory_manager:get_validated_address('EditReleaseClause')
+ORG_EditReleaseClause = readBytes(INJECT_EditReleaseClause, 12, true)
+
+{$asm}
+
+alloc(newmem_EditReleaseClause, $500, $INJECT_EditReleaseClause)
+
+label(code_EditReleaseClause)
+label(ret_EditReleaseClause)
+
+newmem_EditReleaseClause:
+  mov [rax+08], #1
+code_EditReleaseClause:
+  mov ecx,[rax+08]
+  cmp ecx,-01
+  jmp ret_EditReleaseClause
+
+$INJECT_EditReleaseClause:
+  jmp newmem_EditReleaseClause
+  nop
+ret_EditReleaseClause:
+
+[DISABLE]
+//code_EditReleaseClause from here till the end of the code_EditReleaseClause will be used to disable the cheat
+{$lua}
+writeBytes(INJECT_EditReleaseClause, ORG_EditReleaseClause)
+{$asm}
+
+dealloc(newmem_EditReleaseClause)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "FIFA21.exe"+53D017D
+
+"FIFA21.exe"+53D0162: B9 01 00 00 00        -  mov ecx,00000001
+"FIFA21.exe"+53D0167: EB 02                 -  jmp FIFA21.exe+53D016B
+"FIFA21.exe"+53D0169: 33 C9                 -  xor ecx,ecx
+"FIFA21.exe"+53D016B: 84 C9                 -  test cl,cl
+"FIFA21.exe"+53D016D: 75 09                 -  jne FIFA21.exe+53D0178
+"FIFA21.exe"+53D016F: 48 83 C0 0C           -  add rax,0C
+"FIFA21.exe"+53D0173: 49 3B C0              -  cmp rax,r8
+"FIFA21.exe"+53D0176: 75 E0                 -  jne FIFA21.exe+53D0158
+"FIFA21.exe"+53D0178: 49 3B C0              -  cmp rax,r8
+"FIFA21.exe"+53D017B: 74 0E                 -  je FIFA21.exe+53D018B
+// ---------- INJECTING HERE ----------
+"FIFA21.exe"+53D017D: 8B 48 08              -  mov ecx,[rax+08]
+"FIFA21.exe"+53D0180: 83 F9 FF              -  cmp ecx,-01
+// ---------- DONE INJECTING  ----------
+"FIFA21.exe"+53D0183: 74 06                 -  je FIFA21.exe+53D018B
+"FIFA21.exe"+53D0185: 89 8B A8 00 00 00     -  mov [rbx+000000A8],ecx
+"FIFA21.exe"+53D018B: 48 8B 5C 24 40        -  mov rbx,[rsp+40]
+"FIFA21.exe"+53D0190: 48 8B 6C 24 48        -  mov rbp,[rsp+48]
+"FIFA21.exe"+53D0195: 48 8B 74 24 50        -  mov rsi,[rsp+50]
+"FIFA21.exe"+53D019A: 48 83 C4 30           -  add rsp,30
+"FIFA21.exe"+53D019E: 5F                    -  pop rdi
+"FIFA21.exe"+53D019F: C3                    -  ret
+"FIFA21.exe"+53D01A0: 48 89 5C 24 08        -  mov [rsp+08],rbx
+"FIFA21.exe"+53D01A5: 48 89 74 24 10        -  mov [rsp+10],rsi
+}
+
+
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4778</ID>
+              <Description>"Allow Transfer approach"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{
+AUTHOR:
+- Aranaktu
+
+GAME VERSION:
+- Script should always work with newest version of the game which can be downloaded from Origin.
+
+RISK LEVEL:
+- 3/5 (Safe to use if you will not try to buy players that are on loan)
+
+DESCRIPTION:
+  This script will allow you to buy players that are 'unwilling to relocate' etc.
+  DON'T try to buy players that are on loan!
+
+HOW TO USE:
+  1. Activate script
+  2. 'Aproach to buy' the player
+
+VIDEO TUTORIAL:
+- NONE
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+{$lua}
+if syntaxcheck then return end
+onScriptActivate()
+
+INJECT_AllowTransferAppThTxt = gCTManager.memory_manager:get_validated_address('AllowTransferAppThTxt')
+ORG_AllowTransferAppThTxt = readBytes(INJECT_AllowTransferAppThTxt, 12, true)
+
+INJECT_AllowTransferAppBtnClick = gCTManager.memory_manager:get_validated_address('AllowTransferAppBtnClick')
+ORG_AllowTransferAppBtnClick = readBytes(INJECT_AllowTransferAppBtnClick, 12, true)
+
+INJECT_AllowSign = gCTManager.memory_manager:get_validated_address('AllowSign')
+ORG_AllowSign = readBytes(INJECT_AllowSign, 12, true)
+
+{$asm}
+
+alloc(newmem_AllowTransferAppThTxt, $500, $INJECT_AllowTransferAppThTxt)
+
+label(code_AllowTransferAppThTxt)
+label(ret_AllowTransferAppThTxt)
+
+newmem_AllowTransferAppThTxt:
+  mov eax, 0
+code_AllowTransferAppThTxt:
+  mov ebx,eax
+  cmp eax,0E
+  jmp ret_AllowTransferAppThTxt
+
+$INJECT_AllowTransferAppThTxt:
+  jmp newmem_AllowTransferAppThTxt
+ret_AllowTransferAppThTxt:
+
+alloc(newmem_AllowTransferAppBtnClick, $500, $INJECT_AllowTransferAppBtnClick)
+
+label(code_AllowTransferAppBtnClick)
+label(ret_AllowTransferAppBtnClick)
+
+newmem_AllowTransferAppBtnClick:
+code_AllowTransferAppBtnClick:
+  xor eax, eax
+  mov r14d,eax
+  mov [rbp+67],eax
+  jmp ret_AllowTransferAppBtnClick
+
+$INJECT_AllowTransferAppBtnClick:
+  jmp newmem_AllowTransferAppBtnClick
+  nop
+ret_AllowTransferAppBtnClick:
+
+alloc(newmem_AllowSign, $500, $INJECT_AllowSign)
+
+label(code_AllowSign)
+label(ret_AllowSign)
+
+newmem_AllowSign:
+code_AllowSign:
+  call r9
+  mov [rbp+50],eax
+  jmp ret_AllowSign
+
+$INJECT_AllowSign:
+  jmp newmem_AllowSign
+  nop
+ret_AllowSign:
+
+[DISABLE]
+//code_AllowTransferAppThTxt from here till the end of the code_AllowTransferAppThTxt will be used to disable the cheat
+{$lua}
+writeBytes(INJECT_AllowTransferAppThTxt, ORG_AllowTransferAppThTxt)
+writeBytes(INJECT_AllowTransferAppBtnClick, ORG_AllowTransferAppBtnClick)
+writeBytes(INJECT_AllowSign, ORG_AllowSign)
+{$asm}
+
+dealloc(newmem_AllowTransferAppThTxt)
+dealloc(newmem_AllowTransferAppBtnClick)
+dealloc(newmem_AllowSign)
+{
+// ORIGINAL CODE - INJECTION POINT: "FIFA21.exe"+53D0DC8
+
+"FIFA21.exe"+53D0D95: 0F 85 6E 05 00 00        -  jne FIFA21.exe+53D1309
+"FIFA21.exe"+53D0D9B: 45 84 FF                 -  test r15l,r15l
+"FIFA21.exe"+53D0D9E: 0F 85 65 05 00 00        -  jne FIFA21.exe+53D1309
+"FIFA21.exe"+53D0DA4: 49 8B 45 08              -  mov rax,[r13+08]
+"FIFA21.exe"+53D0DA8: 48 8B 80 38 0F 00 00     -  mov rax,[rax+00000F38]
+"FIFA21.exe"+53D0DAF: 48 8B 08                 -  mov rcx,[rax]
+"FIFA21.exe"+53D0DB2: 44 8B 85 B8 00 00 00     -  mov r8d,[rbp+000000B8]
+"FIFA21.exe"+53D0DB9: 8B 55 70                 -  mov edx,[rbp+70]
+"FIFA21.exe"+53D0DBC: 48 8B 89 80 14 00 00     -  mov rcx,[rcx+00001480]
+"FIFA21.exe"+53D0DC3: E8 38 D4 49 00           -  call FIFA21.exe+586E200
+// ---------- INJECTING HERE ----------
+"FIFA21.exe"+53D0DC8: 8B D8                    -  mov ebx,eax
+"FIFA21.exe"+53D0DCA: 83 F8 0E                 -  cmp eax,0E
+// ---------- DONE INJECTING  ----------
+"FIFA21.exe"+53D0DCD: 77 13                    -  ja FIFA21.exe+53D0DE2
+"FIFA21.exe"+53D0DCF: B8 65 4D 00 00           -  mov eax,00004D65
+"FIFA21.exe"+53D0DD4: 0F A3 D8                 -  bt eax,ebx
+"FIFA21.exe"+53D0DD7: 73 09                    -  jae FIFA21.exe+53D0DE2
+"FIFA21.exe"+53D0DD9: B8 01 00 00 00           -  mov eax,00000001
+"FIFA21.exe"+53D0DDE: 33 FF                    -  xor edi,edi
+"FIFA21.exe"+53D0DE0: EB 04                    -  jmp FIFA21.exe+53D0DE6
+"FIFA21.exe"+53D0DE2: 33 FF                    -  xor edi,edi
+"FIFA21.exe"+53D0DE4: 8B C7                    -  mov eax,edi
+"FIFA21.exe"+53D0DE6: 84 C0                    -  test al,al
+}
+{
+// ORIGINAL CODE - INJECTION POINT: "FIFA21.exe"+48636B6
+
+"FIFA21.exe"+486368E: 45 32 FF              -  xor r15l,r15l
+"FIFA21.exe"+4863691: 48 8B 4D 7F           -  mov rcx,[rbp+7F]
+"FIFA21.exe"+4863695: 48 8B 01              -  mov rax,[rcx]
+"FIFA21.exe"+4863698: FF 90 20 01 00 00     -  call qword ptr [rax+00000120]
+"FIFA21.exe"+486369E: 48 89 45 C7           -  mov [rbp-39],rax
+"FIFA21.exe"+48636A2: 48 8B 4B 20           -  mov rcx,[rbx+20]
+"FIFA21.exe"+48636A6: 4C 8B 01              -  mov r8,[rcx]
+"FIFA21.exe"+48636A9: 4D 8B 88 10 01 00 00  -  mov r9,[r8+00000110]
+"FIFA21.exe"+48636B0: 45 8B C6              -  mov r8d,r14d
+"FIFA21.exe"+48636B3: 41 8B D5              -  mov edx,r13d
+// ---------- INJECTING HERE ----------
+"FIFA21.exe"+48636B6: 41 FF D1              -  call r9
+"FIFA21.exe"+48636B9: 44 8B F0              -  mov r14d,eax
+// ---------- DONE INJECTING  ----------
+"FIFA21.exe"+48636BC: 89 45 67              -  mov [rbp+67],eax
+"FIFA21.exe"+48636BF: 48 8B 0D 82 AC 65 03  -  mov rcx,[FIFA21.exe+7EBE348]
+"FIFA21.exe"+48636C6: 4C 8B 41 30           -  mov r8,[rcx+30]
+"FIFA21.exe"+48636CA: BA 47 F0 97 12        -  mov edx,1297F047
+"FIFA21.exe"+48636CF: 48 8D 0D 72 AC 65 03  -  lea rcx,[FIFA21.exe+7EBE348]
+"FIFA21.exe"+48636D6: 41 FF D0              -  call r8
+"FIFA21.exe"+48636D9: 48 85 C0              -  test rax,rax
+"FIFA21.exe"+48636DC: 74 17                 -  je FIFA21.exe+48636F5
+"FIFA21.exe"+48636DE: 48 8B 08              -  mov rcx,[rax]
+"FIFA21.exe"+48636E1: 4C 8B 41 18           -  mov r8,[rcx+18]
+}
+
+{
+// ORIGINAL CODE - INJECTION POINT: "FIFA21.exe"+4864D22
+
+"FIFA21.exe"+4864CF3: 48 8B C8              -  mov rcx,rax
+"FIFA21.exe"+4864CF6: FF 92 30 01 00 00     -  call qword ptr [rdx+00000130]
+"FIFA21.exe"+4864CFC: 48 89 45 B8           -  mov [rbp-48],rax
+"FIFA21.exe"+4864D00: C7 45 60 FF FF FF FF  -  mov [rbp+60],FFFFFFFF
+"FIFA21.exe"+4864D07: C7 45 48 FF FF FF FF  -  mov [rbp+48],FFFFFFFF
+"FIFA21.exe"+4864D0E: 49 8B 0C 24           -  mov rcx,[r12]
+"FIFA21.exe"+4864D12: 4C 8B 89 38 01 00 00  -  mov r9,[rcx+00000138]
+"FIFA21.exe"+4864D19: 45 8B C7              -  mov r8d,r15d
+"FIFA21.exe"+4864D1C: 41 8B D6              -  mov edx,r14d
+"FIFA21.exe"+4864D1F: 49 8B CC              -  mov rcx,r12
+// ---------- INJECTING HERE ----------
+"FIFA21.exe"+4864D22: 41 FF D1              -  call r9
+"FIFA21.exe"+4864D25: 89 45 58              -  mov [rbp+58],eax
+// ---------- DONE INJECTING  ----------
+"FIFA21.exe"+4864D28: 85 C0                 -  test eax,eax
+"FIFA21.exe"+4864D2A: 0F 85 A4 01 00 00     -  jne FIFA21.exe+4864ED4
+"FIFA21.exe"+4864D30: 48 8B 07              -  mov rax,[rdi]
+"FIFA21.exe"+4864D33: 48 8B CF              -  mov rcx,rdi
+"FIFA21.exe"+4864D36: FF 90 18 02 00 00     -  call qword ptr [rax+00000218]
+"FIFA21.exe"+4864D3C: 48 8B 10              -  mov rdx,[rax]
+"FIFA21.exe"+4864D3F: 48 8B C8              -  mov rcx,rax
+"FIFA21.exe"+4864D42: FF 52 68              -  call qword ptr [rdx+68]
+"FIFA21.exe"+4864D45: 48 8B 10              -  mov rdx,[rax]
+"FIFA21.exe"+4864D48: 48 8B C8              -  mov rcx,rax
+}
+
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4779</ID>
+              <Description>"Allow Loan approach"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{
+AUTHOR:
+- Aranaktu
+
+GAME VERSION:
+- Script should always work with newest version of the game which can be downloaded from Origin.
+
+RISK LEVEL:
+- 1/5 (Very small chance that this script will harm your cm save.)
+
+DESCRIPTION:
+  This script will allow you to start loan negotiations
+
+HOW TO USE:
+  1. Activate script
+  2. Start negotiations
+
+VIDEO TUTORIAL:
+- NONE
+}
+
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+{$lua}
+if syntaxcheck then return end
+onScriptActivate()
+
+INJECT_AllowLoanApp = gCTManager.memory_manager:get_validated_address('AllowLoanApp')
+ORG_AllowLoanApp = readBytes(INJECT_AllowLoanApp, 12, true)
+
+{$asm}
+
+alloc(newmem_AllowLoanApp, $500, $INJECT_AllowLoanApp)
+
+label(code_AllowLoanApp)
+label(ret_AllowLoanApp)
+
+newmem_AllowLoanApp:
+code_AllowLoanApp:
+  xor eax, eax
+  mov r15d,eax
+  mov [rbp+50],eax
+  jmp ret_AllowLoanApp
+
+$INJECT_AllowLoanApp:
+  jmp newmem_AllowLoanApp
+  nop
+ret_AllowLoanApp:
+
+[DISABLE]
+//code_AllowLoanApp from here till the end of the code_AllowLoanApp will be used to disable the cheat
+{$lua}
+writeBytes(INJECT_AllowLoanApp, ORG_AllowLoanApp)
+{$asm}
+
+dealloc(newmem_AllowLoanApp)
+
+{
+// ORIGINAL CODE - INJECTION POINT: FIFA22.exe+529973C
+
+FIFA22.exe+529970B: 41 8B D4              - mov edx,r12d
+FIFA22.exe+529970E: C7 45 48 FF FF FF FF  - mov [rbp+48],FFFFFFFF
+FIFA22.exe+5299715: C7 45 58 FF FF FF FF  - mov [rbp+58],FFFFFFFF
+FIFA22.exe+529971C: 48 89 45 60           - mov [rbp+60],rax
+FIFA22.exe+5299720: 4C 8B 01              - mov r8,[rcx]
+FIFA22.exe+5299723: 4D 8B 88 38 01 00 00  - mov r9,[r8+00000138]
+FIFA22.exe+529972A: 45 8B C5              - mov r8d,r13d
+FIFA22.exe+529972D: 41 FF D1              - call r9
+FIFA22.exe+5299730: 48 8B 0D E1 B2 27 03  - mov rcx,[FIFA22.exe+8514A18]
+FIFA22.exe+5299737: BA 47 F0 97 12        - mov edx,1297F047
+// ---------- INJECTING HERE ----------
+FIFA22.exe+529973C: 44 8B F8              - mov r15d,eax
+// ---------- DONE INJECTING  ----------
+FIFA22.exe+529973F: 89 45 50              - mov [rbp+50],eax
+FIFA22.exe+5299742: 4C 8B 41 30           - mov r8,[rcx+30]
+FIFA22.exe+5299746: 48 8D 0D CB B2 27 03  - lea rcx,[FIFA22.exe+8514A18]
+FIFA22.exe+529974D: 41 FF D0              - call r8
+FIFA22.exe+5299750: 48 85 C0              - test rax,rax
+FIFA22.exe+5299753: 74 17                 - je FIFA22.exe+529976C
+FIFA22.exe+5299755: 48 8B 08              - mov rcx,[rax]
+FIFA22.exe+5299758: BA 67 F0 97 12        - mov edx,1297F067
+FIFA22.exe+529975D: 4C 8B 41 18           - mov r8,[rcx+18]
+FIFA22.exe+5299761: 48 8B C8              - mov rcx,rax
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
           <ID>2677</ID>
           <Description>"Side Changer"</Description>
           <Options moHideChildren="1"/>
@@ -18583,9 +18970,9 @@ db 00
 
 newmem_DisableSubstitutions:
   pushf
-  cmp rsi, 0 // HomeTeam
+  cmp r12, 0 // HomeTeam
   je HomeTeam_Substitutions
-  cmp rsi, 1 // AwayTeam
+  cmp r12, 1 // AwayTeam
   je AwayTeam_Substitutions
   jmp code_DisableSubstitutions
 
@@ -18607,16 +18994,14 @@ AwayTeam_Substitutions:
 code_DisableSubs:
   mov r14d, 0
   mov [rsi+rbx+A75C], r14d
-
-  mov r14d, 6
-  mov [rsi+rbx+9F0C], r14d
+  //mov [rsi+rbx+9F0C], r14d
   jmp code_DisableSubstitutions
 
 code_UnlimitedSubs:
+  popf
   mov r14d, 6
   mov [rsi+rbx+A75C], r14d
-  mov r14d, 0
-  mov [rsi+rbx+9F0C], r14d
+  //mov [rsi+rbx+9F0C], r14d
   jmp code_DisableSubstitutions
 
 code_DisableSubstitutions:
@@ -19139,12 +19524,108 @@ getAddressList().getMemoryRecordByDescription("TIME").Value=0
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
+              <ID>2686</ID>
+              <Description>"Unlimited Substitutions (USER)"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{
+AUTHOR:
+- Aranaktu
+
+GAME VERSION:
+- Script should always work with newest version of the game which can be downloaded from Origin.
+
+RISK LEVEL:
+- 0/5 (There is no chance that this script will harm your cm save.)
+
+DESCRIPTION:
+  There will be no limit when you will sub you players
+
+HOW TO USE:
+  1. Activate the script while you are playing the match
+
+VIDEO TUTORIAL:
+- NONE
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+{$lua}
+if syntaxcheck then return end
+onScriptActivate()
+
+INJECT_UnlimitedSubstitutions = gCTManager.memory_manager:get_validated_address('UnlimitedSubstitutions')
+ORG_UnlimitedSubstitutions = readBytes(INJECT_UnlimitedSubstitutions, 12, true)
+
+{$asm}
+
+alloc(newmem_UnlimitedSubstitutions, $500, $INJECT_UnlimitedSubstitutions)
+
+label(code_UnlimitedSubstitutions)
+label(ret_UnlimitedSubstitutions)
+
+newmem_UnlimitedSubstitutions:
+  mov [rcx+rax+9F0C], #7
+code_UnlimitedSubstitutions:
+  mov eax,[rcx+rax+9F0C]
+  jmp ret_UnlimitedSubstitutions
+
+$INJECT_UnlimitedSubstitutions:
+  jmp newmem_UnlimitedSubstitutions
+  nop
+  nop
+ret_UnlimitedSubstitutions:
+
+[DISABLE]
+//code_UnlimitedSubstitutions from here till the end of the code_UnlimitedSubstitutions will be used to disable the cheat
+{$lua}
+writeBytes(INJECT_UnlimitedSubstitutions, ORG_UnlimitedSubstitutions)
+{$asm}
+
+dealloc(newmem_UnlimitedSubstitutions)
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
               <ID>595</ID>
               <Description>"Home Team"</Description>
               <Options moHideChildren="1"/>
               <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
+                <CheatEntry>
+                  <ID>1990</ID>
+                  <Description>"Home - Disable Substitutions (CPU)"</Description>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{
+AUTHOR:
+- Aranaktu
+
+GAME VERSION:
+- Script should always work with newest version of the game which can be downloaded from Origin.
+
+RISK LEVEL:
+- 0/5 (There is no chance that this script will harm your cm save.)
+
+DESCRIPTION:
+  Home team (if controled by CPU) will not be able to sub any player
+
+HOW TO USE:
+  1. Activate the script while you are playing the match
+
+VIDEO TUTORIAL:
+- NONE
+}
+
+
+[ENABLE]
+bHomeTeam_NoSubs:
+  db 1
+[DISABLE]
+bHomeTeam_NoSubs:
+  db 0
+</AssemblerScript>
+                </CheatEntry>
                 <CheatEntry>
                   <ID>609</ID>
                   <Description>"Home - Injured players"</Description>
@@ -19302,6 +19783,40 @@ bHomeTeam_Tired:
               <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
+                <CheatEntry>
+                  <ID>1989</ID>
+                  <Description>"Away - Disable Substitutions (CPU)"</Description>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{
+AUTHOR:
+- Aranaktu
+
+GAME VERSION:
+- Script should always work with newest version of the game which can be downloaded from Origin.
+
+RISK LEVEL:
+- 0/5 (There is no chance that this script will harm your cm save.)
+
+DESCRIPTION:
+  Away team (if controled by CPU) will not be able to sub any player
+
+HOW TO USE:
+  1. Activate the script while you are playing the match
+
+VIDEO TUTORIAL:
+- NONE
+}
+
+
+[ENABLE]
+bAwayTeam_NoSubs:
+  db 1
+[DISABLE]
+bAwayTeam_NoSubs:
+  db 0
+</AssemblerScript>
+                </CheatEntry>
                 <CheatEntry>
                   <ID>612</ID>
                   <Description>"Away - Injured players"</Description>
@@ -19461,245 +19976,210 @@ bAwayTeam_Tired:
                 <CheatEntry>
                   <ID>4460</ID>
                   <Description>"PlayerID 1"</Description>
-                  <LastState Value="0" RealAddress="128B10000"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4466</ID>
                   <Description>"PlayerID 2"</Description>
-                  <LastState Value="0" RealAddress="128B10004"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+4</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4465</ID>
                   <Description>"PlayerID 3"</Description>
-                  <LastState Value="0" RealAddress="128B10008"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+8</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4464</ID>
                   <Description>"PlayerID 4"</Description>
-                  <LastState Value="0" RealAddress="128B1000C"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4463</ID>
                   <Description>"PlayerID 5"</Description>
-                  <LastState Value="0" RealAddress="128B10010"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+10</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4462</ID>
                   <Description>"PlayerID 6"</Description>
-                  <LastState Value="0" RealAddress="128B10014"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+14</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4472</ID>
                   <Description>"PlayerID 7"</Description>
-                  <LastState Value="0" RealAddress="128B1001C"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+1C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4473</ID>
                   <Description>"PlayerID 8"</Description>
-                  <LastState Value="0" RealAddress="128B10020"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+20</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4474</ID>
                   <Description>"PlayerID 9"</Description>
-                  <LastState Value="0" RealAddress="128B10024"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+24</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4475</ID>
                   <Description>"PlayerID 10"</Description>
-                  <LastState Value="0" RealAddress="128B10028"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+28</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4476</ID>
                   <Description>"PlayerID 11"</Description>
-                  <LastState Value="0" RealAddress="128B1002C"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+2C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4467</ID>
                   <Description>"PlayerID 12"</Description>
-                  <LastState Value="0" RealAddress="128B10030"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+30</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4468</ID>
                   <Description>"PlayerID 13"</Description>
-                  <LastState Value="0" RealAddress="128B10034"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+34</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4469</ID>
                   <Description>"PlayerID 14"</Description>
-                  <LastState Value="0" RealAddress="128B10038"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+38</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4470</ID>
                   <Description>"PlayerID 15"</Description>
-                  <LastState Value="0" RealAddress="128B1003C"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+3C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4471</ID>
                   <Description>"PlayerID 16"</Description>
-                  <LastState Value="0" RealAddress="128B10040"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+40</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4477</ID>
                   <Description>"PlayerID 17"</Description>
-                  <LastState Value="0" RealAddress="128B10044"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+44</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4478</ID>
                   <Description>"PlayerID 18"</Description>
-                  <LastState Value="0" RealAddress="128B10048"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+48</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4497</ID>
                   <Description>"PlayerID 19"</Description>
-                  <LastState Value="0" RealAddress="128B10050"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+50</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4498</ID>
                   <Description>"PlayerID 20"</Description>
-                  <LastState Value="0" RealAddress="128B10054"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+54</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4499</ID>
                   <Description>"PlayerID 21"</Description>
-                  <LastState Value="0" RealAddress="128B10058"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+58</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4500</ID>
                   <Description>"PlayerID 22"</Description>
-                  <LastState Value="0" RealAddress="128B1005C"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+5C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4501</ID>
                   <Description>"PlayerID 23"</Description>
-                  <LastState Value="0" RealAddress="128B10060"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+60</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4502</ID>
                   <Description>"PlayerID 24"</Description>
-                  <LastState Value="0" RealAddress="128B10064"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+64</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4503</ID>
                   <Description>"PlayerID 25"</Description>
-                  <LastState Value="0" RealAddress="128B1006C"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+6C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4504</ID>
                   <Description>"PlayerID 26"</Description>
-                  <LastState Value="0" RealAddress="128B10070"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+70</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4505</ID>
                   <Description>"PlayerID 27"</Description>
-                  <LastState Value="0" RealAddress="128B10074"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+74</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4506</ID>
                   <Description>"PlayerID 28"</Description>
-                  <LastState Value="0" RealAddress="128B10078"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+78</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4507</ID>
                   <Description>"PlayerID 29"</Description>
-                  <LastState Value="0" RealAddress="128B1007C"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+7C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4508</ID>
                   <Description>"PlayerID 30"</Description>
-                  <LastState Value="0" RealAddress="128B10080"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+80</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4509</ID>
                   <Description>"PlayerID 31"</Description>
-                  <LastState Value="0" RealAddress="128B10084"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+84</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4510</ID>
                   <Description>"PlayerID 32"</Description>
-                  <LastState Value="0" RealAddress="128B10088"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+88</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4511</ID>
                   <Description>"PlayerID 33"</Description>
-                  <LastState Value="0" RealAddress="128B1008C"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+8C</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4512</ID>
                   <Description>"PlayerID 34"</Description>
-                  <LastState Value="0" RealAddress="128B10090"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+90</Address>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>4513</ID>
                   <Description>"PlayerID 35"</Description>
-                  <LastState Value="0" RealAddress="128B10094"/>
                   <VariableType>4 Bytes</VariableType>
                   <Address>arrNeverTiredPlayerIDs+94</Address>
                 </CheatEntry>
@@ -19935,31 +20415,31 @@ dealloc(newmem_ReleasePlayerFee)
   <UserdefinedSymbols>
     <SymbolEntry>
       <Name>pModeManagers</Name>
-      <Address>16E390000</Address>
+      <Address>13FFF0000</Address>
     </SymbolEntry>
     <SymbolEntry>
       <Name>pCareerModeSmth</Name>
-      <Address>16E390010</Address>
+      <Address>13FFF0010</Address>
     </SymbolEntry>
     <SymbolEntry>
       <Name>pScoutMgr</Name>
-      <Address>16E390020</Address>
+      <Address>13FFF0020</Address>
     </SymbolEntry>
     <SymbolEntry>
       <Name>funcGenReport</Name>
-      <Address>16E390030</Address>
+      <Address>13FFF0030</Address>
     </SymbolEntry>
     <SymbolEntry>
       <Name>magic_fldtype_real</Name>
-      <Address>16E390040</Address>
+      <Address>13FFF0040</Address>
     </SymbolEntry>
     <SymbolEntry>
       <Name>arr_NewTransfers</Name>
-      <Address>16E3B0000</Address>
+      <Address>13FFD0000</Address>
     </SymbolEntry>
     <SymbolEntry>
       <Name>arrNeverTiredPlayerIDs</Name>
-      <Address>128B10000</Address>
+      <Address>13FF70000</Address>
     </SymbolEntry>
   </UserdefinedSymbols>
   <LuaScript>-- Hello!
