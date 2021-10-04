@@ -59,12 +59,16 @@ AOB_PATTERNS = {
     AllowTransferAppBtnClick = '44 8B F0 89 45 67',
     AllowSign = '41 FF D1 89 45 50',
     AllowLoanApp = '44 8B F8 89 45 50',
+    CustomManagerEditable = 'C7 45 64 0F 27 00 00',
+    ManagerNeverRetire = '8B B0 C4 02 00 00 8B 59',
+    UpdateManagerRating = '42 8D 04 2B 85 C0',
+    GetManagerRating = 'C3 CC CC CC CC CC 48 8B 41 08 8B 40 08',
+    IntJobOffer = '48 2B 88 80 01 00 00 48 B8 89 88 88 88 88 88 88 88 48 F7 E9 48 03 D1 48 C1 FA 05 48 8B C2 48 C1 E8 3F 48 03 D0 85 D2',
+    ClubJobOfferAlwaysAccept = 'FF 50 08 3B 47 2C',
+    ClubJobOffer = 'FF 50 78 48 8B BE D8 00 00 00',
 
     -- TODO Update FIFA 22
     pCareerModeSmth = '48 89 35 ?? ?? ?? ?? 41 B8 01 00 00 00 48 8D 15',
-    UpdateManagerRating = '42 8D 04 2B 85 C0',
-    GetManagerRating = 'C3 CC CC CC CC CC 48 8B 41 08 8B 40 08',
-    ManagerNeverRetire = '8B B0 C4 02 00 00 8B 59',
     DisablePGM = '85 C0 0F 95 85 ?? ?? ?? ?? 32 DB 41 8B F6',
     PAPTrainingBestGrade = '8B 93 B0 00 00 00 48 8B CD',
     PAPMoreEfficientTraining = '66 0F 6E 5E 1C',
@@ -85,9 +89,7 @@ AOB_PATTERNS = {
     GenNewYAReport = '41 8D 44 24 0E',
     InterceptpScoutManager = '48 8B 0C 03 48 8B 01 FF 50 20',
     YouthAcademyGeneratePlayer = 'FF 40 32 F6 48 8B 5C 24 70',
-    IntJobOffer = '48 2B 88 80 01 00 00 48 B8 89 88 88 88 88 88 88 88 48 F7 E9 48 03 D1 48 C1 FA 05 48 8B C2 48 C1 E8 3F 48 03 D0 85 D2',
-    ClubJobOffer = '48 8B BE D8 00 00 00 48 2B',
-    ClubJobOfferAlwaysAccept = 'FF 50 08 3B 47 2C',
+
     PAPNewOffer = '83 B9 BC 01 00 00 FF 74 0E 44 38 A1 D0 01 00 00 C6 44 24 ?? 01 75 05 44 88 64 24 ?? 83 B9 BC 01 00 00 FF',
     
 
@@ -108,7 +110,7 @@ AOB_PATTERNS = {
     YARevealOvrAndPot = '48 8B 51 28 48 8D 8D 30 01 00 00 48 83 C2 08 41 B8 A4 08 00 00 E8 ?? ?? ?? ?? 48 63 44 24 38',
     YASomeScoutIni = '48 8D 4C 24 20 48 83 C2 08 41',
     YARemoveMinAgeRequirement = '89 43 40 85 C0',
-    CustomManagerEditable = 'C7 45 74 0F 27 00 00',
+    
     CustomTransfers = '84 C0 48 8B 01 74 ?? FF 50 10 41',
     NegStatusCheck = 'FF 90 30 01 00 00 89 47 18',
     ContractNeg = '48 8B 50 38 48 83 EA 40 49 FF 60 08 CC CC CC CC CC',
@@ -6537,16 +6539,27 @@ DB_TABLES_META = {
 
 MODE_MANAGERS_OFFSETS = {
     FinanceManager = 0x578,
+    FitnessManager = 0x5B8,
     TcmFinanceManager = 0x7F8,
-    PlayerGrowthManager = 0x958
+    PlayerContractManager = 0x8D8,
+    PlayerFormManager = 0x938,
+    PlayerGrowthManager = 0x958,
+    PlayerMoraleManager = 0x998,
+    PlayerStatusManager = 0xA18
 }
 
 PLAYERFORM_STRUCT = {
-    size = 0x74,
+    size = 0x64,
     pid = 0x0,
     recent_avg = 0x4,
     form = 0x8,
-    last_games_avg_1 = 0xC
+    last_games_avg_1 = 0xC,
+    players_form_list_offset = 0x138,
+    _start = 0x8,
+    _end = 0x10,
+    values_array = {
+        25, 50, 65, 75, 90
+    }
 }
 
 PLAYERMORALE_STRUCT = {
@@ -6555,34 +6568,11 @@ PLAYERMORALE_STRUCT = {
     contract = 0x24,
     morale_val = 0x28,
     playtime = 0x30,
-}
-
-PLAYERGROWTHSYSTEM_STRUCT = {
-    size = 0x9C,
-    _start = 0x5F0,
-    _end = 0x5F8,
-    pid = 0x0
-}
-
-PLAYERSHARPNESS_STRUCT = {
-    size = 0x28,
-    pid = 0x20,
-    sharpness = 0x24 -- 1 byte
-}
-
-PLAYERRLC_STRUCT = {
-    size = 0xC,
-    pid = 0x0,
-    tid = 0x4,
-    value = 0x8
-}
-
-
--- us002
-PLAYERROLE_STRUCT = {
-    size = 0x8,
-    pid = 0x0,
-    role = 0x4
+    _start = 0x4B0,
+    _end = 0x4B8,
+    values_array = {
+        15, 40, 65, 75, 95
+    }
 }
 
 -- fm001
@@ -6600,6 +6590,198 @@ PLAYERFITESS_STRUCT = {
     unk2 = 0x15, -- 3
     unk3 = 0x16, -- 1
     unk4 = 0x17, -- 0
+
+    fitness_start_offset = 0x19A0,
+    fitness_end_offset = 0x19A8,
+
+    sharpness_start_offset = 0x19F0,
+    sharpness_next = 0x0,
+    sharpness_prev = 0x8,
+    sharpness_pid = 0x20,
+    sharpness_value = 0x24 -- 1 byte
+}
+
+PLAYERRLC_STRUCT = {
+    size = 0xC,
+    pid = 0x0,
+    tid = 0x4,
+    value = 0x8,
+    _start = 0x160,
+    _end = 0x168,
+}
+
+-- us002
+PLAYERROLE_STRUCT = {
+    size = 0x8,
+    pid = 0x0,
+    role = 0x4,
+    _start = 0x20,
+    _end = 0x28
+}
+
+
+
+PLAYERGROWTHSYSTEM_STRUCT = {
+    size = 0x9C,
+    _start = 0x5F0,
+    _end = 0x5F8,
+    pid = 0x0
+}
+
+PlayerGrowthManager_Data = {
+    fields_ordered_array = {
+        "acceleration",
+        "sprintspeed",
+        "agility",
+        "balance",
+        "jumping",
+        "stamina",
+        "strength",
+        "reactions",
+        "aggression",
+        "composure",
+        "interceptions",
+        "positioning",
+        "vision",
+        "ballcontrol",
+        "crossing",
+        "dribbling",
+        "finishing",
+        "freekickaccuracy",
+        "headingaccuracy",
+        "longpassing",
+        "shortpassing",
+        "marking",
+        "shotpower",
+        "longshots",
+        "standingtackle",
+        "slidingtackle",
+        "volleys",
+        "curve",
+        "penalties",
+        "gkdiving",
+        "gkhandling",
+        "gkkicking",
+        "gkreflexes",
+        "gkpositioning",
+        "defensiveworkrate",
+        "attackingworkrate",
+        "weakfootabilitytypecode",
+        "skillmoves"
+    },
+    xp_to_wr = {
+        5000,    -- medium
+        100,    -- low
+        10000   -- high
+    },
+    xp_to_star = {
+        100,
+        2500,
+        5000,
+        7500,
+        10000
+    },
+    xp_to_attribute = {
+        1000,
+        2101,
+        3202,
+        4305,
+        5410,
+        6518,
+        7628,
+        8742,
+        9860,
+        10983,
+        12110,
+        13243,
+        14382,
+        15528,
+        16680,
+        17840,
+        19008,
+        20185,
+        21370,
+        22565,
+        23770,
+        24986,
+        26212,
+        27450,
+        28700,
+        29963,
+        31238,
+        32527,
+        33830,
+        35148,
+        36480,
+        37828,
+        39192,
+        40573,
+        41970,
+        43385,
+        44818,
+        46270,
+        47740,
+        49230,
+        50740,
+        52271,
+        53822,
+        55395,
+        56990,
+        58608,
+        60248,
+        61912,
+        63600,
+        65313,
+        67050,
+        68813,
+        70602,
+        72418,
+        74260,
+        76130,
+        78028,
+        79955,
+        81910,
+        83895,
+        85910,
+        87956,
+        90032,
+        92140,
+        94280,
+        96453,
+        98658,
+        100897,
+        103170,
+        105478,
+        107820,
+        110198,
+        112612,
+        115063,
+        117550,
+        120075,
+        122638,
+        125240,
+        127880,
+        130560,
+        133280,
+        136041,
+        138842,
+        141685,
+        144570,
+        147498,
+        150468,
+        153482,
+        156540,
+        159643,
+        162790,
+        165983,
+        169222,
+        172508,
+        175840,
+        179220,
+        182648,
+        186125,
+        189650
+    }
 }
 
 -- All available forms

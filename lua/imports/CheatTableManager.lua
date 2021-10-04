@@ -168,13 +168,6 @@ end
 function TableManager:version_check()
     local ce_version = getCEVersion()
     self.logger:info(string.format('Cheat engine version: %f', ce_version))
-
-    -- if (ce_version ~= 6.81) then
-    --     self.logger:warning(
-    --         string.format('Recommended Cheat Engine version for this cheat table is 6.81\nCheat Engine %f may not work as expected', ce_version),
-    --         true
-    --     )
-    -- end
     self:get_frm("main_form").LabelCEVer.Caption = ce_version
 
     local ct_ver = self:get_ct_ver()
@@ -580,56 +573,23 @@ function TableManager:init_ptrs()
     writeQword("pModeManagers", loc_pModeManagers)
 
     if loc_pModeManagers > 0 then
-        local form_ptr = self.memory_manager:read_multilevel_pointer(
-            readPointer("pModeManagers"),
-            {0x0, 0x518, 0x0, 0x20, 0x130, 0x140}
-        ) -- +28 - n on players
-
-        local rlc_ptr = self.memory_manager:read_multilevel_pointer(
-            readPointer("pModeManagers"),
-            {0x0, 0x518, 0x0, 0x20, 0xB8}
-        )
-        -- Start list = 0x160
-        -- end list = 0x168
-    
-        local morale_ptr = self.memory_manager:read_multilevel_pointer(
-            readPointer("pModeManagers"),
-            {0x0, 0x518, 0x0, 0x20, 0x168}
-        ) -- +4A0 - teamid
-        -- Start list = teamid + 10
-        -- end list = teamid + 18
-
-        -- Start list = 0x5F0
-        -- end list = 0x5F8
-
-        self.logger:debug(string.format("form_ptr %X", form_ptr or 0))
-        self.logger:debug(string.format("rlc_ptr %X", rlc_ptr or 0))
-        self.logger:debug(string.format("morale_ptr %X", morale_ptr or 0))
+        self.logger:debug(string.format(
+            "form_ptr %X",
+            get_mode_manager_impl_ptr("PlayerFormManager")
+        ))
+        self.logger:debug(string.format(
+            "rlc_ptr %X",
+            get_mode_manager_impl_ptr("PlayerContractManager")
+        ))
+        self.logger:debug(string.format(
+            "morale_ptr %X",
+            get_mode_manager_impl_ptr("PlayerMoraleManager")
+        ))
         self.logger:debug(string.format(
             "pgs_ptr %X", 
             get_mode_manager_impl_ptr("PlayerGrowthManager")
         ))
     end
-
-    -- local base_ptr3 = self.memory_manager:get_validated_resolved_ptr("pCareerModeSmth", 3) or 0
-    -- self.logger:debug(string.format("pCareerModeSmth %X", base_ptr3))
-    -- writeQword("pCareerModeSmth", base_ptr3)
-    -- if base_ptr3 > 0 then
-    --     local squad_role_ptr = self.memory_manager:read_multilevel_pointer(
-    --         readPointer("pCareerModeSmth"),
-    --         {0x0, 0x10, 0x48, 0x30, 0x180+0x48}
-    --     )   
-
-    --     self.logger:debug(string.format("squad_role_ptr %X", squad_role_ptr or 0))
-
-    --     local fitness_manager_ptr = self.memory_manager:read_multilevel_pointer(
-    --         readPointer("pCareerModeSmth"),
-    --         {0x0, 0x10, 0x48, 0x30, 0x180+0x50}
-    --     )
-    --     -- 0x19a0 start
-    --     -- 0x19a8 end
-    --     self.logger:debug(string.format("fitness_manager_ptr %X", fitness_manager_ptr or 0))
-    -- end
 end
 
 function TableManager:autoactivate_scripts()

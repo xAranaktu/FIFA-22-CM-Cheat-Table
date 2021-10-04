@@ -29,6 +29,8 @@ function thisFormManager:new(o)
 
     self.change_list = {}
 
+    self.players_in_player_growth_system = {}
+
     self.fut_found_players = nil
     self.cm_found_player_addr = 0
 
@@ -178,249 +180,25 @@ function thisFormManager:roll_random_attributes(components)
     
 end
 
-function thisFormManager:update_cached_field(playerid, field_name, new_value)
-    self.logger:info(string.format(
-        "update_cached_field (%s) for playerid: %d. new_val = %d", 
-        field_name, playerid, new_value
-    ))
-    local pgs_ptr = get_mode_manager_impl_ptr("PlayerGrowthManager")
-    -- Start list = 0x5F0
-    -- end list = 0x5F8
-
-    if not pgs_ptr then
-        self.logger:info("No PlayerGrowthManager pointer")
-        return
-    end
-    local _start = readPointer(pgs_ptr + PLAYERGROWTHSYSTEM_STRUCT["_start"])
-    local _end = readPointer(pgs_ptr + PLAYERGROWTHSYSTEM_STRUCT["_end"])
-    if (not _start) or (not _end) then
-        self.logger:info("No PlayerGrowthSystem start or end")
-        return
-    end
-    local _max = 55
-
-    local current_addr = _start
-    local player_found = false
-    for i=1, _max do
-        -- self.logger:debug(string.format(
-        --     "PlayerGrowthSystem Current - 0x%X, End - 0x%X",
-        --     current_addr, _end
-        -- ))
-        if current_addr >= _end then
-            -- no player to edit
-            return
-        end
-
-        local pid = readInteger(current_addr + PLAYERGROWTHSYSTEM_STRUCT["pid"])
-        if pid == playerid then
-            player_found = true
-            break
-        end
-        
-        current_addr = current_addr + PLAYERGROWTHSYSTEM_STRUCT["size"]
-    end
-
-    if not player_found then return end
+function thisFormManager:update_xp_in_player_growth_system(playerid, pgs_addr, field_name, new_value)
+    if not pgs_addr then return end
 
     self.logger:info(string.format(
-        "Found PlayerGrowthSystem for: %d at 0x%X",
-        playerid, current_addr
+        "update_xp_in_player_growth_system (%s) for playerid: %d at 0x%X. new_val = %d", 
+        field_name, playerid, pgs_addr, new_value
     ))
 
-    -- Overwrite cached xp in developement plans
-    local field_offset_map = {
-        "acceleration",
-        "sprintspeed",
-        "agility",
-        "balance",
-        "jumping",
-        "stamina",
-        "strength",
-        "reactions",
-        "aggression",
-        "composure",
-        "interceptions",
-        "positioning",
-        "vision",
-        "ballcontrol",
-        "crossing",
-        "dribbling",
-        "finishing",
-        "freekickaccuracy",
-        "headingaccuracy",
-        "longpassing",
-        "shortpassing",
-        "marking",
-        "shotpower",
-        "longshots",
-        "standingtackle",
-        "slidingtackle",
-        "volleys",
-        "curve",
-        "penalties",
-        "gkdiving",
-        "gkhandling",
-        "gkkicking",
-        "gkreflexes",
-        "gkpositioning",
-        "defensiveworkrate",
-        "attackingworkrate",
-        "weakfootabilitytypecode",
-        "skillmoves"
-    }
-
-    local idx = 0
-    for i=1, #field_offset_map do
-        if field_name == field_offset_map[i] then
-            idx = i
-            break
-        end
+    local offset = get_field_offset_in_player_growth_system(field_name)
+    if offset <= 0 then
+        self.logger:info(string.format(
+            "update_xp_in_player_growth_system - ERROR No offset for %s",
+            field_name
+        ))
+        return
     end
 
-    if idx <= 0 then return end
-    self.logger:debug(string.format("update_cached_field: %s", field_name))
-
-    if new_value < 1 then
-        new_value = 1
-    else
-        if field_name == "attackingworkrate" or field_name == "defensiveworkrate" then
-            if new_value > 3 then
-                new_value = 3
-            end
-        elseif field_name == "weakfootabilitytypecode" or field_name == "skillmoves" then
-            if new_value > 5 then
-                new_value = 5
-            end
-        end
-    end
-
-    local xp_points_to_apply = 1000
-    if field_name == "attackingworkrate" or field_name == "defensiveworkrate" then
-        local xp_to_wr = {
-            5000,    -- medium
-            100,    -- low
-            10000   -- high
-        }
-        xp_points_to_apply = xp_to_wr[new_value]
-    elseif field_name == "weakfootabilitytypecode" or field_name == "skillmoves" then
-        local xp_to_star = {
-            100,
-            2500,
-            5000,
-            7500,
-            10000
-        }
-        xp_points_to_apply = xp_to_star[new_value]
-    else
-        -- Add xp at: 14524d50c
-
-        -- Add xp at: 145434DFC
-        -- Xp points needed for attribute
-        local xp_to_attribute = {
-            1000,
-            2101,
-            3202,
-            4305,
-            5410,
-            6518,
-            7628,
-            8742,
-            9860,
-            10983,
-            12110,
-            13243,
-            14382,
-            15528,
-            16680,
-            17840,
-            19008,
-            20185,
-            21370,
-            22565,
-            23770,
-            24986,
-            26212,
-            27450,
-            28700,
-            29963,
-            31238,
-            32527,
-            33830,
-            35148,
-            36480,
-            37828,
-            39192,
-            40573,
-            41970,
-            43385,
-            44818,
-            46270,
-            47740,
-            49230,
-            50740,
-            52271,
-            53822,
-            55395,
-            56990,
-            58608,
-            60248,
-            61912,
-            63600,
-            65313,
-            67050,
-            68813,
-            70602,
-            72418,
-            74260,
-            76130,
-            78028,
-            79955,
-            81910,
-            83895,
-            85910,
-            87956,
-            90032,
-            92140,
-            94280,
-            96453,
-            98658,
-            100897,
-            103170,
-            105478,
-            107820,
-            110198,
-            112612,
-            115063,
-            117550,
-            120075,
-            122638,
-            125240,
-            127880,
-            130560,
-            133280,
-            136041,
-            138842,
-            141685,
-            144570,
-            147498,
-            150468,
-            153482,
-            156540,
-            159643,
-            162790,
-            165983,
-            169222,
-            172508,
-            175840,
-            179220,
-            182648,
-            186125,
-            189650
-        }
-        xp_points_to_apply = xp_to_attribute[new_value]
-    end
-
-    local write_to = current_addr+(4*idx)
+    local xp_points_to_apply = get_xp_to_apply_in_player_growth_system(field_name, new_value)
+    local write_to = pgs_addr + offset
     self.logger:debug(string.format(
         "XP: %d write to: 0x%X",
         xp_points_to_apply, write_to
@@ -696,7 +474,9 @@ function thisFormManager:get_components_description()
         self.game_db_manager:set_table_record_field_value(addr, table_name, field_name, new_value, raw)
 
         if comp_desc["db_field"]["is_in_dev_plan"] then
-            self:update_cached_field(tonumber(self.frm.PlayerIDEdit.Text), field_name, new_value + 1)
+            local playerid = tonumber(self.frm.PlayerIDEdit.Text)
+            local pgs_addr = self.players_in_player_growth_system[playerid]
+            self:update_xp_in_player_growth_system(playerid, pgs_addr, field_name, new_value + 1)
         end
         
     end
@@ -754,7 +534,10 @@ function thisFormManager:get_components_description()
         )
         self.logger:debug(log_msg)
         self.game_db_manager:set_table_record_field_value(addr, table_name, field_name, new_value)
-        self:update_cached_field(tonumber(self.frm.PlayerIDEdit.Text), field_name, new_value)
+
+        local playerid = tonumber(self.frm.PlayerIDEdit.Text)
+        local pgs_addr = self.players_in_player_growth_system[playerid]
+        self:update_xp_in_player_growth_system(playerid, pgs_addr, field_name, new_value)
     end
 
     local fnGetPlayerAge = function(addrs, table_name, field_name, raw, bdatedays)
@@ -3058,6 +2841,8 @@ function thisFormManager:fill_form(addrs, playerid)
     end
 
     if is_in_cm and is_manager_career_valid then
+        self.players_in_player_growth_system = get_players_in_player_growth_system()
+
         local userclubtid = self:get_user_clubteamid(addrs["career_users"])
         local is_in_user_club = false
         if teamid > 0 and userclubtid > 0 then
@@ -3075,27 +2860,27 @@ function thisFormManager:fill_form(addrs, playerid)
         -- player info - contract
         self:load_player_contract(playerid, is_in_user_club)
 
-        -- TODO FIFA 22
         -- Player info - fitness & injury
-        -- self:load_player_fitness(playerid)
+        self:load_player_fitness(playerid)
 
         -- Player info - form
-        -- self:load_player_form(playerid)
+        self:load_player_form(playerid)
 
         -- Player info - Morale
-        -- self:load_player_morale(playerid)
+        self:load_player_morale(playerid)
 
         -- Player Info - sharpness
-        -- self:load_player_sharpness(playerid, is_manager_career)
+        self:load_player_sharpness(playerid, is_manager_career)
 
         -- Player info - Release Clause
-        -- self:load_player_release_clause(playerid)
+        self:load_player_release_clause(playerid)
 
         for i=1, #career_only_comps do
             self.change_list[career_only_comps[i]] = nil
         end
 
     else
+        self.players_in_player_growth_system = {}
         for i=1, #career_only_comps do
             self.frm[career_only_comps[i]].Visible = false
         end
@@ -3106,15 +2891,12 @@ function thisFormManager:fill_form(addrs, playerid)
 end
 
 function thisFormManager:get_player_fitness_addr(playerid)
-    local fitness_manager_ptr = self.memory_manager:read_multilevel_pointer(
-        readPointer("pCareerModeSmth"),
-        {0x0, 0x10, 0x48, 0x30, 0x180+0x50}
-    )
+    local fitness_ptr = get_mode_manager_impl_ptr("FitnessManager")
     -- 0x19a0 start
     -- 0x19a8 end
     -- fm001
-    local _start = readPointer(fitness_manager_ptr + 0x19a0)
-    local _end = readPointer(fitness_manager_ptr + 0x19a8)
+    local _start = readPointer(fitness_ptr + PLAYERFITESS_STRUCT['fitness_start_offset'])
+    local _end = readPointer(fitness_ptr + PLAYERFITESS_STRUCT['fitness_end_offset'])
     if (not _start) or (not _end) then
         self.logger:info("No Fitness start or end")
         return -1
@@ -3290,49 +3072,13 @@ function thisFormManager:load_player_fitness(playerid)
     self.frm.IsInjuredCB.Hint = self.frm.IsInjuredCB.Items[self.frm.IsInjuredCB.ItemIndex]
 end
 
-function thisFormManager:get_player_form_addr(playerid)
-    local form_ptr = self.memory_manager:read_multilevel_pointer(
-        readPointer("pModeManagers"),
-        {0x0, 0x518, 0x0, 0x20, 0x130, 0x140}
-    ) + 0x2C
-    local n_of_players = readInteger(form_ptr - 0x4)
-
-    local size_of =  PLAYERFORM_STRUCT['size']
-    local _start = form_ptr
-    local _end = _start + (n_of_players*size_of)
-    if (not _start) or (not _end) then
-        self.logger:info("No form start or end")
-        return 0
-    end
-    local current_addr = _start
-    local player_found = false
-
-    for i=0, n_of_players, 1 do
-        if current_addr >= _end then
-            -- no player to edit
-            break
-        end
-        local pid = readInteger(current_addr + PLAYERFORM_STRUCT['pid'])
-        if pid == playerid then
-            player_found = true
-            break
-        end
-        current_addr = current_addr + PLAYERFORM_STRUCT["size"]
-    end
-    if not player_found then
-        -- self.logger:debug("player form not found")
-        return 0
-    end
-    return current_addr
-end
-
 function thisFormManager:save_player_form(playerid, new_value)
     if not playerid then
         self.logger:error("save_player_form no playerid!")
         return
     end
     self.logger:debug(string.format("save_player_form: %d", playerid))
-    local current_addr = self:get_player_form_addr(playerid)
+    local current_addr = get_player_form_addr(playerid)
     if current_addr == 0 then
         return
     end
@@ -3376,7 +3122,7 @@ function thisFormManager:load_player_form(playerid)
         return
     end
 
-    local current_addr = self:get_player_form_addr(playerid)
+    local current_addr = get_player_form_addr(playerid)
     if current_addr == 0 then
         fn_comps_vis(false)
         return
@@ -3397,48 +3143,13 @@ function thisFormManager:load_player_form(playerid)
     self.frm.FormCB.Hint = self.frm.FormCB.Items[self.frm.FormCB.ItemIndex]
 end
 
-function thisFormManager:get_player_morale_addr(playerid)
-    local size_of = PLAYERMORALE_STRUCT['size']
-    local morale_ptr = self.memory_manager:read_multilevel_pointer(
-        readPointer("pModeManagers"),
-        {0x0, 0x518, 0x0, 0x20, 0x168}
-    )
-
-    local _start = readPointer(morale_ptr + 0x4B0)
-    local _end = readPointer(morale_ptr + 0x4B8)
-    if (not _start) or (not _end) then
-        self.logger:info("No Morale start or end")
-        return
-    end
-    local squad_size = ((_end - _start) // size_of) + 1
-    local current_addr = _start
-    local player_found = false
-    for i=0, squad_size, 1 do
-        if current_addr >= _end then
-            -- no player to edit
-            break
-        end
-        local pid = readInteger(current_addr + PLAYERMORALE_STRUCT['pid'])
-        if pid == playerid then
-            player_found = true
-            break
-        end
-        current_addr = current_addr + PLAYERMORALE_STRUCT['size']
-    end
-    if not player_found then
-        return 0
-    end
-
-    return current_addr
-end
-
 function thisFormManager:save_player_morale(playerid, new_value)
     if not playerid then
         self.logger:error("save_player_morale no playerid!")
         return
     end
     self.logger:debug(string.format("save_player_morale: %d", playerid))
-    local current_addr = self:get_player_morale_addr(playerid)
+    local current_addr = get_player_morale_addr(playerid)
     if current_addr == 0 then
         return
     end
@@ -3473,7 +3184,7 @@ function thisFormManager:load_player_morale(playerid)
         return
     end
 
-    local current_addr = self:get_player_morale_addr(playerid)
+    local current_addr = get_player_morale_addr(playerid)
     if current_addr == 0 then
         fn_comps_vis(false)
         return
@@ -3497,45 +3208,6 @@ function thisFormManager:load_player_morale(playerid)
     end
     self.frm.MoraleCB.ItemIndex = morale_level
     self.frm.MoraleCB.Hint = self.frm.MoraleCB.Items[self.frm.MoraleCB.ItemIndex]
-end
-
-function thisFormManager:get_player_sharpness_addr(playerid)
-    local fitness_manager_ptr = self.memory_manager:read_multilevel_pointer(
-        readPointer("pCareerModeSmth"),
-        {0x0, 0x10, 0x48, 0x30, 0x180+0x50}
-    )
-    local _start = readPointer(fitness_manager_ptr + 0x19F0)
-
-    if not _start then
-        self.logger:info("Player Sharpness, no start.")
-        return 0
-    end
-
-    -- 14542902F
-    local current_addr = _start
-    --self.logger:debug(string.format("load_player_sharpness, start %X", current_addr))
-    local _max = 26001
-    for i=1, _max do
-        if current_addr == 0 then break end
-        local pid = readInteger(current_addr + PLAYERSHARPNESS_STRUCT['pid'])
-        if not pid then
-            break
-        end
-        if pid == playerid then
-            player_found = true
-            break
-        end
-        if pid < playerid then
-            current_addr = readPointer(current_addr)
-        else
-            current_addr = readPointer(current_addr+8)
-        end
-    end
-    if not player_found or current_addr == 0 then
-        self.logger:debug("Player Sharpness, player not found.")
-        return 0
-    end
-    return current_addr
 end
 
 function thisFormManager:save_player_sharpness(playerid, new_value)
@@ -3562,13 +3234,11 @@ function thisFormManager:save_player_sharpness(playerid, new_value)
     elseif new_value > 100 then
         new_value = 100
     end
+    local fitness_ptr = get_mode_manager_impl_ptr("FitnessManager")
+    local first_sharpness_player = readPointer(fitness_ptr + PLAYERFITESS_STRUCT["sharpness_start_offset"])
+    local current_addr = get_player_sharpness_addr(first_sharpness_player, playerid)
 
-    local current_addr = self:get_player_sharpness_addr(playerid)
-    if current_addr == 0 then
-        return
-    end
-    writeBytes(current_addr + PLAYERSHARPNESS_STRUCT["sharpness"], new_value)
-
+    set_player_sharpness(current_addr, new_value)
 end
 
 function thisFormManager:load_player_sharpness(playerid)
@@ -3581,7 +3251,9 @@ function thisFormManager:load_player_sharpness(playerid)
         return
     end
 
-    local current_addr = self:get_player_sharpness_addr(playerid)
+    local fitness_ptr = get_mode_manager_impl_ptr("FitnessManager")
+    local first_sharpness_player = readPointer(fitness_ptr + PLAYERFITESS_STRUCT["sharpness_start_offset"])
+    local current_addr = get_player_sharpness_addr(first_sharpness_player, playerid)
     if current_addr == 0 then
         fn_comps_vis(false)
         return
@@ -3589,44 +3261,8 @@ function thisFormManager:load_player_sharpness(playerid)
 
     fn_comps_vis(true)
     self.logger:debug(string.format("Player Sharpness found at %X", current_addr))
-    local sharpness = readBytes(current_addr + PLAYERSHARPNESS_STRUCT["sharpness"], 1)
+    local sharpness = readBytes(current_addr + PLAYERFITESS_STRUCT["sharpness_value"], 1)
     self.frm.SharpnessEdit.Text = sharpness
-end
-
-function thisFormManager:get_player_release_clause_addr(playerid)
-    local rlc_ptr = self.memory_manager:read_multilevel_pointer(
-        readPointer("pModeManagers"),
-        {0x0, 0x518, 0x0, 0x20, 0xB8}
-    )
-    self.logger:debug(string.format("rlc_ptr: %X", rlc_ptr))
-    -- Start list = 0x160
-    -- end list = 0x168
-    local _start = readPointer(rlc_ptr + 0x160)
-    local _end = readPointer(rlc_ptr + 0x168)
-    if (not _start) or (not _end) then
-        self.logger:info("No Release Clauses start or end")
-        return -1
-    end
-
-    local current_addr = _start
-    local player_found = false
-    local _max = 26001
-    for i=1, _max do
-        if current_addr >= _end then
-            -- no player to edit
-            break
-        end
-        local pid = readInteger(current_addr + PLAYERRLC_STRUCT['pid'])
-        if pid == playerid then
-            player_found = true
-            break
-        end
-        current_addr = current_addr + PLAYERRLC_STRUCT['size']
-    end
-    if not player_found then
-        return 0
-    end
-    return current_addr
 end
 
 function thisFormManager:save_player_release_clause(playerid, teamid, new_value)
@@ -3646,11 +3282,10 @@ function thisFormManager:save_player_release_clause(playerid, teamid, new_value)
         end
     end
 
-    local current_addr = self:get_player_release_clause_addr(playerid)
+    local current_addr = get_player_release_clause_addr(playerid)
     -- No release clause pointer
     if current_addr == -1 then return end
 
-    
     if new_value == 0 then
         -- Can't be 0
         new_value = nil
@@ -3680,15 +3315,12 @@ function thisFormManager:save_player_release_clause(playerid, teamid, new_value)
         add_clause = true
     end
 
-    local rlc_ptr = self.memory_manager:read_multilevel_pointer(
-        readPointer("pModeManagers"),
-        {0x0, 0x518, 0x0, 0x20, 0xB8}
-    )
-    local _start = readPointer(rlc_ptr + 0x160)
-    local _end = readPointer(rlc_ptr + 0x168)
+    local rlc_ptr = get_mode_manager_impl_ptr("PlayerContractManager")
+    local _start = readPointer(fitness_ptr + PLAYERRLC_STRUCT['_start'])
+    local _end = readPointer(fitness_ptr + PLAYERRLC_STRUCT['_end'])
     if add_clause then
         current_addr = _end
-        writeQword(rlc_ptr+0x168, current_addr+PLAYERRLC_STRUCT["size"])
+        writeQword(rlc_ptr+PLAYERRLC_STRUCT['_end'], current_addr+PLAYERRLC_STRUCT["size"])
 
         writeInteger(current_addr+PLAYERRLC_STRUCT["pid"], playerid)
         writeInteger(current_addr+PLAYERRLC_STRUCT["tid"], teamid)
@@ -3697,7 +3329,7 @@ function thisFormManager:save_player_release_clause(playerid, teamid, new_value)
         local bytecount = _end - current_addr + PLAYERRLC_STRUCT['size']
         local bytes = readBytes(current_addr+PLAYERRLC_STRUCT['size'], bytecount, true)
         writeBytes(current_addr, bytes)
-        writeQword(rlc_ptr+0x168, _end-PLAYERRLC_STRUCT["size"])
+        writeQword(rlc_ptr+PLAYERRLC_STRUCT['_end'], _end-PLAYERRLC_STRUCT["size"])
     end
 end
 
@@ -3712,7 +3344,7 @@ function thisFormManager:load_player_release_clause(playerid)
         return
     end
 
-    local current_addr = self:get_player_release_clause_addr(playerid)
+    local current_addr = get_player_release_clause_addr(playerid)
     if current_addr == -1 then
         fn_comps_vis(false)
         return
@@ -3725,48 +3357,6 @@ function thisFormManager:load_player_release_clause(playerid)
     self.logger:debug(string.format("Player Release Clause found at %X", current_addr))
     local release_clause_value = readInteger(current_addr + PLAYERRLC_STRUCT['value'])
     self.frm.ReleaseClauseEdit.Text = release_clause_value
-end
-
-function thisFormManager:get_squad_role_addr(playerid)
-    local squad_role_ptr = self.memory_manager:read_multilevel_pointer(
-        readPointer("pCareerModeSmth"),
-        {0x0, 0x10, 0x48, 0x30, 0x180+0x48}
-    )
-    -- teamid = squad_role_ptr + 18
-    -- squad_role_ptr + 18 +0x8 Start list
-    -- squad_role_ptr + 18 +x10 End List
-    -- us002
-
-    local _start = readPointer(squad_role_ptr + 0x20)
-    local _end = readPointer(squad_role_ptr + 0x28)
-    if (not _start) or (not _end) then
-        self.logger:info("No Player Role start or end")
-        return 0
-    end
-    --self.logger:debug(string.format("Player Role _start: %X", _start))
-    --self.logger:debug(string.format("Player Role _end: %X", _end))
-    local _max = 55
-    local current_addr = _start
-    local player_found = false
-    for i=1, _max do
-        if current_addr >= _end then
-            -- no player to edit
-            break
-        end
-        --self.logger:debug(string.format("Player Role current_addr: %X", current_addr))
-        local pid = readInteger(current_addr + PLAYERROLE_STRUCT["pid"])
-        --local role = readInteger(current_addr + PLAYERROLE_STRUCT["role"])
-        --self.logger:debug(string.format("Player Role PID: %d, Role: %d", pid, role))
-        if pid == playerid then
-            player_found = true
-            break
-        end
-        current_addr = current_addr + PLAYERROLE_STRUCT["size"]
-    end
-    if not player_found then
-        return 0
-    end
-    return current_addr
 end
 
 function thisFormManager:save_player_contract(playerid, wage, squadrole, performance_bonus_type, performance_bonus_count, performance_bonus_value, loan_wage_split)
@@ -3794,7 +3384,7 @@ function thisFormManager:save_player_contract(playerid, wage, squadrole, perform
     local playercontract_addr = addr[1]
 
     if squadrole ~= nil then
-        local current_addr = self:get_squad_role_addr(playerid)
+        local current_addr = get_squad_role_addr(playerid)
         if current_addr > 0 then
             writeInteger(current_addr + PLAYERROLE_STRUCT["role"], squadrole + 1)
         end
@@ -3907,7 +3497,7 @@ function thisFormManager:load_player_contract(playerid, is_in_user_club)
     local playercontract_addr = addr[1]
     local playerrole = self.game_db_manager:get_table_record_field_value(playercontract_addr, "career_playercontract", "playerrole")
     if playerrole == -1 then
-        local current_addr = self:get_squad_role_addr(playerid)
+        local current_addr = get_squad_role_addr(playerid)
         if current_addr > 0 then
             local role = readInteger(current_addr + PLAYERROLE_STRUCT["role"])
             self.frm.SquadRoleCB.ItemIndex = role - 1
@@ -4010,20 +3600,18 @@ function thisFormManager:onApplyChangesBtnClick()
         local playerid = tonumber(self.frm.PlayerIDEdit.Text)
         local teamid = tonumber(self.frm.TeamIDEdit.Text)
 
-        -- TODO FIFA 22
-        
-        -- if self.change_list["FormCB"] then
-        --     self:save_player_form(playerid, self.frm.FormCB.ItemIndex+1)
-        -- end
-        -- if self.change_list["MoraleCB"] then
-        --     self:save_player_morale(playerid, self.frm.MoraleCB.ItemIndex+1)
-        -- end
-        -- if self.change_list["ReleaseClauseEdit"] then
-        --     self:save_player_release_clause(playerid, teamid, self.frm.ReleaseClauseEdit.Text)
-        -- end
-        -- if self.change_list["SharpnessEdit"] then
-        --     self:save_player_sharpness(playerid, self.frm.SharpnessEdit.Text)
-        -- end
+        if self.change_list["FormCB"] then
+            self:save_player_form(playerid, self.frm.FormCB.ItemIndex+1)
+        end
+        if self.change_list["MoraleCB"] then
+            self:save_player_morale(playerid, self.frm.MoraleCB.ItemIndex+1)
+        end
+        if self.change_list["ReleaseClauseEdit"] then
+            self:save_player_release_clause(playerid, teamid, self.frm.ReleaseClauseEdit.Text)
+        end
+        if self.change_list["SharpnessEdit"] then
+            self:save_player_sharpness(playerid, self.frm.SharpnessEdit.Text)
+        end
 
         if (
             self.change_list["WageEdit"] or 
@@ -4069,42 +3657,40 @@ function thisFormManager:onApplyChangesBtnClick()
             )
         end
 
-        -- TODO FIFA 22
+        if (
+            self.change_list["IsInjuredCB"] or
+            self.change_list["InjuryCB"] or
+            self.change_list["DurabilityEdit"] or
+            self.change_list["FullFitDateEdit"]
+        ) then
+            local new_durability = nil
+            if self.frm.DurabilityEdit.Visible then
+                new_durability = self.frm.DurabilityEdit.Text
+            end
 
-        -- if (
-        --     self.change_list["IsInjuredCB"] or
-        --     self.change_list["InjuryCB"] or
-        --     self.change_list["DurabilityEdit"] or
-        --     self.change_list["FullFitDateEdit"]
-        -- ) then
-        --     local new_durability = nil
-        --     if self.frm.DurabilityEdit.Visible then
-        --         new_durability = self.frm.DurabilityEdit.Text
-        --     end
+            local new_isinjured = 0
+            if self.frm.IsInjuredCB.Visible then
+                new_isinjured = self.frm.IsInjuredCB.ItemIndex
+            end
 
-        --     local new_isinjured = 0
-        --     if self.frm.IsInjuredCB.Visible then
-        --         new_isinjured = self.frm.IsInjuredCB.ItemIndex
-        --     end
+            local new_injury = 0
+            if self.frm.InjuryCB.Visible then
+                new_injury = self.frm.InjuryCB.ItemIndex
+            end
 
-        --     local new_injury = 0
-        --     if self.frm.InjuryCB.Visible then
-        --         new_injury = self.frm.InjuryCB.ItemIndex
-        --     end
+            local new_fullfit = 20080101
+            if self.frm.FullFitDateEdit.Visible then
+                new_fullfit = self.frm.FullFitDateEdit.Text
+            end
 
-        --     local new_fullfit = 20080101
-        --     if self.frm.FullFitDateEdit.Visible then
-        --         new_fullfit = self.frm.FullFitDateEdit.Text
-        --     end
-
-        --     self:save_player_fitness(
-        --         playerid,
-        --         new_durability,
-        --         new_isinjured,
-        --         new_injury,
-        --         new_fullfit
-        --     )
-        -- end
+            self:save_player_fitness(
+                playerid,
+                new_durability,
+                new_isinjured,
+                new_injury,
+                new_fullfit
+            )
+        end
 
 
     end

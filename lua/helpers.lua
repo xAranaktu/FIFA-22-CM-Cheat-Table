@@ -21,6 +21,68 @@ function is_cm_loaded()
     return false
 end
 
+function get_user_clubteamid()
+    if not is_cm_loaded() then return 0 end
+    local game_db_manager = gCTManager.game_db_manager
+    local memory_manager = gCTManager.memory_manager
+
+    local addr = readPointer("pUsersTableFirstRecord")
+    if not addr or addr == 0 then return 0 end
+
+    local clubteamid = game_db_manager:get_table_record_field_value(addr, "career_users", "clubteamid")
+    return clubteamid
+end
+
+function get_playerids_for_team(tid)
+    local result = {}
+    if tid <= 0 then return result end
+
+    local game_db_manager = gCTManager.game_db_manager
+    local memory_manager = gCTManager.memory_manager
+
+    local first_record = game_db_manager.tables["teamplayerlinks"]["first_record"]
+    local record_size = game_db_manager.tables["teamplayerlinks"]["record_size"]
+    local written_records = game_db_manager.tables["teamplayerlinks"]["written_records"]
+
+    local row = 0
+    local current_addr = first_record
+    local last_byte = 0
+    local is_record_valid = true
+
+    while true do
+        if row >= written_records then
+            break
+        end
+        current_addr = first_record + (record_size*row)
+        last_byte = readBytes(current_addr+record_size-1, 1, true)[1]
+        is_record_valid = not (bAnd(last_byte, 128) > 0)
+        if is_record_valid then
+            local artificialkey = game_db_manager:get_table_record_field_value(current_addr, "teamplayerlinks", "artificialkey")
+            if artificialkey > 0 then
+                local rec_teamid = game_db_manager:get_table_record_field_value(current_addr, "teamplayerlinks", "teamid")
+                if rec_teamid == tid then
+                    local playerid = game_db_manager:get_table_record_field_value(current_addr, "teamplayerlinks", "playerid")
+                    table.insert(result, playerid)
+                end
+            end
+        end
+        row = row + 1
+    end
+
+    return result
+end
+
+function get_user_team_playerids()
+    return get_playerids_for_team(get_user_clubteamid())
+end
+
+function can_edit_player(pids, pid)
+    for i=1, #pids do
+        if pid == pids[i] then return true end
+    end
+    return false
+end
+
 function get_mode_manager_impl_ptr(manager_name)
     local result = 0
 
@@ -38,6 +100,406 @@ function get_mode_manager_impl_ptr(manager_name)
     --print(string.format("result 0x%X", result))
     return result
 end
+
+-- PlayerStatusManager Startt
+
+function get_squad_role_addr(playerid)
+    local stattusmgr_ptr = get_mode_manager_impl_ptr("PlayerStatusManager")
+    local _start = readPointer(stattusmgr_ptr + PLAYERROLE_STRUCT['_start'])
+    local _end = readPointer(stattusmgr_ptr + PLAYERROLE_STRUCT['_end'])
+    if (not _start) or (not _end) then
+        return 0
+    end
+
+        --self.logger:debug(string.format("Player Role _start: %X", _start))
+    --self.logger:debug(string.format("Player Role _end: %X", _end))
+    local _max = 55
+    local current_addr = _start
+    local player_found = false
+    for i=1, _max do
+        if current_addr >= _end then
+            -- no player to edit
+            break
+        end
+        --self.logger:debug(string.format("Player Role current_addr: %X", current_addr))
+        local pid = readInteger(current_addr + PLAYERROLE_STRUCT["pid"])
+        --local role = readInteger(current_addr + PLAYERROLE_STRUCT["role"])
+        --self.logger:debug(string.format("Player Role PID: %d, Role: %d", pid, role))
+        if pid == playerid then
+            player_found = true
+            break
+        end
+        current_addr = current_addr + PLAYERROLE_STRUCT["size"]
+    end
+    if not player_found then
+        return 0
+    end
+    return current_addr
+end
+
+-- PlayerStatusManager End
+
+-- PlayerContractManager Start
+function get_player_release_clause_addr(playerid)
+    local rlc_ptr = get_mode_manager_impl_ptr("PlayerContractManager")
+    local _start = readPointer(rlc_ptr + PLAYERRLC_STRUCT['_start'])
+    local _end = readPointer(rlc_ptr + PLAYERRLC_STRUCT['_end'])
+    if (not _start) or (not _end) then
+        return -1
+    end
+
+    local current_addr = _start
+    local player_found = false
+    local _max = 26001
+    for i=1, _max do
+        if current_addr >= _end then
+            -- no player to edit
+            break
+        end
+        local pid = readInteger(current_addr + PLAYERRLC_STRUCT['pid'])
+        if pid == playerid then
+            player_found = true
+            break
+        end
+        current_addr = current_addr + PLAYERRLC_STRUCT['size']
+    end
+    if not player_found then
+        return 0
+    end
+    return current_addr
+
+end
+-- PlayerContractManager End
+
+-- FitnessManager Start
+function heal_all_in_player_team()
+    local playerids = get_user_team_playerids()
+    for i=1, #playerids do
+        local playerid = playerids[i]
+        local current_addr = get_player_fitness_addr(playerid)
+        
+        if current_addr == 0 then
+            current_addr = get_player_fitness_addr(4294967295)
+        end
+        
+        if current_addr > 0 then
+            writeInteger(current_addr + PLAYERFITESS_STRUCT["pid"], playerid)
+            writeInteger(current_addr + PLAYERFITESS_STRUCT["tid"], 4294967295)
+            writeInteger(current_addr + PLAYERFITESS_STRUCT["full_fit_date"], 20080101)
+            writeInteger(current_addr + PLAYERFITESS_STRUCT["unk_date"], 20080101)
+            writeBytes(current_addr + PLAYERFITESS_STRUCT["unk0"], 0)
+            writeBytes(current_addr + PLAYERFITESS_STRUCT["fitness"], 100)
+            writeBytes(current_addr + PLAYERFITESS_STRUCT["is_injured"], 0)
+            writeBytes(current_addr + PLAYERFITESS_STRUCT["unk1"], 0)
+            writeBytes(current_addr + PLAYERFITESS_STRUCT["inj_type"], 0)
+            writeBytes(current_addr + PLAYERFITESS_STRUCT["unk2"], 0)
+            writeBytes(current_addr + PLAYERFITESS_STRUCT["unk3"], 1)
+            writeBytes(current_addr + PLAYERFITESS_STRUCT["unk4"], 0)
+        end
+
+    end
+end
+
+function refill_stamina_in_player_team()
+    local playerids = get_user_team_playerids()
+    for i=1, #playerids do
+        local playerid = playerids[i]
+        local current_addr = get_player_fitness_addr(playerid)
+        if current_addr > 0 then
+            writeBytes(current_addr + PLAYERFITESS_STRUCT["fitness"], 100)
+        end
+    end
+end
+
+function get_player_fitness_addr(playerid)
+    local fitness_ptr = get_mode_manager_impl_ptr("FitnessManager")
+    local _start = readPointer(fitness_ptr + PLAYERFITESS_STRUCT['fitness_start_offset'])
+    local _end = readPointer(fitness_ptr + PLAYERFITESS_STRUCT['fitness_end_offset'])
+    if (not _start) or (not _end) then
+        return -1
+    end
+
+    local current_addr = _start
+    local _max = 2000
+    for i=1, _max do
+        if current_addr >= _end then
+            -- no player to edit
+            break
+        end
+        --self.logger:debug(string.format("Player Fitness current_addr: %X", current_addr))
+        local pid = readInteger(current_addr + PLAYERFITESS_STRUCT["pid"])
+        if pid == playerid then
+            player_found = true
+            break
+        end
+        current_addr = current_addr + PLAYERFITESS_STRUCT["size"]
+    end
+    if not player_found then
+        return 0
+    end
+    -- self.logger:debug(string.format("Player Fitness found at: %X", current_addr))
+    return current_addr
+end
+
+
+function set_all_players_sharpness(new_val)
+    local fitness_ptr = get_mode_manager_impl_ptr("FitnessManager")
+    local current = readPointer(fitness_ptr + PLAYERFITESS_STRUCT["sharpness_start_offset"])
+    set_players_sharpness(current, new_val)
+end
+
+function get_player_sharpness_addr(current_addr, playerid)
+    -- print(string.format("current_addr 0x%X", current_addr))
+    if current_addr == 0 then return 0 end
+
+    local pid = readInteger(current_addr + PLAYERFITESS_STRUCT['sharpness_pid'])
+    if pid == playerid then
+        return current_addr
+    elseif pid > playerid then
+        return get_player_sharpness_addr(readPointer(current_addr + PLAYERFITESS_STRUCT['sharpness_prev']), playerid)
+    else
+        return get_player_sharpness_addr(readPointer(current_addr + PLAYERFITESS_STRUCT['sharpness_next']), playerid)
+    end
+end
+
+function set_player_sharpness(current_addr, new_val)
+    writeBytes(current_addr + PLAYERFITESS_STRUCT["sharpness_value"], new_val)
+end
+
+function set_players_sharpness(current_addr, new_val)
+    if current_addr == 0 then return end
+    -- local pid = readInteger(current + PLAYERFITESS_STRUCT['sharpness_pid'])
+
+    set_player_sharpness(current_addr, new_val)
+    local _next = readPointer(current_addr + PLAYERFITESS_STRUCT['sharpness_next'])
+    local _prev = readPointer(current_addr + PLAYERFITESS_STRUCT['sharpness_prev'])
+
+    set_players_sharpness(_next, new_val)
+    set_players_sharpness(_prev, new_val)
+end
+
+function set_sharpness_for_pid(playerid, new_val)
+    local fitness_ptr = get_mode_manager_impl_ptr("FitnessManager")
+    local current = readPointer(fitness_ptr + PLAYERFITESS_STRUCT["sharpness_start_offset"])
+    local player_addr = get_player_sharpness_addr(current, playerid)
+    -- print(string.format("player_addr 0x%X", player_addr))
+    set_player_sharpness(player_addr, new_val)
+end
+-- FitnessManager End
+
+-- PlayerMoraleManager Start
+function get_player_morale_addr(playerid)
+    local size_of =  PLAYERMORALE_STRUCT['size']
+    local morale_ptr = get_mode_manager_impl_ptr("PlayerMoraleManager")
+    
+    local _start = readPointer(morale_ptr + PLAYERMORALE_STRUCT['_start'])
+    local _end = readPointer(morale_ptr + PLAYERMORALE_STRUCT['_end'])
+    if (not _start) or (not _end) then
+        return 0
+    end
+
+    local squad_size = ((_end - _start) // size_of) + 1
+    local current_addr = _start
+    local player_found = false
+    for i=0, squad_size, 1 do
+        if current_addr >= _end then
+            -- no player to edit
+            break
+        end
+        local pid = readInteger(current_addr + PLAYERMORALE_STRUCT['pid'])
+        if pid == playerid then
+            player_found = true
+            break
+        end
+        current_addr = current_addr + PLAYERMORALE_STRUCT['size']
+    end
+    if not player_found then
+        return 0
+    end
+
+    return current_addr
+end
+
+
+function set_players_morale(morale)
+    local size_of =  PLAYERMORALE_STRUCT['size']
+    local morale_ptr = get_mode_manager_impl_ptr("PlayerMoraleManager")
+    
+    local _start = readPointer(morale_ptr + PLAYERMORALE_STRUCT['_start'])
+    local _end = readPointer(morale_ptr + PLAYERMORALE_STRUCT['_end'])
+    if (not _start) or (not _end) then
+        return nil
+    end
+    
+    local squad_size = ((_end - _start) // size_of) + 1
+    local morale = PLAYERMORALE_STRUCT["values_array"][morale]
+    morale_ptr = _start
+    for i=0, squad_size, 1 do
+        local pid = readInteger(morale_ptr + PLAYERMORALE_STRUCT['pid'])
+        if morale_ptr == _end then
+            break
+        end
+    
+        writeInteger(morale_ptr+PLAYERMORALE_STRUCT['morale_val'], morale)
+        writeInteger(morale_ptr+PLAYERMORALE_STRUCT['contract'], morale)
+        writeInteger(morale_ptr+PLAYERMORALE_STRUCT['playtime'], morale)
+    
+        morale_ptr = morale_ptr + size_of
+    end
+end
+-- PlayerMoraleManager End
+
+-- PlayerFormManager Start
+
+function get_player_form_addr(playerid)
+    local result = 0
+
+    local size_of =  PLAYERFORM_STRUCT['size']
+    local form_ptr = get_mode_manager_impl_ptr("PlayerFormManager")
+    if not form_ptr then
+        return result
+    end
+
+    form_ptr = readPointer(form_ptr + PLAYERFORM_STRUCT['players_form_list_offset'])
+
+    local _start = readPointer(form_ptr + PLAYERFORM_STRUCT['_start'])
+    local _end = readPointer(form_ptr + PLAYERFORM_STRUCT['_end'])
+
+    if (not _start) or (not _end) then
+        return result
+    end
+
+    local squad_size = ((_end - _start) // size_of) + 1
+    local current_addr = _start
+    local player_found = false
+    for i=0, squad_size, 1 do
+        if current_addr == _end then
+            break
+        end
+
+        local pid = readInteger(current_addr + PLAYERFORM_STRUCT['pid'])
+        if pid == playerid then
+            player_found = true
+            break
+        end
+        current_addr = current_addr + size_of
+    end
+    if not player_found then
+        -- self.logger:debug("player form not found")
+        return 0
+    end
+    return current_addr
+end
+
+function set_players_form(frm)
+    local size_of =  PLAYERFORM_STRUCT['size']
+    local form_ptr = get_mode_manager_impl_ptr("PlayerFormManager")
+    if not form_ptr then
+        return
+    end
+
+    form_ptr = readPointer(form_ptr + PLAYERFORM_STRUCT['players_form_list_offset'])
+
+    local _start = readPointer(form_ptr + PLAYERFORM_STRUCT['_start'])
+    local _end = readPointer(form_ptr + PLAYERFORM_STRUCT['_end'])
+
+    if (not _start) or (not _end) then
+        return
+    end
+    local form_val = PLAYERFORM_STRUCT["values_array"][frm]
+
+    local squad_size = ((_end - _start) // size_of) + 1
+    local current_addr = _start
+
+    for i=0, squad_size, 1 do
+        local pid = readInteger(current_addr + PLAYERFORM_STRUCT['pid'])
+        if current_addr == _end then
+            break
+        end
+        -- -- print(string.format("PlayerID: %d, %X", pid, current_addr))
+        writeInteger(current_addr+PLAYERFORM_STRUCT['form'], frm)
+        for j=0, 9 do
+            local off = PLAYERFORM_STRUCT['last_games_avg_1'] + (j * 4)
+            writeInteger(current_addr+off, form_val)
+        end
+        writeInteger(current_addr+PLAYERFORM_STRUCT['recent_avg'], form_val)
+
+        current_addr = current_addr + size_of
+    end
+end
+-- PlayerFormManager End
+
+-- PlayerGrowthManager Start
+
+function get_players_in_player_growth_system()
+    local result = {}
+    local _max = 55
+
+    local pgs_ptr = get_mode_manager_impl_ptr("PlayerGrowthManager")
+    if not pgs_ptr then
+        return result
+    end
+
+    local _start = readPointer(pgs_ptr + PLAYERGROWTHSYSTEM_STRUCT["_start"])
+    local _end = readPointer(pgs_ptr + PLAYERGROWTHSYSTEM_STRUCT["_end"])
+    if (not _start) or (not _end) then
+        return result
+    end
+
+    local current_addr = _start
+    for i=1, _max do
+        if current_addr >= _end then
+            return result
+        end
+        local pid = readInteger(current_addr + PLAYERGROWTHSYSTEM_STRUCT["pid"])
+        result[pid] = current_addr
+        current_addr = current_addr + PLAYERGROWTHSYSTEM_STRUCT["size"]
+    end
+    return result
+end
+
+function get_field_offset_in_player_growth_system(field_name)
+    local fields_ordered_array = PlayerGrowthManager_Data["fields_ordered_array"]
+    for i=1, #fields_ordered_array do
+        if field_name == fields_ordered_array[i] then
+            return i * 4
+        end
+    end
+
+    return 0
+end
+
+function get_xp_to_apply_in_player_growth_system(field_name, new_value)
+    -- Make sure new value is valid
+    if new_value < 1 then
+        new_value = 1
+    else
+        if field_name == "attackingworkrate" or field_name == "defensiveworkrate" then
+            if new_value > 3 then
+                new_value = 3
+            end
+        elseif field_name == "weakfootabilitytypecode" or field_name == "skillmoves" then
+            if new_value > 5 then
+                new_value = 5
+            end
+        elseif new_value > 99 then
+            new_value = 99
+        end
+    end
+
+    local xp_points_to_apply = 1000
+    if field_name == "attackingworkrate" or field_name == "defensiveworkrate" then
+        xp_points_to_apply = PlayerGrowthManager_Data["xp_to_wr"][new_value]
+    elseif field_name == "weakfootabilitytypecode" or field_name == "skillmoves" then
+        xp_points_to_apply = PlayerGrowthManager_Data["xp_to_star"][new_value]
+    else
+        xp_points_to_apply = PlayerGrowthManager_Data["xp_to_attribute"][new_value]
+    end
+
+    return xp_points_to_apply
+end
+
+-- PlayerGrowthManager End
 
 function value_to_date(value)
     -- Convert value from the game to human readable form (format: DD/MM/YYYY)
