@@ -2890,54 +2890,18 @@ function thisFormManager:fill_form(addrs, playerid)
     self.logger:debug(string.format("fill_form %s done", self.name))
 end
 
-function thisFormManager:get_player_fitness_addr(playerid)
-    local fitness_ptr = get_mode_manager_impl_ptr("FitnessManager")
-    -- 0x19a0 start
-    -- 0x19a8 end
-    -- fm001
-    local _start = readPointer(fitness_ptr + PLAYERFITESS_STRUCT['fitness_start_offset'])
-    local _end = readPointer(fitness_ptr + PLAYERFITESS_STRUCT['fitness_end_offset'])
-    if (not _start) or (not _end) then
-        self.logger:info("No Fitness start or end")
-        return -1
-    end
-    -- self.logger:debug(string.format("Player Fitness _start: %X", _start))
-    -- self.logger:debug(string.format("Player Fitness _end: %X", _end))
-    local current_addr = _start
-    local player_found = false
-    local _max = 2000
-    for i=1, _max do
-        if current_addr >= _end then
-            -- no player to edit
-            break
-        end
-        --self.logger:debug(string.format("Player Fitness current_addr: %X", current_addr))
-        local pid = readInteger(current_addr + PLAYERFITESS_STRUCT["pid"])
-        if pid == playerid then
-            player_found = true
-            break
-        end
-        current_addr = current_addr + PLAYERFITESS_STRUCT["size"]
-    end
-    if not player_found then
-        return 0
-    end
-    self.logger:debug(string.format("Player Fitness found at: %X", current_addr))
-    return current_addr
-end
-
 function thisFormManager:save_player_fitness(playerid, new_fitness, is_injured, injury_type, full_fit_on)
     self.logger:info("save_player_fitness no space")
     if not playerid then
         self.logger:error("save_player_fitness no playerid!")
         return
     end
-    local current_addr = self:get_player_fitness_addr(playerid)
+    local current_addr = get_player_fitness_addr(playerid)
     if current_addr == -1 then return end
 
     -- Get first free
     if current_addr == 0 then
-        current_addr = self:get_player_fitness_addr(4294967295)
+        current_addr = get_player_fitness_addr(4294967295)
 
         if current_addr <= 0 then
             self.logger:error("save_player_fitness no space")
@@ -2947,15 +2911,14 @@ function thisFormManager:save_player_fitness(playerid, new_fitness, is_injured, 
         writeInteger(current_addr + PLAYERFITESS_STRUCT["pid"], playerid)
         writeInteger(current_addr + PLAYERFITESS_STRUCT["tid"], 4294967295)
         writeInteger(current_addr + PLAYERFITESS_STRUCT["full_fit_date"], 20080101)
-        writeInteger(current_addr + PLAYERFITESS_STRUCT["unk_date"], 20080101)
-        writeBytes(current_addr + PLAYERFITESS_STRUCT["unk0"], 0)
+        writeInteger(current_addr + PLAYERFITESS_STRUCT["partial_fit_date"], 20080101)
+        writeBytes(current_addr + PLAYERFITESS_STRUCT["days_since_game"], 0)
         writeBytes(current_addr + PLAYERFITESS_STRUCT["fitness"], 100)
         writeBytes(current_addr + PLAYERFITESS_STRUCT["is_injured"], 0)
-        writeBytes(current_addr + PLAYERFITESS_STRUCT["unk1"], 0)
+        writeBytes(current_addr + PLAYERFITESS_STRUCT["inj_part"], 0)
         writeBytes(current_addr + PLAYERFITESS_STRUCT["inj_type"], 0)
-        writeBytes(current_addr + PLAYERFITESS_STRUCT["unk2"], 0)
-        writeBytes(current_addr + PLAYERFITESS_STRUCT["unk3"], 1)
-        writeBytes(current_addr + PLAYERFITESS_STRUCT["unk4"], 0)
+        writeBytes(current_addr + PLAYERFITESS_STRUCT["recovery_stage"], 0)
+        writeBytes(current_addr + PLAYERFITESS_STRUCT["in_use"], 1)
     end
 
     if new_fitness then
@@ -2984,24 +2947,23 @@ function thisFormManager:save_player_fitness(playerid, new_fitness, is_injured, 
 
         if is_injured and injury_type > 0 and full_fit_on then
             writeInteger(current_addr + PLAYERFITESS_STRUCT["full_fit_date"], full_fit_on)
-            writeInteger(current_addr + PLAYERFITESS_STRUCT["unk_date"], full_fit_on)
-            writeBytes(current_addr + PLAYERFITESS_STRUCT["unk0"], 0)
+            writeInteger(current_addr + PLAYERFITESS_STRUCT["partial_fit_date"], full_fit_on)
+            writeBytes(current_addr + PLAYERFITESS_STRUCT["days_since_game"], 0)
             writeBytes(current_addr + PLAYERFITESS_STRUCT["is_injured"], 1)
-            writeBytes(current_addr + PLAYERFITESS_STRUCT["unk1"], 17)
+            writeBytes(current_addr + PLAYERFITESS_STRUCT["inj_part"], 17)
             writeBytes(current_addr + PLAYERFITESS_STRUCT["inj_type"], injury_type)
-            writeBytes(current_addr + PLAYERFITESS_STRUCT["unk2"], 2)
-            writeBytes(current_addr + PLAYERFITESS_STRUCT["unk3"], 1)
-            writeBytes(current_addr + PLAYERFITESS_STRUCT["unk4"], 0)
+            writeBytes(current_addr + PLAYERFITESS_STRUCT["recovery_stage"], 2)
+            writeBytes(current_addr + PLAYERFITESS_STRUCT["in_use"], 1)
+
         else
             writeInteger(current_addr + PLAYERFITESS_STRUCT["full_fit_date"], 20080101)
-            writeInteger(current_addr + PLAYERFITESS_STRUCT["unk_date"], 20080101)
-            writeBytes(current_addr + PLAYERFITESS_STRUCT["unk0"], 0)
+            writeInteger(current_addr + PLAYERFITESS_STRUCT["partial_fit_date"], 20080101)
+            writeBytes(current_addr + PLAYERFITESS_STRUCT["days_since_game"], 0)
             writeBytes(current_addr + PLAYERFITESS_STRUCT["is_injured"], 0)
-            writeBytes(current_addr + PLAYERFITESS_STRUCT["unk1"], 0)
+            writeBytes(current_addr + PLAYERFITESS_STRUCT["inj_part"], 0)
             writeBytes(current_addr + PLAYERFITESS_STRUCT["inj_type"], 0)
-            writeBytes(current_addr + PLAYERFITESS_STRUCT["unk2"], 0)
-            writeBytes(current_addr + PLAYERFITESS_STRUCT["unk3"], 1)
-            writeBytes(current_addr + PLAYERFITESS_STRUCT["unk4"], 0)
+            writeBytes(current_addr + PLAYERFITESS_STRUCT["recovery_stage"], 0)
+            writeBytes(current_addr + PLAYERFITESS_STRUCT["in_use"], 1)
         end
     end
 end
@@ -3023,7 +2985,7 @@ function thisFormManager:load_player_fitness(playerid)
         return
     end
 
-    local current_addr = self:get_player_fitness_addr(playerid)
+    local current_addr = get_player_fitness_addr(playerid)
     if current_addr == -1 then
         fn_comps_vis(false)
         return

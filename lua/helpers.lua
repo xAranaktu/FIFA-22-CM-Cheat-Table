@@ -101,6 +101,55 @@ function get_mode_manager_impl_ptr(manager_name)
     return result
 end
 
+-- ScoutManager Start
+function ya_reveal_data()
+    local mgr = get_mode_manager_impl_ptr("YouthPlayerUtil")
+    if not mgr or mgr == 0 then return end
+
+    local ya_settings = readPointer(mgr + YOUTHPLAYERUTIL_STRUCT["settings_offset"])
+    local current_addr = ya_settings + YOUTHPLAYERUTIL_STRUCT["pot_var_off"]
+    local _max = YOUTHPLAYERUTIL_STRUCT["variance_n"] * 2
+
+    -- Max Display ovr/pot = 99
+    writeInteger(ya_settings + YOUTHPLAYERUTIL_STRUCT["max_display_val_offset"], 99)
+
+    for i=1, _max do
+        writeInteger(current_addr, 0)
+        current_addr = current_addr + 4
+    end
+end
+
+function ya_free_missions()
+    local mgr = get_mode_manager_impl_ptr("ScoutManager")
+    if not mgr or mgr == 0 then return end
+
+    local _max = 3
+    local current_addr = mgr + SCOUTMANAGER_STRUCT["base_mission_cost_off"]
+
+    for i=1, _max do
+        writeInteger(current_addr, 0)
+        current_addr = current_addr + 4
+    end
+
+end
+
+function ya_max_per_report()
+    local mgr = get_mode_manager_impl_ptr("ScoutManager")
+    if not mgr or mgr == 0 then return end
+
+    local _max = SCOUTMANAGER_STRUCT["max_exp"] * SCOUTMANAGER_STRUCT["ranges_num"]
+    local current_addr = mgr + SCOUTMANAGER_STRUCT["players_per_report_off"]
+    local max_per_report = 15
+
+    for i=1, _max do
+        writeInteger(current_addr, max_per_report)
+        current_addr = current_addr + 4
+    end
+
+end
+
+-- ScoutManager End
+
 -- PlayerStatusManager Startt
 
 function get_squad_role_addr(playerid)
@@ -172,6 +221,19 @@ end
 -- PlayerContractManager End
 
 -- FitnessManager Start
+function _print_user_team_stamina_addresses()
+    local playerids = get_user_team_playerids()
+    for i=1, #playerids do
+        local playerid = playerids[i]
+        local current_addr = get_player_fitness_addr(playerid)
+
+        if current_addr > 0 then
+            print(string.format("%d - 0x%X", playerid, current_addr))
+        end
+
+    end
+end
+
 function heal_all_in_player_team()
     local playerids = get_user_team_playerids()
     for i=1, #playerids do
@@ -186,15 +248,14 @@ function heal_all_in_player_team()
             writeInteger(current_addr + PLAYERFITESS_STRUCT["pid"], playerid)
             writeInteger(current_addr + PLAYERFITESS_STRUCT["tid"], 4294967295)
             writeInteger(current_addr + PLAYERFITESS_STRUCT["full_fit_date"], 20080101)
-            writeInteger(current_addr + PLAYERFITESS_STRUCT["unk_date"], 20080101)
-            writeBytes(current_addr + PLAYERFITESS_STRUCT["unk0"], 0)
+            writeInteger(current_addr + PLAYERFITESS_STRUCT["partial_fit_date"], 20080101)
+            writeBytes(current_addr + PLAYERFITESS_STRUCT["days_since_game"], 0)
             writeBytes(current_addr + PLAYERFITESS_STRUCT["fitness"], 100)
             writeBytes(current_addr + PLAYERFITESS_STRUCT["is_injured"], 0)
-            writeBytes(current_addr + PLAYERFITESS_STRUCT["unk1"], 0)
+            writeBytes(current_addr + PLAYERFITESS_STRUCT["inj_part"], 0)
             writeBytes(current_addr + PLAYERFITESS_STRUCT["inj_type"], 0)
-            writeBytes(current_addr + PLAYERFITESS_STRUCT["unk2"], 0)
-            writeBytes(current_addr + PLAYERFITESS_STRUCT["unk3"], 1)
-            writeBytes(current_addr + PLAYERFITESS_STRUCT["unk4"], 0)
+            writeBytes(current_addr + PLAYERFITESS_STRUCT["recovery_stage"], 0)
+            writeBytes(current_addr + PLAYERFITESS_STRUCT["in_use"], 1)
         end
 
     end
@@ -205,8 +266,9 @@ function refill_stamina_in_player_team()
     for i=1, #playerids do
         local playerid = playerids[i]
         local current_addr = get_player_fitness_addr(playerid)
+        -- print(string.format("%d - 0x%X", playerid, current_addr))
         if current_addr > 0 then
-            writeBytes(current_addr + PLAYERFITESS_STRUCT["fitness"], 100)
+            -- writeBytes(current_addr + PLAYERFITESS_STRUCT["fitness"], 100)
         end
     end
 end
@@ -215,11 +277,15 @@ function get_player_fitness_addr(playerid)
     local fitness_ptr = get_mode_manager_impl_ptr("FitnessManager")
     local _start = readPointer(fitness_ptr + PLAYERFITESS_STRUCT['fitness_start_offset'])
     local _end = readPointer(fitness_ptr + PLAYERFITESS_STRUCT['fitness_end_offset'])
+
+    -- print(string.format("fitness_ptr 0x%X 0x%X - 0x%X", fitness_ptr, _start, _end))
+
     if (not _start) or (not _end) then
         return -1
     end
-
+    
     local current_addr = _start
+    local player_found = false
     local _max = 2000
     for i=1, _max do
         if current_addr >= _end then

@@ -51,6 +51,7 @@ AOB_PATTERNS = {
     SideManipulator = '48 8B 84 CF 18 01 00 00 83',
     PGMApplyXp = 'F3 0F 2C C1 41 01 07',
     MatchScore = '8B 90 B4 26 02 00',
+    MatchTimer = '8B 41 50 89 47 10',
     DisableSubstitutions = '44 8B B4 1E 5C A7 00 00',
     IngameStamina = '89 83 A0 04 00 00 8B 47',
     UnlimitedSubstitutions = '8B 84 01 0C 9F 00 00',
@@ -66,44 +67,38 @@ AOB_PATTERNS = {
     IntJobOffer = '48 2B 88 80 01 00 00 48 B8 89 88 88 88 88 88 88 88 48 F7 E9 48 03 D1 48 C1 FA 05 48 8B C2 48 C1 E8 3F 48 03 D0 85 D2',
     ClubJobOfferAlwaysAccept = 'FF 50 08 3B 47 2C',
     ClubJobOffer = 'FF 50 78 48 8B BE D8 00 00 00',
+    OnSharpnessChange = '41 88 71 24 48 8B 5C 24 50',
+    OnStaminaChange1 = '0F BE C2 88 51 11',
+    OnStaminaChange2 = '88 43 11 0F B6 47 0D',
+    EditPlayerName = '33 DB C6 45 D0 00 C6 45 DF 0F 48 89 5D E0 4C 8D 40 01',
+
+    ChangeStadium = '41 8B B4 24 C4 18 00 00',
+    MatchHalfLength = '45 8B 84 24 E8 18 00 00',
+    MatchWeather = '83 F8 FF 0F 44 C6 48 81',
+    MatchTODDisplay = '44 8B 4F 40 C1 FA 05',
+    MatchTODReal = '49 8B C5 B9 02 00 00 00',
+
+    PAPNewOffer = '80 B9 D9 02 00 00 00',
 
     -- TODO Update FIFA 22
-    pCareerModeSmth = '48 89 35 ?? ?? ?? ?? 41 B8 01 00 00 00 48 8D 15',
-    DisablePGM = '85 C0 0F 95 85 ?? ?? ?? ?? 32 DB 41 8B F6',
     PAPTrainingBestGrade = '8B 93 B0 00 00 00 48 8B CD',
     PAPMoreEfficientTraining = '66 0F 6E 5E 1C',
     PAPUnlimitedTrainingSessions = '41 8B 5F 38 45 8B 7F 3C',
     PAPTrainingEveryday = '83 6F 3C 01 ?? ?? ?? ?? ?? ?? B9 07 00 00 00 89 4F 3C',
     PAPIgnoreDayWithMatch = '48 8B CE FF 50 20 85 C0 74 05 40',
     PAPUnlockPlayButtons = '80 79 41 00 74 0C',
-    OnSharpnessChange = '41 88 71 24 48 8B 5C 24 50',
-    OnStaminaChange1 = '0F BE C2 88 51 11',
-    OnStaminaChange2 = '88 43 11 0F B6 47 0D',
-    ChangeStadium = '45 8B AC 24 C4 18 00 00',
-    MatchHalfLength = '44 8B 83 E8 18 00 00',
-    MatchWeather = '83 F8 FF 0F 44 C6 EB',
-    MatchTODDisplay = '44 8B 4F 40 C1 FA 05',
-    MatchTODReal = '4D 8B CE 49 8B CD B8',
-    
+
     fnGenYAReport = '48 33 C4 48 89 45 40 48 8B F9 48 8B 01 FF',    -- -0x2B
     GenNewYAReport = '41 8D 44 24 0E',
     InterceptpScoutManager = '48 8B 0C 03 48 8B 01 FF 50 20',
     YouthAcademyGeneratePlayer = 'FF 40 32 F6 48 8B 5C 24 70',
 
-    PAPNewOffer = '83 B9 BC 01 00 00 FF 74 0E 44 38 A1 D0 01 00 00 C6 44 24 ?? 01 75 05 44 88 64 24 ?? 83 B9 BC 01 00 00 FF',
     
 
     
-    
-    AllowSignText = '41 FF D1 89 45 58',
-
-    EditPlayerName = '0F 57 C0 48 C7 44 24 30 00 00 00 00 0F 11 44 24 20 C6 44 24 2F 0F 80 78 01',
     GameSettings = '49 63 C4 8B 74 C3 58',
     CPUDontChangeLineup = '66 83 F9 01 0F 85 99 00 00 00',
-    MatchTimer = '8B 41 50 89 47 10',
-    
-    
-    
+
     AgreeTransferRequest = '44 8B E8 48 8B 89 98 01 00 00',
 
     MaxYAPlayersPerReport = '48 8B 01 FF 50 08 84 C0 0F 84 ?? ?? ?? ?? 49 8B ?? 08 48 8B 82 78 0F 00 00',
@@ -114,10 +109,6 @@ AOB_PATTERNS = {
     CustomTransfers = '84 C0 48 8B 01 74 ?? FF 50 10 41',
     NegStatusCheck = 'FF 90 30 01 00 00 89 47 18',
     ContractNeg = '48 8B 50 38 48 83 EA 40 49 FF 60 08 CC CC CC CC CC',
-    
-
-    UniqueSprint = '45 8B 8A 84 01 00 00',
-    PAPAccompl = "8B 84 A9 18 07 00 00",
 
     -- Free fly camera
     CAM_ROTATE = "F3 0F 11 83 C8 05 00 00 F3",
@@ -134,7 +125,7 @@ AOB_PATTERNS = {
         MODULE_NAME = 'FootballCompEng_Win64_retail.dll',
         AOBS = {
             Calendar = '41 8B C5 89 85 90 00 00 00',
-            SimMatchSettings = '45 8B 91 A4 00 00 00',
+            SimMatchSettings = '8B A8 A4 00 00 00',
             MatchFixing = '48 8B 0B 48 8B 00',
             MatchFixingGoals = '48 8B 3C C8 48 85 FF 74 ?? 48 8B 4E 10'
         }
@@ -6542,10 +6533,30 @@ MODE_MANAGERS_OFFSETS = {
     FitnessManager = 0x5B8,
     TcmFinanceManager = 0x7F8,
     PlayerContractManager = 0x8D8,
+    PlayerDataRevealManager = 0x8F8,
     PlayerFormManager = 0x938,
     PlayerGrowthManager = 0x958,
     PlayerMoraleManager = 0x998,
-    PlayerStatusManager = 0xA18
+    PlayerStatusManager = 0xA18,
+    ScoutManager = 0xB38,
+    YouthPlayerUtil = 0xF98,
+}
+
+YOUTHPLAYERUTIL_STRUCT = {
+    variance_n = 6,
+    settings_offset = 0x18,
+    pot_var_off = 0x798,
+    max_display_val_offset = 0x7CC
+}
+
+SCOUTMANAGER_STRUCT = {
+    ranges_num = 2,
+    max_exp = 5,
+    max_know = 5,
+    -- EXPERIENCE_1_PERC_FIND_PLAYERS_RANGE_0
+    base_mission_cost_off = 0x28,
+    players_per_report_off = 0x54,
+
 }
 
 PLAYERFORM_STRUCT = {
@@ -6581,15 +6592,14 @@ PLAYERFITESS_STRUCT = {
     pid = 0x0,
     tid = 0x4, -- -1 (?!)
     full_fit_date = 0x8,
-    unk_date = 0xC,
-    unk0 = 0x10,
+    partial_fit_date = 0xC,
+    days_since_game = 0x10,
     fitness = 0x11,
     is_injured = 0x12,
-    unk1 = 0x13,
+    inj_part = 0x13,
     inj_type = 0x14,
-    unk2 = 0x15, -- 3
-    unk3 = 0x16, -- 1
-    unk4 = 0x17, -- 0
+    recovery_stage = 0x15, -- 3
+    in_use = 0x16, -- 1
 
     fitness_start_offset = 0x19A0,
     fitness_end_offset = 0x19A8,
