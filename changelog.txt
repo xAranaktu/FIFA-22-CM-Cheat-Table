@@ -1,3 +1,9 @@
+v22.1.0.8:
+    - Added "Clone" tab to "Players Editor"
+    - Added to "Non-CM Related":
+        - "Game Settings" -> "Camera"
+        - "Free Fly Camera"
+
 v22.1.0.7:
     - Update shoe list in "randomize_shoe_models.lua" script
     - Added "Teams Editor":
