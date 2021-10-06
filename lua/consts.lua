@@ -80,6 +80,13 @@ AOB_PATTERNS = {
 
     PAPNewOffer = '80 B9 D9 02 00 00 00',
 
+    YAMaxPerReport = '47 8B 44 FE 58',
+    VProSkillPoints = '8B 48 04 89 8B 8C 06 00 00',
+    CreatedPlayerTrainingXP = '89 46 04 89 3E',
+
+    -- On view scout report
+    YAYouthPlayerUtilSettings = '48 8B 51 18 48 8D 8D ?? ?? ?? ?? 48 83 C2 08 E8 ?? ?? ?? ?? 44 8B 85 ?? ?? ?? ?? 45 8B F8 48 63 44 24',
+
     -- TODO Update FIFA 22
     PAPTrainingBestGrade = '8B 93 B0 00 00 00 48 8B CD',
     PAPMoreEfficientTraining = '66 0F 6E 5E 1C',

@@ -3278,8 +3278,8 @@ function thisFormManager:save_player_release_clause(playerid, teamid, new_value)
     end
 
     local rlc_ptr = get_mode_manager_impl_ptr("PlayerContractManager")
-    local _start = readPointer(fitness_ptr + PLAYERRLC_STRUCT['_start'])
-    local _end = readPointer(fitness_ptr + PLAYERRLC_STRUCT['_end'])
+    local _start = readPointer(rlc_ptr + PLAYERRLC_STRUCT['_start'])
+    local _end = readPointer(rlc_ptr + PLAYERRLC_STRUCT['_end'])
     if add_clause then
         current_addr = _end
         writeQword(rlc_ptr+PLAYERRLC_STRUCT['_end'], current_addr+PLAYERRLC_STRUCT["size"])

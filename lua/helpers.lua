@@ -105,9 +105,11 @@ end
 function ya_reveal_data()
     local mgr = get_mode_manager_impl_ptr("YouthPlayerUtil")
     if not mgr or mgr == 0 then return end
-
+    --print(string.format("%X", mgr))
     local ya_settings = readPointer(mgr + YOUTHPLAYERUTIL_STRUCT["settings_offset"])
     local current_addr = ya_settings + YOUTHPLAYERUTIL_STRUCT["pot_var_off"]
+    --print(string.format("%X", current_addr))
+
     local _max = YOUTHPLAYERUTIL_STRUCT["variance_n"] * 2
 
     -- Max Display ovr/pot = 99
