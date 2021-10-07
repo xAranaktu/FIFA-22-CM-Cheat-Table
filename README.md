@@ -11,14 +11,14 @@
 I recommend to use [Cheat Engine 7.3](https://cheatengine.org/downloads.php) or newer for the FIFA 22 cheat table.
 
 ***
-![](https://i.imgur.com/pFsU5pT.png)
+![](https://i.imgur.com/A1CvRRl.png)
 
 The FIFA 22 Career Mode Cheat Table allows you to modify many aspects of you career mode.
 For example you can edit players (potential, attributes, name etc.), transfer budget, boost/nerf players development, play single career for more than 15 seasons, change weather/stadium/time of the day before match, send youth academy scout to any country... and many more!
 
 ***
 
-![](https://i.imgur.com/P0KBK7r.png)
+![](https://i.imgur.com/s7KsyrO.png)
 
 This cheat table has also an graphical user interface (GUI) which makes editing a little bit easier for inexperienced users.
 
@@ -30,6 +30,14 @@ This cheat table has also an graphical user interface (GUI) which makes editing 
 ![](https://i.imgur.com/YqDq4xa.png)
 ![](https://i.imgur.com/EAwprpX.png)
 ![](https://i.imgur.com/go6CoXt.png)
+
+![](https://i.imgur.com/bRhxh4u.png)
+![](https://i.imgur.com/zNKDnFY.png)
+![](https://i.imgur.com/HZ0Jvpa.png)
+![](https://i.imgur.com/vTpHpAv.png)
+
+![](https://i.imgur.com/ew3qoa3.png)
+![](https://i.imgur.com/zDA9VCX.png)
 
 ***
 ### Useful links
