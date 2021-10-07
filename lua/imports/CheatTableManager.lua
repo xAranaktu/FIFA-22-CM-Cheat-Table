@@ -375,15 +375,13 @@ function TableManager:can_autoactivate(script_id)
 end
 
 function TableManager:setup_internal_calls()
-    self.logger:debug("TODO: setup_internal_calls")
+    local funcGenReportaddr = self.memory_manager:get_validated_address("fnGenYAReport")
+    if not funcGenReportaddr then return end
 
-    -- local funcGenReportaddr = self.memory_manager:get_validated_address("fnGenYAReport")
-    -- if not funcGenReportaddr then return end
+    funcGenReportaddr = tonumber(funcGenReportaddr, 16)
 
-    -- funcGenReportaddr = tonumber(funcGenReportaddr, 16) - 0x2B
-
-    -- --print(string.format("%X", funcGenReportaddr))
-    -- writeQword("funcGenReport", funcGenReportaddr)
+    -- print(string.format("%X", funcGenReportaddr))
+    writeQword("funcGenReport", funcGenReportaddr)
 end
 
 function TableManager:init_ptrs()
@@ -596,8 +594,7 @@ function TableManager:autoactivate_scripts()
     local always_activate = {
         14, -- Globals
         18, -- Scripts
-        214, -- Hidden FIFA DB Tables
-        4774 -- Obtain Scout Mgr Ptr
+        214 -- Hidden FIFA DB Tables
     }
 
     for i=1, #always_activate do

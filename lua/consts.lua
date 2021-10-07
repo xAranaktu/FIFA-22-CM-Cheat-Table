@@ -84,6 +84,10 @@ AOB_PATTERNS = {
     VProSkillPoints = '8B 48 04 89 8B 8C 06 00 00',
     CreatedPlayerTrainingXP = '89 46 04 89 3E',
 
+    GenNewYAReport = '83 C0 0E F2 0F 11 54 24 2C',
+    fnGenYAReport = '40 55 57 48 8D 6C 24 ?? 48 81 EC ?? ?? ?? ?? 48 8B 01 48 8B F9 FF 50 08 84 C0 0F 84 ?? ?? ?? ?? 48 8B 57 08 48 89 9C 24 ?? ?? ?? ?? 4C 89 B4 24 ?? ?? ?? ??',
+    YouthAcademyGeneratePlayer = '28 FF FF FF FF 48 8B 5C 24 70',
+
     -- On view scout report
     YAYouthPlayerUtilSettings = '48 8B 51 18 48 8D 8D ?? ?? ?? ?? 48 83 C2 08 E8 ?? ?? ?? ?? 44 8B 85 ?? ?? ?? ?? 45 8B F8 48 63 44 24',
 
@@ -95,24 +99,12 @@ AOB_PATTERNS = {
     PAPIgnoreDayWithMatch = '48 8B CE FF 50 20 85 C0 74 05 40',
     PAPUnlockPlayButtons = '80 79 41 00 74 0C',
 
-    fnGenYAReport = '48 33 C4 48 89 45 40 48 8B F9 48 8B 01 FF',    -- -0x2B
-    GenNewYAReport = '41 8D 44 24 0E',
-    InterceptpScoutManager = '48 8B 0C 03 48 8B 01 FF 50 20',
-    YouthAcademyGeneratePlayer = 'FF 40 32 F6 48 8B 5C 24 70',
-
-    
-
-    
     GameSettings = '49 63 C4 8B 74 C3 58',
     CPUDontChangeLineup = '66 83 F9 01 0F 85 99 00 00 00',
 
     AgreeTransferRequest = '44 8B E8 48 8B 89 98 01 00 00',
+    YASomeScoutIni = '48 48 8B 07 48 8B 80 98 01 00 00',
 
-    MaxYAPlayersPerReport = '48 8B 01 FF 50 08 84 C0 0F 84 ?? ?? ?? ?? 49 8B ?? 08 48 8B 82 78 0F 00 00',
-    YARevealOvrAndPot = '48 8B 51 28 48 8D 8D 30 01 00 00 48 83 C2 08 41 B8 A4 08 00 00 E8 ?? ?? ?? ?? 48 63 44 24 38',
-    YASomeScoutIni = '48 8D 4C 24 20 48 83 C2 08 41',
-    YARemoveMinAgeRequirement = '89 43 40 85 C0',
-    
     CustomTransfers = '84 C0 48 8B 01 74 ?? FF 50 10 41',
     NegStatusCheck = 'FF 90 30 01 00 00 89 47 18',
     ContractNeg = '48 8B 50 38 48 83 EA 40 49 FF 60 08 CC CC CC CC CC',
