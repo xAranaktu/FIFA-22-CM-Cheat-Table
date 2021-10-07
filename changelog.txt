@@ -1,3 +1,11 @@
+v22.1.0.9:
+    - Fixed "Editing Player" -> "Player Data" script
+    - Added to GUI:
+        - "Transfer Players"
+        - "Match Schedule Editor"
+    - Added scripts to "users scripts" folder:
+        - fix_players_headmodels.lua
+
 v22.1.0.8:
     - Added "Clone" tab to "Players Editor"
     - Added to "Non-CM Related":
