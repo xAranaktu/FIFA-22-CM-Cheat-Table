@@ -396,104 +396,18 @@ function TableManager:init_ptrs()
     self.logger:debug(string.format("DB_Two_Tables_ptr %X", DB_Two_Tables_ptr))
     self.logger:debug(string.format("DB_Three_Tables_ptr %X", DB_Three_Tables_ptr))
 
-    -- Bruteforce
-    -- local base_ptr = gCTManager.memory_manager:get_validated_resolved_ptr("DatabaseBasePtr", 4)
-    -- local one = gCTManager.memory_manager:read_multilevel_pointer(readPointer(base_ptr), {0x10, 0x390})
-    -- local two = gCTManager.memory_manager:read_multilevel_pointer(readPointer(base_ptr), {0x10, 0x3C0})
-    -- local three = gCTManager.memory_manager:read_multilevel_pointer(readPointer(base_ptr), {0x10, 0x3F0})
-    -- local sh_n = {
-    --     CZUM = "players",
-    --     bneD = "dcplayernames",
-    --     nQVU = "editedplayernames",
-    --     RrqT = "teamplayerlinks",
-    --     lyxL = "teams",
-    --     qdZF = "leagueteamlinks",
-    --     Knen = "manager",
-    --     GJUr = "career_calendar",
-    --     DvsP = "career_playercontract",
-    --     mPrV = "career_users",
-    --     AGmV = "default_teamsheets",
-    --     ONtg = "default_mentalities"
-    -- }
-    -- 
-    -- local bruteforce_find = {
-    --     "CZUM",
-    --     "bneD",
-    --     "nQVU",
-    --     "RrqT",
-    --     "lyxL",
-    --     "qdZF",
-    --     "Knen",
-    --     "GJUr",
-    --     "DvsP",
-    --     "mPrV",
-    --     "AGmV",
-    --     "ONtg"
-    -- }
-    -- 
-    -- 
-    -- local xxx = 0
-    -- local yyy = 0
-    -- local taddr = 0
-    -- 
-    -- xxx = 0
-    -- yyy = 0
-    -- print("one")
-    -- taddr = one
-    -- for i=1, 1024 do
-    --     local shortname = readString(readPointer(taddr + xxx) + 0x14, 4)
-    --     if shortname ~= nil then
-    --         yyy = gCTManager.memory_manager:read_multilevel_pointer(taddr, {xxx, 0x28, 0x30})
-    --         for zzz=1, #bruteforce_find do
-    --             if bruteforce_find[zzz] == shortname then
-    --                 gCTManager.logger:debug(string.format("%s %X iiii -> 0x%X", sh_n[shortname], yyy,  xxx))
-    --             end
-    --         end
-    --     end
-    -- 
-    --     xxx = xxx + 8
-    -- end
-    -- 
-    -- xxx = 0
-    -- yyy = 0
-    -- print("two")
-    -- taddr = two
-    -- for i=1, 1024 do
-    --     local shortname = readString(readPointer(taddr + xxx) + 0x14, 4)
-    --     if shortname ~= nil then
-    --         yyy = gCTManager.memory_manager:read_multilevel_pointer(taddr, {xxx, 0x28, 0x30})
-    --         for zzz=1, #bruteforce_find do
-    --             if bruteforce_find[zzz] == shortname then
-    --                 gCTManager.logger:debug(string.format("%s %X iiii -> 0x%X", sh_n[shortname], yyy,  xxx))
-    --             end
-    --         end
-    --     end
-    -- 
-    --     xxx = xxx + 8
-    -- end
-    -- 
-    -- xxx = 0
-    -- yyy = 0
-    -- print("three")
-    -- taddr = three
-    -- for i=1, 1024 do
-    --     local shortname = readString(readPointer(taddr + xxx) + 0x14, 4)
-    --     if shortname ~= nil then
-    --         yyy = gCTManager.memory_manager:read_multilevel_pointer(taddr, {xxx, 0x28, 0x30})
-    --         for zzz=1, #bruteforce_find do
-    --             if bruteforce_find[zzz] == shortname then
-    --                 gCTManager.logger:debug(string.format("%s %X iiii -> 0x%X", sh_n[shortname], yyy,  xxx))
-    --             end
-    --         end
-    --     end
-    -- 
-    --     xxx = xxx + 8
-    -- end
+    -- https://gist.github.com/xAranaktu/97a33828b529a1a20a3377915f2b49fb
 
     self.game_db_manager:add_table(
         "manager",
         self.memory_manager:read_multilevel_pointer(DB_One_Tables_ptr, {0x80, 0x28}),
         {"pManagerTableCurrentRecord", "pManagerTableFirstRecord"}
+    )
+
+    self.game_db_manager:add_table(
+        "competitionkits",
+        self.memory_manager:read_multilevel_pointer(DB_One_Tables_ptr, {0xA0, 0x28}),
+        {"pCompetitionkitsTableCurrentRecord", "pCompetitionkitsTableFirstRecord"}
     )
 
     self.game_db_manager:add_table(
@@ -518,6 +432,12 @@ function TableManager:init_ptrs()
         "default_teamsheets",
         self.memory_manager:read_multilevel_pointer(DB_One_Tables_ptr, {0x138, 0x28}),
         {"pDefaultteamsheetsTableCurrentRecord", "pDefaultteamsheetsTableFirstRecord"}
+    )
+
+    self.game_db_manager:add_table(
+        "teamkits",
+        self.memory_manager:read_multilevel_pointer(DB_One_Tables_ptr, {0x140, 0x28}),
+        {"pTeamkitsTableCurrentRecord", "pTeamkitsTableFirstRecord"}
     )
 
     self.game_db_manager:add_table(

@@ -12,7 +12,7 @@
 -- This script will change:
 -- modifier field to 0
 -- CHECK FAQ IF YOU DON"T KNOW WHAT MODIFER IS
--- https://github.com/xAranaktu/FIFA-21-CM-Cheat-Table/wiki/Frequently-asked-questions
+-- https://github.com/xAranaktu/FIFA-22-CM-Cheat-Table/wiki/Frequently-asked-questions
 
 gCTManager:init_ptrs()
 local game_db_manager = gCTManager.game_db_manager

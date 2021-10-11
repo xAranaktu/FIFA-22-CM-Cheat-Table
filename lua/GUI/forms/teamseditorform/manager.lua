@@ -40,6 +40,54 @@ function thisFormManager:new(o)
     return o;
 end
 
+function thisFormManager:get_teamkits(teamid)
+    if type(teamid) == 'string' then
+        teamid = tonumber(teamid)
+    end
+    local arr_flds = {
+        {
+            name = "teamtechid",
+            expr = "eq",
+            values = {teamid}
+        }
+    }
+
+    local addrs = self.game_db_manager:find_record_addr(
+        "teamkits", arr_flds
+    )
+    local found = #addrs or 0
+    self.logger:info(string.format("Found %d teamkits for team %d", found, teamid))
+
+    if found > 0 then
+        writeQword("pTeamkitsTableCurrentRecord", addrs[1])
+    end
+    return addrs
+end
+
+function thisFormManager:get_competitionkits(teamid)
+    if type(teamid) == 'string' then
+        teamid = tonumber(teamid)
+    end
+    local arr_flds = {
+        {
+            name = "teamtechid",
+            expr = "eq",
+            values = {teamid}
+        }
+    }
+
+    local addrs = self.game_db_manager:find_record_addr(
+        "competitionkits", arr_flds
+    )
+    local found = #addrs or 0
+    self.logger:info(string.format("Found %d competitionkits for team %d", found, teamid))
+
+    if found > 0 then
+        writeQword("pCompetitionkitsTableCurrentRecord", addrs[1])
+    end
+    return addrs
+end
+
 function thisFormManager:get_team_default_teamsheet(teamid)
     if type(teamid) == 'string' then
         teamid = tonumber(teamid)
@@ -340,6 +388,1574 @@ function thisFormManager:update_formation_pitch(formation_data, teamsheet_addr)
     end
 
     self.frm.TeamAvailablePlayersLabel.Caption = string.format("Available Players (%d)", available_players_count)
+end
+
+function thisFormManager:get_teamkits_components_description() 
+    local fnUpdateComboHint = function(sender)
+        if sender.ClassName == "TCEComboBox" then
+            if sender.ItemIndex >= 0 then
+                sender.Hint = sender.Items[sender.ItemIndex]
+            else
+                sender.Hint = "ERROR"
+            end
+        end
+    end
+    local fnCommonDBValGetter = function(addrs, table_name, field_name, raw)
+        return self:fnCommonDBValGetter(addrs, table_name, field_name, raw)
+    end
+    local fnCommonOnChange = function(sender)
+        -- self.logger:debug(string.format("thisFormManager: %s", sender.Name))
+        fnUpdateComboHint(sender)
+        self.has_unsaved_changes = true
+        self.change_list[sender.Name] = sender.Text or sender.ItemIndex
+    end
+    local fnSaveCommon = function(addrs, comp_name, comp_desc)
+        if comp_desc["not_editable"] then return end
+
+        local field_name = comp_desc["db_field"]["field_name"]
+        local table_name = comp_desc["db_field"]["table_name"]
+
+        local addr = addrs[table_name]
+
+        local new_value = self.frm[comp_name].Text
+        local log_msg = string.format(
+            "%X, %s - %s = %s",
+            addr, table_name, field_name, new_value
+        )
+        self.logger:debug(log_msg)
+        self.game_db_manager:set_table_record_field_value(addr, table_name, field_name, new_value)
+    end
+
+    local fnTeamKitColorOnChange = function(sender)
+        self.change_list[sender.Name] = sender.Text
+        local colorID, _ = string.gsub(sender.Name, '%D', '')
+        self:fillKitColor(colorID)
+    end
+    local fnJerseyNumberColorOnChange = function(sender)
+        self.change_list[sender.Name] = sender.Text
+        local colorID, _ = string.gsub(sender.Name, '%D', '')
+        self:fillJerseyNumberColor(colorID)
+    end
+
+    local fnJerseyNameColorOnChange = function(sender)
+        self.change_list[sender.Name] = sender.Text
+        local colorID, _ = string.gsub(sender.Name, '%D', '')
+        self:fillJerseyNameColor(colorID)
+    end
+
+    local fnShortsNumberColorOnChange = function(sender)
+        self.change_list[sender.Name] = sender.Text
+        local colorID, _ = string.gsub(sender.Name, '%D', '')
+        self:fillShortsNumberColor(colorID)
+    end
+
+    local fnTeamKitHexColorOnChange = function(sender)
+        local colorID, _ = string.gsub(sender.Name, '%D', '')
+        local value = string.gsub(sender.Text, '#', '')
+        value = string.gsub(value, '0x', '')
+        if string.len(value) < 6 then
+            return 0
+        elseif string.len(value) > 6 then
+            sender.Text = "#FFFFFF"
+            return 1
+        end
+        local red = tonumber(string.sub(value, 1, 2), 16)
+        local green = tonumber(string.sub(value, 3, 4), 16)
+        local blue = tonumber(string.sub(value, 5, 6), 16)
+    
+        self.frm[string.format('TeamKitColor%dPreview', colorID)].Color = string.format(
+            '0x%02X%02X%02X',
+            blue,
+            green,
+            red
+        )
+    
+        local red_comp = self.frm[string.format('TeamKitColor%dRedEdit', colorID)]
+        local saved_red_onchange = red_comp.OnChange
+        red_comp.OnChange = nil
+        red_comp.Text = red
+        red_comp.OnChange = saved_red_onchange
+
+        local green_comp = self.frm[string.format('TeamKitColor%dGreenEdit', colorID)]
+        local saved_green_onchange = green_comp.OnChange
+        green_comp.OnChange = nil
+        green_comp.Text = green
+        green_comp.OnChange = saved_green_onchange
+    
+        local blue_comp = self.frm[string.format('TeamKitColor%dBlueEdit', colorID)]
+        local saved_blue_onchange = blue_comp.OnChange
+        blue_comp.OnChange = nil
+        blue_comp.Text = blue
+        blue_comp.OnChange = saved_blue_onchange
+
+        self.change_list[red_comp.Name] = red
+        self.change_list[green_comp.Name] = green
+        self.change_list[blue_comp.Name] = blue
+    end
+
+    local fnTeamKitJerseyNumberHexColorOnChange = function(sender)
+        local colorID, _ = string.gsub(sender.Name, '%D', '')
+        local value = string.gsub(sender.Text, '#', '')
+        value = string.gsub(value, '0x', '')
+        if string.len(value) < 6 then
+            return 0
+        elseif string.len(value) > 6 then
+            sender.Text = "#FFFFFF"
+            return 1
+        end
+        local red = tonumber(string.sub(value, 1, 2), 16)
+        local green = tonumber(string.sub(value, 3, 4), 16)
+        local blue = tonumber(string.sub(value, 5, 6), 16)
+    
+        self.frm[string.format('TeamKitJerseyNumberColor%dPreview', colorID)].Color = string.format(
+            '0x%02X%02X%02X',
+            blue,
+            green,
+            red
+        )
+    
+        local red_comp = self.frm[string.format('TeamKitJerseyNumberColor%dRedEdit', colorID)]
+        local saved_red_onchange = red_comp.OnChange
+        red_comp.OnChange = nil
+        red_comp.Text = red
+        red_comp.OnChange = saved_red_onchange
+
+        local green_comp = self.frm[string.format('TeamKitJerseyNumberColor%dGreenEdit', colorID)]
+        local saved_green_onchange = green_comp.OnChange
+        green_comp.OnChange = nil
+        green_comp.Text = green
+        green_comp.OnChange = saved_green_onchange
+    
+        local blue_comp = self.frm[string.format('TeamKitJerseyNumberColor%dBlueEdit', colorID)]
+        local saved_blue_onchange = blue_comp.OnChange
+        blue_comp.OnChange = nil
+        blue_comp.Text = blue
+        blue_comp.OnChange = saved_blue_onchange
+
+        self.change_list[red_comp.Name] = red
+        self.change_list[green_comp.Name] = green
+        self.change_list[blue_comp.Name] = blue
+    end
+
+    local fnTeamKitJerseyNameColorOnChange = function(sender)
+        local colorID, _ = string.gsub(sender.Name, '%D', '')
+        local value = string.gsub(sender.Text, '#', '')
+        value = string.gsub(value, '0x', '')
+        if string.len(value) < 6 then
+            return 0
+        elseif string.len(value) > 6 then
+            sender.Text = "#FFFFFF"
+            return 1
+        end
+        local red = tonumber(string.sub(value, 1, 2), 16)
+        local green = tonumber(string.sub(value, 3, 4), 16)
+        local blue = tonumber(string.sub(value, 5, 6), 16)
+    
+        self.frm[string.format('TeamKitJerseyNameColor%dPreview', colorID)].Color = string.format(
+            '0x%02X%02X%02X',
+            blue,
+            green,
+            red
+        )
+    
+        local red_comp = self.frm[string.format('TeamKitJerseyNameColor%dRedEdit', colorID)]
+        local saved_red_onchange = red_comp.OnChange
+        red_comp.OnChange = nil
+        red_comp.Text = red
+        red_comp.OnChange = saved_red_onchange
+
+        local green_comp = self.frm[string.format('TeamKitJerseyNameColor%dGreenEdit', colorID)]
+        local saved_green_onchange = green_comp.OnChange
+        green_comp.OnChange = nil
+        green_comp.Text = green
+        green_comp.OnChange = saved_green_onchange
+    
+        local blue_comp = self.frm[string.format('TeamKitJerseyNameColor%dBlueEdit', colorID)]
+        local saved_blue_onchange = blue_comp.OnChange
+        blue_comp.OnChange = nil
+        blue_comp.Text = blue
+        blue_comp.OnChange = saved_blue_onchange
+
+        self.change_list[red_comp.Name] = red
+        self.change_list[green_comp.Name] = green
+        self.change_list[blue_comp.Name] = blue
+    end
+
+    local fnTeamKitShortsNumberColorOnChange = function(sender)
+        local colorID, _ = string.gsub(sender.Name, '%D', '')
+        local value = string.gsub(sender.Text, '#', '')
+        value = string.gsub(value, '0x', '')
+        if string.len(value) < 6 then
+            return 0
+        elseif string.len(value) > 6 then
+            sender.Text = "#FFFFFF"
+            return 1
+        end
+        local red = tonumber(string.sub(value, 1, 2), 16)
+        local green = tonumber(string.sub(value, 3, 4), 16)
+        local blue = tonumber(string.sub(value, 5, 6), 16)
+    
+        self.frm[string.format('TeamKitShortsNumberColor%dPreview', colorID)].Color = string.format(
+            '0x%02X%02X%02X',
+            blue,
+            green,
+            red
+        )
+    
+        local red_comp = self.frm[string.format('TeamKitShortsNumberColor%dRedEdit', colorID)]
+        local saved_red_onchange = red_comp.OnChange
+        red_comp.OnChange = nil
+        red_comp.Text = red
+        red_comp.OnChange = saved_red_onchange
+
+        local green_comp = self.frm[string.format('TeamKitShortsNumberColor%dGreenEdit', colorID)]
+        local saved_green_onchange = green_comp.OnChange
+        green_comp.OnChange = nil
+        green_comp.Text = green
+        green_comp.OnChange = saved_green_onchange
+    
+        local blue_comp = self.frm[string.format('TeamKitShortsNumberColor%dBlueEdit', colorID)]
+        local saved_blue_onchange = blue_comp.OnChange
+        blue_comp.OnChange = nil
+        blue_comp.Text = blue
+        blue_comp.OnChange = saved_blue_onchange
+
+        self.change_list[red_comp.Name] = red
+        self.change_list[green_comp.Name] = green
+        self.change_list[blue_comp.Name] = blue
+    end
+    
+    
+
+    local components_description = {
+        -- TeamKits
+        KitTeamTechIDEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "teamtechid"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamKitIDEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "teamkitid"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamKitTypeTechIDEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "teamkittypetechid"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamYearEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "year"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        }, 
+        KitTeamPowidEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "powid"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamDlcEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "dlc"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamIsembargoedEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "isembargoed"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamIsinheritbasedetailmapEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "isinheritbasedetailmap"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamHasadvertisingkitEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "hasadvertisingkit"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamIslockedEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "islocked"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamRenderingmaterialtypeEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "renderingmaterialtype"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+
+        KitTeamChestbadgeEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "chestbadge"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamCaptainarmbandEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "captainarmband"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+
+        TeamKitColor1Hex = {
+            events = {
+                OnChange = fnTeamKitHexColorOnChange
+            }
+        },
+        TeamKitColor2Hex = {
+            events = {
+                OnChange = fnTeamKitHexColorOnChange
+            }
+        },
+        TeamKitColor3Hex = {
+            events = {
+                OnChange = fnTeamKitHexColorOnChange
+            }
+        },
+        TeamKitColor1RedEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "teamcolorprimr"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnTeamKitColorOnChange
+            }
+        },
+        TeamKitColor1GreenEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "teamcolorprimg"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnTeamKitColorOnChange
+            }
+        },
+        TeamKitColor1BlueEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "teamcolorprimb"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnTeamKitColorOnChange
+            }
+        },
+        TeamKitColor1PercentEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "teamcolorprimpercent"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnTeamKitColorOnChange
+            }
+        },
+        TeamKitColor2RedEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "teamcolorsecr"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnTeamKitColorOnChange
+            }
+        },
+        TeamKitColor2GreenEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "teamcolorsecg"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnTeamKitColorOnChange
+            }
+        },
+        TeamKitColor2BlueEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "teamcolorsecb"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnTeamKitColorOnChange
+            }
+        },
+        TeamKitColor2PercentEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "teamcolorsecpercent"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnTeamKitColorOnChange
+            }
+        },
+        TeamKitColor3RedEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "teamcolortertr"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnTeamKitColorOnChange
+            }
+        },
+        TeamKitColor3GreenEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "teamcolortertg"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnTeamKitColorOnChange
+            }
+        },
+        TeamKitColor3BlueEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "teamcolortertb"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnTeamKitColorOnChange
+            }
+        },
+        TeamKitColor3PercentEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "teamcolortertpercent"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnTeamKitColorOnChange
+            }
+        },
+
+        -- Jersey
+        KitTeamJerseyFitEdit = { 
+            db_field = {
+                table_name = "teamkits",
+                field_name = "jerseyfit"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamJerseyshapestyleEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "jerseyshapestyle"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamJerseycollargeometrytypeEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "jerseycollargeometrytype"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamJerseyrenderingdetailmaptypeEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "jerseyrenderingdetailmaptype"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamJerseynamelayouttypeEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "jerseynamelayouttype"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamJerseynamefonttypeEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "jerseynamefonttype"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamNumberfonttypeEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "numberfonttype"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamJerseybacknamefontcaseEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "jerseybacknamefontcase"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamJerseybacknameplacementcodeEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "jerseybacknameplacementcode"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamJerseyfrontnumberplacementcodeEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "jerseyfrontnumberplacementcode"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamJerseyleftsleevebadgeEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "jerseyleftsleevebadge"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamJerseyrightsleevebadgeEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "jerseyrightsleevebadge"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        TeamKitJerseyNumberColor1Hex = {
+            events = {
+                OnChange = fnTeamKitJerseyNumberHexColorOnChange
+            }
+        },
+        TeamKitJerseyNumberColor2Hex = {
+            events = {
+                OnChange = fnTeamKitJerseyNumberHexColorOnChange
+            }
+        },
+        TeamKitJerseyNumberColor3Hex = {
+            events = {
+                OnChange = fnTeamKitJerseyNumberHexColorOnChange
+            }
+        },
+        TeamKitJerseyNameColor1Hex = {
+            events = {
+                OnChange = fnTeamKitJerseyNameColorOnChange
+            }
+        },
+        TeamKitJerseyNumberColor1RedEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "jerseynumbercolorprimr"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnJerseyNumberColorOnChange
+            }
+        },
+        TeamKitJerseyNumberColor1GreenEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "jerseynumbercolorprimg"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnJerseyNumberColorOnChange
+            }
+        },
+        TeamKitJerseyNumberColor1BlueEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "jerseynumbercolorprimb"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnJerseyNumberColorOnChange
+            }
+        },
+        TeamKitJerseyNumberColor2RedEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "jerseynumbercolorsecr"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnJerseyNumberColorOnChange
+            }
+        },
+        TeamKitJerseyNumberColor2GreenEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "jerseynumbercolorsecg"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnJerseyNumberColorOnChange
+            }
+        },
+        TeamKitJerseyNumberColor2BlueEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "jerseynumbercolorsecb"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnJerseyNumberColorOnChange
+            }
+        },
+        TeamKitJerseyNumberColor3RedEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "jerseynumbercolorterr"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnJerseyNumberColorOnChange
+            }
+        },
+        TeamKitJerseyNumberColor3GreenEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "jerseynumbercolorterg"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnJerseyNumberColorOnChange
+            }
+        },
+        TeamKitJerseyNumberColor3BlueEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "jerseynumbercolorterb"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnJerseyNumberColorOnChange
+            }
+        },
+        TeamKitJerseyNameColor1RedEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "jerseynamecolorr"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnJerseyNameColorOnChange
+            }
+        },
+        TeamKitJerseyNameColor1GreenEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "jerseynamecolorg"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnJerseyNameColorOnChange
+            }
+        },
+        TeamKitJerseyNameColor1BlueEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "jerseynamecolorb"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnJerseyNameColorOnChange
+            }
+        },
+        -- Shorts
+        KitTeamShortStyleEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "shortstyle"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamShortsnumberfonttypeEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "shortsnumberfonttype"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamShortsnumberplacementcodeEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "shortsnumberplacementcode"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        KitTeamShortsrenderingdetailmaptypeEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "shortsrenderingdetailmaptype"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        TeamKitShortsNumberColor1Hex = {
+            events = {
+                OnChange = fnTeamKitShortsNumberColorOnChange
+            }
+        },
+        TeamKitShortsNumberColor2Hex = {
+            events = {
+                OnChange = fnTeamKitShortsNumberColorOnChange
+            }
+        },
+        TeamKitShortsNumberColor3Hex = {
+            events = {
+                OnChange = fnTeamKitShortsNumberColorOnChange
+            }
+        },
+        TeamKitShortsNumberColor1RedEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "shortsnumbercolorprimr"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnShortsNumberColorOnChange
+            }
+        },
+        TeamKitShortsNumberColor1GreenEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "shortsnumbercolorprimg"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnShortsNumberColorOnChange
+            }
+        },
+        TeamKitShortsNumberColor1BlueEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "shortsnumbercolorprimb"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnShortsNumberColorOnChange
+            }
+        },
+        TeamKitShortsNumberColor2RedEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "shortsnumbercolorsecr"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnShortsNumberColorOnChange
+            }
+        },
+        TeamKitShortsNumberColor2GreenEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "shortsnumbercolorsecg"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnShortsNumberColorOnChange
+            }
+        },
+        TeamKitShortsNumberColor2BlueEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "shortsnumbercolorsecb"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnShortsNumberColorOnChange
+            }
+        },
+        TeamKitShortsNumberColor3RedEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "shortsnumbercolorterr"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnShortsNumberColorOnChange
+            }
+        },
+        TeamKitShortsNumberColor3GreenEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "shortsnumbercolorterg"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnShortsNumberColorOnChange
+            }
+        },
+        TeamKitShortsNumberColor3BlueEdit = {
+            db_field = {
+                table_name = "teamkits",
+                field_name = "shortsnumbercolorterb"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnShortsNumberColorOnChange
+            }
+        }
+    }
+
+    return components_description
+end
+
+function thisFormManager:get_competitionkits_components_description() 
+    local fnUpdateComboHint = function(sender)
+        if sender.ClassName == "TCEComboBox" then
+            if sender.ItemIndex >= 0 then
+                sender.Hint = sender.Items[sender.ItemIndex]
+            else
+                sender.Hint = "ERROR"
+            end
+        end
+    end
+    local fnCommonDBValGetter = function(addrs, table_name, field_name, raw)
+        return self:fnCommonDBValGetter(addrs, table_name, field_name, raw)
+    end
+    local fnCommonOnChange = function(sender)
+        -- self.logger:debug(string.format("thisFormManager: %s", sender.Name))
+        fnUpdateComboHint(sender)
+        self.has_unsaved_changes = true
+        self.change_list[sender.Name] = sender.Text or sender.ItemIndex
+    end
+    local fnSaveCommon = function(addrs, comp_name, comp_desc)
+        if comp_desc["not_editable"] then return end
+
+        local field_name = comp_desc["db_field"]["field_name"]
+        local table_name = comp_desc["db_field"]["table_name"]
+
+        local addr = addrs[table_name]
+
+        local new_value = self.frm[comp_name].Text
+        local log_msg = string.format(
+            "%X, %s - %s = %s",
+            addr, table_name, field_name, new_value
+        )
+        self.logger:debug(log_msg)
+        self.game_db_manager:set_table_record_field_value(addr, table_name, field_name, new_value)
+    end
+    local fnCompetitionKitJerseyNumberColorOnChange = function(sender)
+        self.change_list[sender.Name] = sender.Text
+        local colorID, _ = string.gsub(sender.Name, '%D', '')
+        self:fillCompetitionJerseyNumberColor(colorID)
+    end
+    local fnCompetitionKitJerseyNameColorOnChange = function(sender)
+        self.change_list[sender.Name] = sender.Text
+        local colorID, _ = string.gsub(sender.Name, '%D', '')
+        self:fillCompetitionJerseyNameColor(colorID)
+    end
+    local fnCompetitionKitShortsNumberColorOnChange = function(sender)
+        self.change_list[sender.Name] = sender.Text
+        local colorID, _ = string.gsub(sender.Name, '%D', '')
+        self:fillCompetitionKitShortsNumberColor(colorID)
+    end
+    local fnCompetitionKitJerseyNumberColorHexOnChange = function(sender)
+        local colorID, _ = string.gsub(sender.Name, '%D', '')
+        local value = string.gsub(sender.Text, '#', '')
+        value = string.gsub(value, '0x', '')
+        if string.len(value) < 6 then
+            return 0
+        elseif string.len(value) > 6 then
+            sender.Text = "#FFFFFF"
+            return 1
+        end
+        local red = tonumber(string.sub(value, 1, 2), 16)
+        local green = tonumber(string.sub(value, 3, 4), 16)
+        local blue = tonumber(string.sub(value, 5, 6), 16)
+    
+        self.frm[string.format('CompetitionKitJerseyNumberColor%dPreview', colorID)].Color = string.format(
+            '0x%02X%02X%02X',
+            blue,
+            green,
+            red
+        )
+    
+        local red_comp = self.frm[string.format('CompetitionKitJerseyNumberColor%dRedEdit', colorID)]
+        local saved_red_onchange = red_comp.OnChange
+        red_comp.OnChange = nil
+        red_comp.Text = red
+        red_comp.OnChange = saved_red_onchange
+
+        local green_comp = self.frm[string.format('CompetitionKitJerseyNumberColor%dGreenEdit', colorID)]
+        local saved_green_onchange = green_comp.OnChange
+        green_comp.OnChange = nil
+        green_comp.Text = green
+        green_comp.OnChange = saved_green_onchange
+    
+        local blue_comp = self.frm[string.format('CompetitionKitJerseyNumberColor%dBlueEdit', colorID)]
+        local saved_blue_onchange = blue_comp.OnChange
+        blue_comp.OnChange = nil
+        blue_comp.Text = blue
+        blue_comp.OnChange = saved_blue_onchange
+
+        self.change_list[red_comp.Name] = red
+        self.change_list[green_comp.Name] = green
+        self.change_list[blue_comp.Name] = blue
+    end
+    local fnCompetitionKitJerseyNameColorHexOnChange = function(sender)
+        local colorID, _ = string.gsub(sender.Name, '%D', '')
+        local value = string.gsub(sender.Text, '#', '')
+        value = string.gsub(value, '0x', '')
+        if string.len(value) < 6 then
+            return 0
+        elseif string.len(value) > 6 then
+            sender.Text = "#FFFFFF"
+            return 1
+        end
+        local red = tonumber(string.sub(value, 1, 2), 16)
+        local green = tonumber(string.sub(value, 3, 4), 16)
+        local blue = tonumber(string.sub(value, 5, 6), 16)
+    
+        self.frm[string.format('CompetitionKitJerseyNameColor%dPreview', colorID)].Color = string.format(
+            '0x%02X%02X%02X',
+            blue,
+            green,
+            red
+        )
+    
+        local red_comp = self.frm[string.format('CompetitionKitJerseyNameColor%dRedEdit', colorID)]
+        local saved_red_onchange = red_comp.OnChange
+        red_comp.OnChange = nil
+        red_comp.Text = red
+        red_comp.OnChange = saved_red_onchange
+
+        local green_comp = self.frm[string.format('CompetitionKitJerseyNameColor%dGreenEdit', colorID)]
+        local saved_green_onchange = green_comp.OnChange
+        green_comp.OnChange = nil
+        green_comp.Text = green
+        green_comp.OnChange = saved_green_onchange
+    
+        local blue_comp = self.frm[string.format('CompetitionKitJerseyNameColor%dBlueEdit', colorID)]
+        local saved_blue_onchange = blue_comp.OnChange
+        blue_comp.OnChange = nil
+        blue_comp.Text = blue
+        blue_comp.OnChange = saved_blue_onchange
+
+        self.change_list[red_comp.Name] = red
+        self.change_list[green_comp.Name] = green
+        self.change_list[blue_comp.Name] = blue
+    end
+    local fnCompetitionKitShortsNumberColorHexOnChange = function(sender)
+        local colorID, _ = string.gsub(sender.Name, '%D', '')
+        local value = string.gsub(sender.Text, '#', '')
+        value = string.gsub(value, '0x', '')
+        if string.len(value) < 6 then
+            return 0
+        elseif string.len(value) > 6 then
+            sender.Text = "#FFFFFF"
+            return 1
+        end
+        local red = tonumber(string.sub(value, 1, 2), 16)
+        local green = tonumber(string.sub(value, 3, 4), 16)
+        local blue = tonumber(string.sub(value, 5, 6), 16)
+    
+        self.frm[string.format('CompetitionKitShortsNumberColor%dPreview', colorID)].Color = string.format(
+            '0x%02X%02X%02X',
+            blue,
+            green,
+            red
+        )
+    
+        local red_comp = self.frm[string.format('CompetitionKitShortsNumberColor%dRedEdit', colorID)]
+        local saved_red_onchange = red_comp.OnChange
+        red_comp.OnChange = nil
+        red_comp.Text = red
+        red_comp.OnChange = saved_red_onchange
+
+        local green_comp = self.frm[string.format('CompetitionKitShortsNumberColor%dGreenEdit', colorID)]
+        local saved_green_onchange = green_comp.OnChange
+        green_comp.OnChange = nil
+        green_comp.Text = green
+        green_comp.OnChange = saved_green_onchange
+    
+        local blue_comp = self.frm[string.format('CompetitionKitShortsNumberColor%dBlueEdit', colorID)]
+        local saved_blue_onchange = blue_comp.OnChange
+        blue_comp.OnChange = nil
+        blue_comp.Text = blue
+        blue_comp.OnChange = saved_blue_onchange
+
+        self.change_list[red_comp.Name] = red
+        self.change_list[green_comp.Name] = green
+        self.change_list[blue_comp.Name] = blue
+    end
+
+    local components_description = {
+        -- competitionkits
+        CompetitionKitJerseyNumberColor1Hex = {
+            events = {
+                OnChange = fnCompetitionKitJerseyNumberColorHexOnChange
+            }
+        },
+        CompetitionKitJerseyNumberColor2Hex = {
+            events = {
+                OnChange = fnCompetitionKitJerseyNumberColorHexOnChange
+            }
+        },
+        CompetitionKitJerseyNumberColor3Hex = {
+            events = {
+                OnChange = fnCompetitionKitJerseyNumberColorHexOnChange
+            }
+        },
+        CompetitionKitJerseyNameColor1Hex = {
+            events = {
+                OnChange = fnCompetitionKitJerseyNameColorHexOnChange
+            }
+        },
+        CompetitionKitShortsNumberColor1Hex = {
+            events = {
+                OnChange = fnCompetitionKitShortsNumberColorHexOnChange
+            }
+        },
+        CompetitionKitShortsNumberColor2Hex = {
+            events = {
+                OnChange = fnCompetitionKitShortsNumberColorHexOnChange
+            }
+        },
+        CompetitionKitShortsNumberColor3Hex = {
+            events = {
+                OnChange = fnCompetitionKitShortsNumberColorHexOnChange
+            }
+        },
+
+        CompetitionKitTeamTechIDEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "teamtechid"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        CompetitionKitCompetitionIDEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "competitionid"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        CompetitionKitTeamKitTypeTechIDEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "teamkittypetechid"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        CompetitionKitTeamYearEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "year"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+
+        CompetitionKitTeamJerseynamelayouttypeEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseynamelayouttype"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        CompetitionKitTeamJerseynamefonttypeEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseynamefonttype"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        CompetitionKitTeamNumberfonttypeEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "numberfonttype"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        CompetitionKitTeamJerseybacknamefontcaseEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseybacknamefontcase"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        CompetitionKitTeamJerseybacknameplacementcodeEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseybacknameplacementcode"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        CompetitionKitTeamJerseyfrontnumberplacementcodeEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseyfrontnumberplacementcode"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        CompetitionKitJerseyNumberColor1RedEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseynumbercolorprimr"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCompetitionKitJerseyNumberColorOnChange
+            }
+        },
+        CompetitionKitJerseyNumberColor1GreenEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseynumbercolorprimg"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCompetitionKitJerseyNumberColorOnChange
+            }
+        },
+        CompetitionKitJerseyNumberColor1BlueEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseynumbercolorprimb"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCompetitionKitJerseyNumberColorOnChange
+            }
+        },
+        CompetitionKitJerseyNumberColor2RedEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseynumbercolorsecr"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCompetitionKitJerseyNumberColorOnChange
+            }
+        },
+        CompetitionKitJerseyNumberColor2GreenEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseynumbercolorsecg"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCompetitionKitJerseyNumberColorOnChange
+            }
+        },
+        CompetitionKitJerseyNumberColor2BlueEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseynumbercolorsecb"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCompetitionKitJerseyNumberColorOnChange
+            }
+        },
+        CompetitionKitJerseyNumberColor3RedEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseynumbercolorterr"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCompetitionKitJerseyNumberColorOnChange
+            }
+        },
+        CompetitionKitJerseyNumberColor3GreenEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseynumbercolorterg"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCompetitionKitJerseyNumberColorOnChange
+            }
+        },
+        CompetitionKitJerseyNumberColor3BlueEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseynumbercolorterb"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCompetitionKitJerseyNumberColorOnChange
+            }
+        },
+        CompetitionKitJerseyNameColor1RedEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseynamecolorr"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCompetitionKitJerseyNameColorOnChange
+            }
+        },
+        CompetitionKitJerseyNameColor1GreenEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseynamecolorg"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCompetitionKitJerseyNameColorOnChange
+            }
+        },
+        CompetitionKitJerseyNameColor1BlueEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseynamecolorb"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCompetitionKitJerseyNameColorOnChange
+            }
+        },
+        CompetitionKitTeamShortsnumberfonttypeEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "shortsnumberfonttype"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        CompetitionKitTeamShortsnumberplacementcodeEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "shortsnumberplacementcode"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCommonOnChange
+            }
+        },
+        CompetitionKitShortsNumberColor1RedEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseynumbercolorprimr"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCompetitionKitShortsNumberColorOnChange
+            }
+        },
+        CompetitionKitShortsNumberColor1GreenEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseynumbercolorprimg"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCompetitionKitShortsNumberColorOnChange
+            }
+        },
+        CompetitionKitShortsNumberColor1BlueEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseynumbercolorprimb"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCompetitionKitShortsNumberColorOnChange
+            }
+        },
+        CompetitionKitShortsNumberColor2RedEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseynumbercolorsecr"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCompetitionKitShortsNumberColorOnChange
+            }
+        },
+        CompetitionKitShortsNumberColor2GreenEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseynumbercolorsecg"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCompetitionKitShortsNumberColorOnChange
+            }
+        },
+        CompetitionKitShortsNumberColor2BlueEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseynumbercolorsecb"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCompetitionKitShortsNumberColorOnChange
+            }
+        },
+        CompetitionKitShortsNumberColor3RedEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseynumbercolorterr"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCompetitionKitShortsNumberColorOnChange
+            }
+        },
+        CompetitionKitShortsNumberColor3GreenEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseynumbercolorterg"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCompetitionKitShortsNumberColorOnChange
+            }
+        },
+        CompetitionKitShortsNumberColor3BlueEdit = {
+            db_field = {
+                table_name = "competitionkits",
+                field_name = "jerseynumbercolorterb"
+            },
+            valGetter = fnCommonDBValGetter,
+            OnSaveChanges = fnSaveCommon,
+            events = {
+                OnChange = fnCompetitionKitShortsNumberColorOnChange
+            }
+        },
+    }
+
+    return components_description
 end
 
 function thisFormManager:get_components_description()
@@ -1234,6 +2850,34 @@ function thisFormManager:fillTeamColor(colorID)
     self:fillColorPreview(colorID, "TeamColor")
 end
 
+function thisFormManager:fillKitColor(colorID)
+    self:fillColorPreview(colorID, "TeamKitColor")
+end
+
+function thisFormManager:fillJerseyNumberColor(colorID)
+    self:fillColorPreview(colorID, "TeamKitJerseyNumberColor")
+end
+
+function thisFormManager:fillCompetitionJerseyNumberColor(colorID)
+    self:fillColorPreview(colorID, "CompetitionKitJerseyNumberColor")
+end
+
+function thisFormManager:fillJerseyNameColor(colorID)
+    self:fillColorPreview(colorID, "TeamKitJerseyNameColor")
+end
+
+function thisFormManager:fillCompetitionJerseyNameColor(colorID)
+    self:fillColorPreview(colorID, "CompetitionKitJerseyNameColor")
+end
+
+function thisFormManager:fillCompetitionKitShortsNumberColor(colorID)
+    self:fillColorPreview(colorID, "CompetitionKitShortsNumberColor")
+end
+
+function thisFormManager:fillShortsNumberColor(colorID)
+    self:fillColorPreview(colorID, "TeamKitShortsNumberColor")
+end
+
 function thisFormManager:get_playerlinks(teamid)
     local arr_flds = {
         {
@@ -1270,6 +2914,173 @@ function thisFormManager:get_playerlink(playerid, teamid)
     end
     
     return 0
+end
+
+function thisFormManager:fill_teamkits()
+    self.logger:debug(string.format("fill_teamkits"))
+    local kits_comp_desc = self:get_teamkits_components_description()
+    local addrs = self.current_addrs
+
+    for i=0, self.frm.ComponentCount-1 do
+        local component = self.frm.Component[i]
+        if component == nil then
+            goto continue
+        end
+
+        local component_name = component.Name
+        --self.logger:debug(component.Name)
+        local comp_desc = kits_comp_desc[component_name]
+        if comp_desc == nil then
+            goto continue
+        end
+
+        local component_class = component.ClassName
+        component.OnChange = nil
+        if component_class == 'TCEEdit' then
+            if comp_desc["valGetter"] then
+                component.Text = comp_desc["valGetter"](
+                    addrs,
+                    comp_desc["db_field"]["table_name"],
+                    comp_desc["db_field"]["field_name"],
+                    comp_desc["db_field"]["raw_val"]
+                )
+            else
+                component.Text = "TODO SET VALUE!"
+            end
+        elseif component_class == 'TCETrackBar' then
+            --
+        elseif component_class == 'TCEComboBox' then
+            --self.logger:debug(component.Name)
+            if comp_desc["valGetter"] and comp_desc["cbFiller"] then
+                local current_field_val = comp_desc["valGetter"](
+                    addrs,
+                    comp_desc["db_field"]["table_name"],
+                    comp_desc["db_field"]["field_name"],
+                    comp_desc["db_field"]["raw_val"]
+                )
+                --self.logger:debug(current_field_val)
+                comp_desc["cbFiller"](
+                    component,
+                    current_field_val,
+                    comp_desc["cb_id"]
+                )
+            else
+                component.ItemIndex = 0
+            end
+            if component.ItemIndex >= 0 then
+                component.Hint = component.Items[component.ItemIndex]
+            else
+                self.logger:warning(string.format("Invalid value: %s", component.Name))
+                component.Hint = "ERROR"
+            end
+        elseif component_class == 'TCECheckBox' then
+            component.State = comp_desc["valGetter"](addrs, comp_desc)
+        end
+
+        if comp_desc['events'] then
+            for key, value in pairs(comp_desc['events']) do
+                component[key] = value
+            end
+        end
+
+        ::continue::
+    end
+
+
+    self:fillKitColor(1)
+    self:fillKitColor(2)
+    self:fillKitColor(3)
+
+    self:fillJerseyNumberColor(1)
+    self:fillJerseyNumberColor(2)
+    self:fillJerseyNumberColor(3)
+
+    self:fillJerseyNameColor(1)
+
+    self:fillShortsNumberColor(1)
+    self:fillShortsNumberColor(2)
+    self:fillShortsNumberColor(3)
+end
+
+function thisFormManager:fill_competitionkits()
+    self.logger:debug(string.format("fill_competitionkits"))
+    local kits_comp_desc = self:get_competitionkits_components_description()
+    local addrs = self.current_addrs
+
+    for i=0, self.frm.ComponentCount-1 do
+        local component = self.frm.Component[i]
+        if component == nil then
+            goto continue
+        end
+
+        local component_name = component.Name
+        --self.logger:debug(component.Name)
+        local comp_desc = kits_comp_desc[component_name]
+        if comp_desc == nil then
+            goto continue
+        end
+
+        local component_class = component.ClassName
+        component.OnChange = nil
+        if component_class == 'TCEEdit' then
+            if comp_desc["valGetter"] then
+                component.Text = comp_desc["valGetter"](
+                    addrs,
+                    comp_desc["db_field"]["table_name"],
+                    comp_desc["db_field"]["field_name"],
+                    comp_desc["db_field"]["raw_val"]
+                )
+            else
+                component.Text = "TODO SET VALUE!"
+            end
+        elseif component_class == 'TCETrackBar' then
+            --
+        elseif component_class == 'TCEComboBox' then
+            --self.logger:debug(component.Name)
+            if comp_desc["valGetter"] and comp_desc["cbFiller"] then
+                local current_field_val = comp_desc["valGetter"](
+                    addrs,
+                    comp_desc["db_field"]["table_name"],
+                    comp_desc["db_field"]["field_name"],
+                    comp_desc["db_field"]["raw_val"]
+                )
+                --self.logger:debug(current_field_val)
+                comp_desc["cbFiller"](
+                    component,
+                    current_field_val,
+                    comp_desc["cb_id"]
+                )
+            else
+                component.ItemIndex = 0
+            end
+            if component.ItemIndex >= 0 then
+                component.Hint = component.Items[component.ItemIndex]
+            else
+                self.logger:warning(string.format("Invalid value: %s", component.Name))
+                component.Hint = "ERROR"
+            end
+        elseif component_class == 'TCECheckBox' then
+            component.State = comp_desc["valGetter"](addrs, comp_desc)
+        end
+
+        if comp_desc['events'] then
+            for key, value in pairs(comp_desc['events']) do
+                component[key] = value
+            end
+        end
+
+        ::continue::
+    end
+
+    self:fillCompetitionJerseyNumberColor(1)
+    self:fillCompetitionJerseyNumberColor(2)
+    self:fillCompetitionJerseyNumberColor(3)
+
+    self:fillCompetitionJerseyNameColor(1)
+
+    self:fillCompetitionKitShortsNumberColor(1)
+    self:fillCompetitionKitShortsNumberColor(2)
+    self:fillCompetitionKitShortsNumberColor(3)
 end
 
 function thisFormManager:fill_form(addrs, teamid)
@@ -1442,6 +3253,73 @@ function thisFormManager:fill_form(addrs, teamid)
     self.frm.ClubCrest.Hint = caption
     self.frm.ClubCrest.ShowHint = true
 
+    -- Team Kits
+    self:clear_kits()
+
+    self.teamkits_addrs = self:get_teamkits(teamid)
+
+    local kitcompids = {}
+    local tmp_kits = {}
+    if #self.teamkits_addrs > 0 then
+        table.insert(kitcompids, 0)
+        tmp_kits[0] = {}
+        for i=1, #self.teamkits_addrs do
+            local teamkit_addr = self.teamkits_addrs[i]
+            local kittypeid = self.game_db_manager:get_table_record_field_value(teamkit_addr, "teamkits", "teamkittypetechid")
+            local kittypename = KITTYPE_NAMES[kittypeid] or string.format("Unknown Kit (%d)", kittypeid)
+
+            local itm = {
+                dbtable = "teamkits",
+                addr = teamkit_addr
+            }
+            itm["lbl"] = kittypename
+            tmp_kits[0][kittypeid] = itm
+        end
+    end
+
+    self.competitionkits_addrs = self:get_competitionkits(teamid)
+
+    if #self.competitionkits_addrs > 0 then 
+        for i=1, #self.competitionkits_addrs do
+            local compkit_addr = self.competitionkits_addrs[i]
+            local competitionid = self.game_db_manager:get_table_record_field_value(compkit_addr, "competitionkits", "competitionid")
+            local kittypeid = self.game_db_manager:get_table_record_field_value(compkit_addr, "competitionkits", "teamkittypetechid")
+            local kittypename = KITTYPE_NAMES[kittypeid] or string.format("Unknown Kit (%d)", kittypeid)
+
+            if not tmp_kits[competitionid] then
+                table.insert(kitcompids, competitionid)
+                tmp_kits[competitionid] = {}
+            end
+
+            kittypename = string.format("C%d - %s", competitionid, kittypename)
+
+            local itm = {
+                dbtable = "competitionkits",
+                addr = compkit_addr
+            }
+        
+            itm["lbl"] = kittypename
+            tmp_kits[competitionid][kittypeid] = itm
+        end
+    end
+    table.sort(kitcompids)
+
+    local kit_idx = 0
+    for i=1, #kitcompids do
+        local cid = kitcompids[i]
+        local compkits = tmp_kits[cid]
+
+        for j=0, 23 do
+            local compkit = compkits[j]
+            if compkit then
+                self.kits[kit_idx] = compkit
+                self.frm.KitPickListBox.Items.Add(compkit["lbl"])
+
+                kit_idx = kit_idx + 1
+            end
+        end
+    end
+
     self.has_unsaved_changes = false
     self.logger:debug(string.format("fill_form %s done", self.name))
 end
@@ -1474,7 +3352,9 @@ function thisFormManager:onShow_delayed(team_addr)
     self.current_addrs["manager"] = 0
     self.current_addrs["default_mentalities"] = 0
     self.current_addrs["default_teamsheets"] = 0
-    
+    self.current_addrs["teamkits"] = 0
+    self.current_addrs["competitionkits"] = 0
+
     gCTManager:init_ptrs()
     self.game_db_manager:cache_player_names()
 
@@ -1524,12 +3404,55 @@ function thisFormManager:check_if_has_unsaved_changes()
     end
 end
 
+function thisFormManager:onKitPickListBoxSelectionChange(sender, user)
+    local selected = self.frm.KitPickListBox.ItemIndex
+
+    if not self.kits[selected] then
+        self:TeamKitsTabsVis(false)
+        self:CompetitionKitsTabsVis(false)
+        self.frm.TeamKitsTabsContainer.Visible = false
+        self.frm.TeamCompetitionKitsTabsContainer.Visible = false
+        return 
+    end
+
+    self.selected_kit = self.kits[selected]
+
+    self.current_addrs[self.selected_kit.dbtable] = self.selected_kit.addr
+
+    --print(string.format("%s: 0x%X",self.selected_kit.dbtable, self.selected_kit.addr))
+    if self.selected_kit.dbtable == "teamkits" then
+        self:fill_teamkits()
+
+        self:TeamKitsTabsVis(true)
+        self:CompetitionKitsTabsVis(false)
+        self.frm.TeamKitsTabsContainer.Visible = true
+        self.frm.TeamCompetitionKitsTabsContainer.Visible = false
+    elseif self.selected_kit.dbtable == "competitionkits" then
+        self:fill_competitionkits()
+        
+        self:TeamKitsTabsVis(false)
+        self:CompetitionKitsTabsVis(true)
+        self.frm.TeamKitsTabsContainer.Visible = false
+        self.frm.TeamCompetitionKitsTabsContainer.Visible = true
+    else
+        print("WTF " .. self.selected_kit.dbtable)
+        self:TeamKitsTabsVis(false)
+        self:CompetitionKitsTabsVis(false)
+        self.frm.TeamKitsTabsContainer.Visible = false
+        self.frm.TeamCompetitionKitsTabsContainer.Visible = false
+    end
+
+end
+
 function thisFormManager:onApplyChangesBtnClick()
     self.logger:info("Apply Changes team")
 
+    local kits_comp_desc = self:get_teamkits_components_description()
+    local compkits_comp_desc = self:get_competitionkits_components_description()
+
     self.logger:debug("Iterate change_list")
     for key, value in pairs(self.change_list) do
-        local comp_desc = self.form_components_description[key]
+        local comp_desc = self.form_components_description[key] or kits_comp_desc[key] or compkits_comp_desc[key]
         local component = self.frm[key]
         if component then
             local component_class = component.ClassName
@@ -1637,6 +3560,26 @@ function thisFormManager:onApplyChangesBtnClick()
     self.logger:info(msg)
 end
 
+function thisFormManager:clear_kits()
+    self.frm.KitPickListBox.clear()
+    self.kits = {}
+    self.selected_kit = {}
+    self.teamkits_addrs = {}
+    self.competitionkits_addrs = {}
+end
+
+function thisFormManager:TeamKitsTabsVis(state)
+    for comp, _ in pairs(self.teamkits_tab_panel_map) do
+        self.frm[comp].Visible = state
+    end
+end
+
+function thisFormManager:CompetitionKitsTabsVis(state)
+    for comp, _ in pairs(self.competitionkits_tab_panel_map) do
+        self.frm[comp].Visible = state
+    end
+end
+
 function thisFormManager:assign_current_form_events()
     self:assign_events()
 
@@ -1656,6 +3599,34 @@ function thisFormManager:assign_current_form_events()
         self:TabMouseLeave(sender)
     end
 
+    local fnTeamKitsTabClick = function(sender)
+        if self.frm[self.teamkits_tab_panel_map[sender.Name]].Visible then return end
+
+        for key,value in pairs(self.teamkits_tab_panel_map) do
+            if key == sender.Name then
+                sender.Color = '0x001D1618'
+                self.frm[value].Visible = true
+            else
+                self.frm[key].Color = '0x003F2F34'
+                self.frm[value].Visible = false
+            end
+        end
+    end
+
+    local fnTeamCompKitsTabClick = function(sender)
+        if self.frm[self.competitionkits_tab_panel_map[sender.Name]].Visible then return end
+
+        for key,value in pairs(self.competitionkits_tab_panel_map) do
+            if key == sender.Name then
+                sender.Color = '0x001D1618'
+                self.frm[value].Visible = true
+            else
+                self.frm[key].Color = '0x003F2F34'
+                self.frm[value].Visible = false
+            end
+        end
+    end
+
     self.frm.TeamInfoTab.OnClick = fnTabClick
     self.frm.TeamInfoTab.OnMouseEnter = fnTabMouseEnter
     self.frm.TeamInfoTab.OnMouseLeave = fnTabMouseLeave
@@ -1668,10 +3639,42 @@ function thisFormManager:assign_current_form_events()
     self.frm.TeamManagerTab.OnMouseEnter = fnTabMouseEnter
     self.frm.TeamManagerTab.OnMouseLeave = fnTabMouseLeave
 
+    self.frm.TeamKitsTab.OnClick = fnTabClick
+    self.frm.TeamKitsTab.OnMouseEnter = fnTabMouseEnter
+    self.frm.TeamKitsTab.OnMouseLeave = fnTabMouseLeave
+
+    self.frm.TeamKitsGeneralTab.OnClick = fnTeamKitsTabClick
+    self.frm.TeamKitsGeneralTab.OnMouseEnter = fnTabMouseEnter
+    self.frm.TeamKitsGeneralTab.OnMouseLeave = fnTabMouseLeave
+
+    self.frm.TeamKitsJerseyTab.OnClick = fnTeamKitsTabClick
+    self.frm.TeamKitsJerseyTab.OnMouseEnter = fnTabMouseEnter
+    self.frm.TeamKitsJerseyTab.OnMouseLeave = fnTabMouseLeave
+
+    self.frm.TeamKitsShortsTab.OnClick = fnTeamKitsTabClick
+    self.frm.TeamKitsShortsTab.OnMouseEnter = fnTabMouseEnter
+    self.frm.TeamKitsShortsTab.OnMouseLeave = fnTabMouseLeave
+
+    self.frm.CompetitionKitsGeneralTab.OnClick = fnTeamCompKitsTabClick
+    self.frm.CompetitionKitsGeneralTab.OnMouseEnter = fnTabMouseEnter
+    self.frm.CompetitionKitsGeneralTab.OnMouseLeave = fnTabMouseLeave
+
+    self.frm.CompetitionKitsJerseyTab.OnClick = fnTeamCompKitsTabClick
+    self.frm.CompetitionKitsJerseyTab.OnMouseEnter = fnTabMouseEnter
+    self.frm.CompetitionKitsJerseyTab.OnMouseLeave = fnTabMouseLeave
+
+    self.frm.CompetitionKitsShortsTab.OnClick = fnTeamCompKitsTabClick
+    self.frm.CompetitionKitsShortsTab.OnMouseEnter = fnTabMouseEnter
+    self.frm.CompetitionKitsShortsTab.OnMouseLeave = fnTabMouseLeave
+
     self.frm.SyncImage.OnClick = function(sender)
         if not self.current_addrs["teams"] then return end
         self:check_if_has_unsaved_changes()
         self:onShow()
+    end
+
+    self.frm.KitPickListBox.OnSelectionChange = function(sender, user)
+        self:onKitPickListBoxSelectionChange(sender, user)
     end
 
     self.frm.ApplyChangesBtn.OnClick = function(sender)
@@ -1718,16 +3721,38 @@ function thisFormManager:setup(params)
         TeamInfoTab = "TeamInfoPanel",
         TeamFormationTab = "TeamFormationPanel",
         TeamManagerTab = "TeamManagerPanel",
-        -- TeamKitsTab = "TeamKitsPanel"
+        TeamKitsTab = "TeamKitsPanel",
+        TeamKitsGeneralTab = "TeamKitsKitPanel",
+        TeamKitsJerseyTab = "TeamKitsJerseyPanel",
+        TeamKitsShortsTab = "TeamKitsShortsPanel",
+        CompetitionKitsGeneralTab = "TeamCompetitionKitsKitPanel",
+        CompetitionKitsJerseyTab = "TeamCompetitionKitsJerseyPanel",
+        CompetitionKitsShortsTab = "TeamCompetitionKitsShortsPanel",
     }
     self.change_list = {}
     self.default_teamsheets_addrs = {}
     self.default_mentalities_addrs = {}
+    self.teamkits_addrs = {}
+    self.competitionkits_addrs = {}
+    self.selected_kit = {}
+    self.kits = {}
     self.team_formation_players = {}
     self.team_players_links = {}
     self.mentality_formations = {}
     self.player_to_swap = nil
     self.player_swap_img = nil
+
+    self.teamkits_tab_panel_map = {
+        TeamKitsGeneralTab = "TeamKitsKitPanel",
+        TeamKitsJerseyTab = "TeamKitsJerseyPanel",
+        TeamKitsShortsTab = "TeamKitsShortsPanel"
+    }
+
+    self.competitionkits_tab_panel_map = {
+        CompetitionKitsGeneralTab = "TeamCompetitionKitsKitPanel",
+        CompetitionKitsJerseyTab = "TeamCompetitionKitsJerseyPanel",
+        CompetitionKitsShortsTab = "TeamCompetitionKitsShortsPanel",
+    }
 
     local scrnW = getScreenWidth()
     local scrnH = getScreenHeight()

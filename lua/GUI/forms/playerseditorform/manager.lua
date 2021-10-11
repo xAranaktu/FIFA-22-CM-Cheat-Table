@@ -3509,7 +3509,6 @@ function thisFormManager:load_player_contract(playerid, is_in_user_club)
 
 end
 
-
 function thisFormManager:onApplyChangesBtnClick()
     self.logger:info("Apply Changes player")
 
@@ -5777,6 +5776,7 @@ function thisFormManager:setup(params)
         OtherTab = "OtherPanel",
         PlayerCloneTab = "PlayerClonePanel"
     }
+
     self.frm.FindPlayerByID.Text = 'Find player by ID...'
     self.change_list = {}
     self.fut_found_players = nil
