@@ -1,3 +1,6 @@
+v22.1.1.0:
+    - Fixed error when cloning new FIFA 22 icons (Beckham, Cafu, Rooney, Van Persie, Casillas)
+
 v22.1.0.9:
     - Fixed "Editing Player" -> "Player Data" script
     - Added to GUI:
