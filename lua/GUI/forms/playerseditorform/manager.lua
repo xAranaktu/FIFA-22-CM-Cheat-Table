@@ -4252,133 +4252,6 @@ end
 
 function thisFormManager:fut_copy_card_to_gui(player)
     self.logger:info("fut_copy_card_to_gui")
-    local columns = {
-        firstnameid = 1,
-        lastnameid = 2,
-        playerjerseynameid = 3,
-        commonnameid = 4,
-        skintypecode = 5,
-        trait2 = 6,
-        bodytypecode = 7,
-        haircolorcode = 8,
-        facialhairtypecode = 9,
-        curve = 10,
-        jerseystylecode = 11,
-        agility = 12,
-        tattooback = 13,
-        accessorycode4 = 14,
-        gksavetype = 15,
-        positioning = 16,
-        tattooleftarm = 17,
-        hairtypecode = 18,
-        standingtackle = 19,
-        preferredposition3 = 20,
-        longpassing = 21,
-        penalties = 22,
-        animfreekickstartposcode = 23,
-        animpenaltieskickstylecode = 24,
-        isretiring = 25,
-        longshots = 26,
-        gkdiving = 27,
-        interceptions = 28,
-        shoecolorcode2 = 29,
-        crossing = 30,
-        potential = 31,
-        gkreflexes = 32,
-        finishingcode1 = 33,
-        reactions = 34,
-        composure = 35,
-        vision = 36,
-        contractvaliduntil = 37,
-        animpenaltiesapproachcode = 38,
-        finishing = 39,
-        dribbling = 40,
-        slidingtackle = 41,
-        accessorycode3 = 42,
-        accessorycolourcode1 = 43,
-        headtypecode = 44,
-        sprintspeed = 45,
-        height = 46,
-        hasseasonaljersey = 47,
-        tattoohead = 48,
-        preferredposition2 = 49,
-        strength = 50,
-        shoetypecode = 51,
-        birthdate = 52,
-        preferredposition1 = 53,
-        tattooleftleg = 54,
-        ballcontrol = 55,
-        shotpower = 56,
-        trait1 = 57,
-        socklengthcode = 58,
-        weight = 59,
-        hashighqualityhead = 60,
-        gkglovetypecode = 61,
-        tattoorightarm = 62,
-        balance = 63,
-        gender = 64,
-        headassetid = 65,
-        gkkicking = 66,
-        internationalrep = 67,
-        animpenaltiesmotionstylecode = 68,
-        shortpassing = 69,
-        freekickaccuracy = 70,
-        skillmoves = 71,
-        faceposerpreset = 72,
-        usercaneditname = 73,
-        avatarpomid = 74,
-        attackingworkrate = 75,
-        finishingcode2 = 76,
-        aggression = 77,
-        acceleration = 78,
-        headingaccuracy = 79,
-        iscustomized = 80,
-        eyebrowcode = 81,
-        runningcode2 = 82,
-        modifier = 83,
-        gkhandling = 84,
-        eyecolorcode = 85,
-        jerseysleevelengthcode = 86,
-        accessorycolourcode3 = 87,
-        accessorycode1 = 88,
-        playerjointeamdate = 89,
-        headclasscode = 90,
-        defensiveworkrate = 91,
-        tattoofront = 92,
-        nationality = 93,
-        preferredfoot = 94,
-        sideburnscode = 95,
-        weakfootabilitytypecode = 96,
-        jumping = 97,
-        personality = 98,
-        gkkickstyle = 99,
-        stamina = 100,
-        playerid = 101,
-        marking = 102,
-        accessorycolourcode4 = 103,
-        gkpositioning = 104,
-        headvariation = 105,
-        skillmoveslikelihood = 106,
-        skintonecode = 107,
-        shortstyle = 108,
-        overallrating = 109,
-        smallsidedshoetypecode = 110,
-        emotion = 111,
-        runstylecode = 112,
-        jerseyfit = 113,
-        accessorycode2 = 114,
-        shoedesigncode = 115,
-        shoecolorcode1 = 116,
-        hairstylecode = 117,
-        animpenaltiesstartposcode = 118,
-        runningcode1 = 119,
-        preferredposition4 = 120,
-        volleys = 121,
-        accessorycolourcode2 = 122,
-        tattoorightleg = 123,
-        facialhaircolorcode = 124
-    }
-
     local comp_to_column = {
         FirstNameIDEdit = 'firstnameid',
         LastNameIDEdit = 'lastnameid',
@@ -4398,7 +4271,7 @@ function thisFormManager:fut_copy_card_to_gui(player)
         LongPassingEdit = "longpassing",
         PenaltiesEdit = "penalties",
         AnimFreeKickStartPosEdit = "animfreekickstartposcode",
-        AnimPenaltiesKickStyleEdit = "animpenaltieskickstylecode",
+        --AnimPenaltiesKickStyleEdit = "animpenaltieskickstylecode",            -- Removed in FIFA 22
         IsRetiringCB = "isretiring",
         LongShotsEdit = "longshots",
         GKDivingEdit = "gkdiving",
@@ -4411,7 +4284,7 @@ function thisFormManager:fut_copy_card_to_gui(player)
         ReactionsEdit = "reactions",
         ComposureEdit = "composure",
         VisionEdit = "vision",
-        AnimPenaltiesApproachEdit = "animpenaltiesapproachcode",
+        -- AnimPenaltiesApproachEdit = "animpenaltiesapproachcode",            -- Removed in FIFA 22
         FinishingEdit = "finishing",
         DribblingEdit = "dribbling",
         SlidingTackleEdit = "slidingtackle",
@@ -4436,7 +4309,7 @@ function thisFormManager:fut_copy_card_to_gui(player)
         HeadAssetIDEdit = "headassetid",
         GKKickingEdit = "gkkicking",
         InternationalReputationCB = "internationalrep",
-        AnimPenaltiesMotionStyleEdit = "animpenaltiesmotionstylecode",
+        -- AnimPenaltiesMotionStyleEdit = "animpenaltiesmotionstylecode",       -- Removed in FIFA 22
         ShortPassingEdit = "shortpassing",
         FreeKickAccuracyEdit = "freekickaccuracy",
         SkillMovesCB = "skillmoves",
@@ -4613,7 +4486,7 @@ function thisFormManager:fut_copy_card_to_gui(player)
     local fut_players_file_path = "other/fut/base_fut_players.csv"
     for line in io.lines(fut_players_file_path) do
         local values = split(line, ',')
-        local f_playerid = tonumber(values[columns['playerid']])
+        local f_playerid = tonumber(values[CLONE_COLUMNS['playerid']])
         if not f_playerid then goto continue end
 
         if f_playerid == playerid then
@@ -4650,7 +4523,7 @@ function thisFormManager:fut_copy_card_to_gui(player)
                     "CautiousWithCrossesCB",
                     "ComesForCrossessCB"
                 }
-                local trait1 = toBits(tonumber(values[columns['trait1']]))
+                local trait1 = toBits(tonumber(values[CLONE_COLUMNS['trait1']]))
                 local index = 1
                 for ch in string.gmatch(trait1, '.') do
                     local comp = self.frm[trait1_comps[index]]
@@ -4667,7 +4540,7 @@ function thisFormManager:fut_copy_card_to_gui(player)
                     "SaveswithFeetCB",
                     "SetPlaySpecialistCB"
                 }
-                local trait2 = toBits(tonumber(values[columns['trait2']]))
+                local trait2 = toBits(tonumber(values[CLONE_COLUMNS['trait2']]))
                 local index = 1
                 for ch in string.gmatch(trait2, '.') do
                     local comp = self.frm[trait2_comps[index]]
@@ -4721,7 +4594,7 @@ function thisFormManager:fut_copy_card_to_gui(player)
                                 comp_desc["db_field"]["table_name"],
                                 comp_desc["db_field"]["field_name"],
                                 comp_desc["db_field"]["raw_val"],
-                                values[columns['birthdate']]
+                                values[CLONE_COLUMNS['birthdate']]
                             )
                         end
 
@@ -4729,7 +4602,7 @@ function thisFormManager:fut_copy_card_to_gui(player)
                     end
                 elseif component_name == 'HeadTypeCodeCB' then
                     component.OnChange = nil
-                    comp_desc['cbFiller'](component, tonumber(values[columns[value]]))
+                    comp_desc['cbFiller'](component, tonumber(values[CLONE_COLUMNS[value]]))
                     component.OnChange = org_comp_on_change
                 elseif component_class == 'TCEEdit' then
                     if self.frm.FUTCopyAttribsCB.State == 1 and (
@@ -4753,7 +4626,7 @@ function thisFormManager:fut_copy_card_to_gui(player)
                             player['details']['stat_json'][value] or 
                             player['details'][comp_to_fut[key]] or 
                             player['details']['stat_json'][comp_to_fut[key]] or 
-                            values[columns[value]]
+                            values[CLONE_COLUMNS[value]]
                         )
                         
                         -- Composure has been added in FIFA 18
@@ -4819,7 +4692,7 @@ function thisFormManager:fut_copy_card_to_gui(player)
                                 player['details']['stat_json'][value] or
                                 player['details'][comp_to_fut[key]] or
                                 player['details']['stat_json'][comp_to_fut[key]] or
-                                values[columns[value]]
+                                values[CLONE_COLUMNS[value]]
                             )
                         end
                         if comp_desc['db_field'] and comp_desc['db_field']['raw_val'] then
@@ -5251,7 +5124,6 @@ function thisFormManager:onCMCopyPlayerBtnClick(sender)
         LongPassingEdit = true,
         PenaltiesEdit = true,
         AnimFreeKickStartPosEdit = true,
-        AnimPenaltiesKickStyleEdit = true,
         IsRetiringCB = true,
         LongShotsEdit = true,
         GKDivingEdit = true,
@@ -5264,7 +5136,6 @@ function thisFormManager:onCMCopyPlayerBtnClick(sender)
         ReactionsEdit = true,
         ComposureEdit = true,
         VisionEdit = true,
-        AnimPenaltiesApproachEdit = true,
         FinishingEdit = true,
         DribblingEdit = true,
         SlidingTackleEdit = true,
@@ -5289,7 +5160,6 @@ function thisFormManager:onCMCopyPlayerBtnClick(sender)
         HeadAssetIDEdit = true,
         GKKickingEdit = true,
         InternationalReputationCB = true,
-        AnimPenaltiesMotionStyleEdit = true,
         ShortPassingEdit = true,
         FreeKickAccuracyEdit = true,
         SkillMovesCB = true,
