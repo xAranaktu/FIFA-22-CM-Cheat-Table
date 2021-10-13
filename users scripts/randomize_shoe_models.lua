@@ -41,8 +41,6 @@ local shoe_id_list = {
     40, --- adidas X SPEEDFLOW+ HYPE ADIZERO
     41, --- adidas COPA 21+ NUMBERS UP
     42, --- adidas PREDATOR 21+ NUMBERS UP
-    43, --- BootName_43_Auth-FullChar
-    44, --- BootName_44_Auth-FullChar
     45, --- adidas X SPEEDFLOW+ NUMBERS UP
     46, --- Lotto Maestro 2AW - All Black/Acacia Green
     47, --- Nike Mercurial Vapor Elite - Gear Up
@@ -64,8 +62,6 @@ local shoe_id_list = {
     63, --- mizuno Rebula Cup Japan Next Wave
     91, --- Pirma IMPERIO LEGEND - Black
     92, --- Pirma IMPERIO LEGEND - White
-    93, --- BootName_93_Auth-FullChar
-    94, --- BootName_94_Auth-FullChar
     130, --- adidas X GHOSTED 20+ INFLIGHT
     131, --- adidas COPA 20+ INFLIGHT
     132, --- adidas NEMEZIZ 19+ INFLIGHT
@@ -76,7 +72,6 @@ local shoe_id_list = {
     137, --- adidas X GHOSTED 20+ DARK MOTION
     139, --- adidas X GHOSTED 20+ PF
     140, --- adidas PREDATOR 20+ PP HYPE
-    141, --- BootName_141_Auth-FullChar
     142, --- adidas Predator Accelerator 1998
     143, --- adidas X GHOSTED+ GLORY HUNTER
     144, --- adidas COPA 20+ GLORY HUNTER
@@ -217,10 +212,7 @@ local shoe_id_list = {
     530, --- adidas X GHOSTED.1 IN SUPERLATIVE
     531, --- adidas COPA SENSE.1 IN SALA SUPERSPECTRAL
     532, --- adidas COPA SENSE.1 IN SALA SUPERLATIVE
-    533, --- adidas X GHOSTED.3 Turf LL
-    547, --- adidas Samba - Black
-    548, --- adidas Samba - Blue
-    549 --- adidas Samba - White
+    533 --- adidas X GHOSTED.3 Turf LL
 }
 
 function inTable(tbl, item)
