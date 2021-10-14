@@ -592,7 +592,7 @@ function thisFormManager:onShow(sender)
         return
     end
 
-    getAddressList().getMemoryRecordByID(3034).Active = true
+    getAddressList().getMemoryRecordByID(CT_MEMORY_RECORDS["CUSTOM_TRANSFERS"]).Active = true
     self.frm.TransferTypeListBox.setItemIndex(0)
 
     local onShow_delayed_wrapper = function()

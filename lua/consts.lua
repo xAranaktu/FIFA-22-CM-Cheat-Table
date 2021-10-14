@@ -19,6 +19,7 @@ CT_MEMORY_RECORDS = {
     PLAYERS_PRIMARY_POS = 46,
     PLAYERS_SECONDARY_POS = 42,
     PLAYERS_NATIONALITY = 89,
+    CUSTOM_TRANSFERS = 3034,
 
     HEIGHT_CB = 39,
     WEIGHT_CB = 53,
@@ -70,7 +71,7 @@ AOB_PATTERNS = {
     OnSharpnessChange = '41 88 71 24 48 8B 5C 24 50',
     OnStaminaChange1 = '0F BE C2 88 51 11',
     OnStaminaChange2 = '88 43 11 0F B6 47 0D',
-    EditPlayerName = '33 DB C6 45 D0 00 C6 45 DF 0F 48 89 5D E0 4C 8D 40 01',
+    EditPlayerName = 'C6 44 24 20 00 C6 44 24 2F 0F 48 C7 44 24 30 00 00 00 00 80 78 01',
 
     ChangeStadium = '41 8B B4 24 C4 18 00 00',
     MatchHalfLength = '45 8B 84 24 E8 18 00 00',
@@ -78,6 +79,7 @@ AOB_PATTERNS = {
     MatchTODDisplay = '44 8B 4F 40 C1 FA 05',
     MatchTODReal = '49 8B C5 B9 02 00 00 00',
 
+    AgreeTransferRequest = '44 8B E8 48 8B 89 98 01 00 00',
     PAPNewOffer = '80 B9 D9 02 00 00 00',
 
     YAMaxPerReport = '47 8B 44 FE 58',
@@ -87,6 +89,7 @@ AOB_PATTERNS = {
     GenNewYAReport = '83 C0 0E F2 0F 11 54 24 2C',
     fnGenYAReport = '40 55 57 48 8D 6C 24 ?? 48 81 EC ?? ?? ?? ?? 48 8B 01 48 8B F9 FF 50 08 84 C0 0F 84 ?? ?? ?? ?? 48 8B 57 08 48 89 9C 24 ?? ?? ?? ?? 4C 89 B4 24 ?? ?? ?? ??',
     YouthAcademyGeneratePlayer = '28 FF FF FF FF 48 8B 5C 24 70',
+    YASomeScoutIni = '48 48 8B 07 48 8B 80 98 01 00 00',
 
     -- On view scout report
     YAYouthPlayerUtilSettings = '48 8B 51 18 48 8D 8D ?? ?? ?? ?? 48 83 C2 08 E8 ?? ?? ?? ?? 44 8B 85 ?? ?? ?? ?? 45 8B F8 48 63 44 24',
@@ -107,36 +110,27 @@ AOB_PATTERNS = {
     STADIUM_BOUNDARY = "0F 10 32 0F 28 D6 0F C6 C0 00", -- XMM5?
     CAM_Z_BOUNDARY = "66 0F 70 0A ?? 0F 28 05 ?? ?? ?? ?? 0F 2F C1 76",
 
-    -- TODO Update FIFA 22
-    PAPTrainingBestGrade = '8B 93 B0 00 00 00 48 8B CD',
-    PAPMoreEfficientTraining = '66 0F 6E 5E 1C',
-    PAPUnlimitedTrainingSessions = '41 8B 5F 38 45 8B 7F 3C',
-    PAPTrainingEveryday = '83 6F 3C 01 ?? ?? ?? ?? ?? ?? B9 07 00 00 00 89 4F 3C',
-    PAPIgnoreDayWithMatch = '48 8B CE FF 50 20 85 C0 74 05 40',
-    PAPUnlockPlayButtons = '80 79 41 00 74 0C',
-
-    
-    
-
-    AgreeTransferRequest = '44 8B E8 48 8B 89 98 01 00 00',
-    YASomeScoutIni = '48 48 8B 07 48 8B 80 98 01 00 00',
-
-    CustomTransfers = '84 C0 48 8B 01 74 ?? FF 50 10 41',
-    
-
-
-
+    CustomTransfers = '4C 8B C3 48 8B 01 74 0C FF 50 10',
 
     -- FootballCompEng_Win64_retail.dll
     FootballCompEng = {
         MODULE_NAME = 'FootballCompEng_Win64_retail.dll',
         AOBS = {
-            Calendar = '41 8B C5 89 85 90 00 00 00',
             SimMatchSettings = '8B A8 A4 00 00 00',
-            MatchFixing = '48 8B 0B 48 8B 00',
-            MatchFixingGoals = '48 8B 3C C8 48 85 FF 74 ?? 48 8B 4E 10'
+            Calendar = '41 8B C4 49 8B D4',
+            --MatchFixing = '48 8B 0B 48 8B 00',
+            --MatchFixingGoals = '48 8B 3C C8 48 85 FF 74 ?? 48 8B 4E 10'
         }
     }
+
+
+    -- TODO Update FIFA 22
+    --PAPTrainingBestGrade = '8B 93 B0 00 00 00 48 8B CD',
+    --PAPMoreEfficientTraining = '66 0F 6E 5E 1C',
+    --PAPUnlimitedTrainingSessions = '41 8B 5F 38 45 8B 7F 3C',
+    --PAPTrainingEveryday = '83 6F 3C 01 ?? ?? ?? ?? ?? ?? B9 07 00 00 00 89 4F 3C',
+    --PAPIgnoreDayWithMatch = '48 8B CE FF 50 20 85 C0 74 05 40',
+    --PAPUnlockPlayButtons = '80 79 41 00 74 0C',
 }
 
 DEFAULT_CFG = {

@@ -695,7 +695,7 @@ function TableManager:on_attach_to_process()
     self:log_screen_id()
 
     -- Generate offsets.ini with all offsets.
-    --self:update_offsets()
+    -- self:update_offsets()
     self.game_db_manager:load_playernames()
     self:save_cfg()
     self:autoactivate_scripts()
