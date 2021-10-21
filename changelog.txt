@@ -1,3 +1,9 @@
+v22.1.1.1:
+    - Added FIFA 22 Bodytypecodes
+    - Added to "Play As Player":
+        - Manager Reputation
+        - Squad Role
+
 v22.1.1.0:
     - Fixed error when cloning new FIFA 22 icons (Beckham, Cafu, Rooney, Van Persie, Casillas)
 
