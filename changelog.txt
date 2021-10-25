@@ -1,3 +1,9 @@
+v22.1.1.2:
+    - Added to "Training" -> "Manager CM":
+        - "Always A"
+    - Added scripts to "users scripts" folder:
+        - "export_season_stats.lua"
+
 v22.1.1.1:
     - Added FIFA 22 Bodytypecodes
     - Added to "Play As Player":
