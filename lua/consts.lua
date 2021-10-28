@@ -94,7 +94,7 @@ AOB_PATTERNS = {
     -- On view scout report
     YAYouthPlayerUtilSettings = '48 8B 51 18 48 8D 8D ?? ?? ?? ?? 48 83 C2 08 E8 ?? ?? ?? ?? 44 8B 85 ?? ?? ?? ?? 45 8B F8 48 63 44 24',
 
-    CPUDontChangeLineup = '48 89 5C 24 ?? 48 89 74 24 ?? 57 48 83 EC 20 41 83 38 FF 49 8B F8 48 8B 01 8B F2 48 8B D9 75 0B 49 8B D0 FF 90 ?? ?? ?? ?? EB 06',
+    FreezeLineup = '48 89 5C 24 ?? 48 89 74 24 ?? 57 48 83 EC 20 41 83 38 FF 49 8B F8 48 8B 01 8B F2 48 8B D9 75 0B 49 8B D0 FF 90',
     ContractNeg = '48 8B 50 38 48 83 EA 40 49 FF 60 08 CC CC CC CC CC',
     NegStatusCheck = 'FF 90 40 01 00 00 89 47 18',
     GameSettings = '49 63 CD 8B 34 C8',
