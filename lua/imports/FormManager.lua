@@ -293,22 +293,7 @@ end
 
 function FormManager:get_player_name(playerid)
     self.logger:debug("get_player_name")
-    if type(playerid) ~= "number" then
-        playerid = tonumber(playerid)
-    end
-    local playername = ""
-
-    if not playerid then return playername end
-
-    local cached_player_names = self.game_db_manager:get_cached_player_names()
-    local pname = cached_player_names[playerid]
-    if pname then
-        playername = pname["knownas"] or ""
-    else
-        self.logger:debug("no pname")
-    end
-
-    return playername
+    return get_player_name(playerid)
 end
 
 function FormManager:find_team_by_id(teamid)

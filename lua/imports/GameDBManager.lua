@@ -401,6 +401,7 @@ function GameDBManager:cache_player_names()
     local playernames = self.fifa_player_names
     local knownas = ''
     local fullname = '' -- For search by name
+    local alt_fullname = '' -- For Export data
 
     table_name = "players"
     first_record = self.tables[table_name]["first_record"]
@@ -485,16 +486,24 @@ function GameDBManager:cache_player_names()
                 surname,
                 jerseyname,
                 commonname
-            ))
-            if commonname == '' then
-                knownas = string.format(
-                    "%s. %s",
-                    string.sub(firstname, 1, 1),
-                    surname
-                )
-            else
-                knownas = commonname
-            end
+        ))
+        if commonname == '' then
+            knownas = string.format(
+                "%s. %s",
+                string.sub(firstname, 1, 1),
+                surname
+            )
+
+            alt_fullname = string.format(
+                "%s %s",
+                firstname,
+                surname
+            )
+
+        else
+            knownas = commonname
+            alt_fullname = knownas
+        end
 
         self.cached_player_names[playerid] = {
             firstname=firstname,
@@ -502,6 +511,7 @@ function GameDBManager:cache_player_names()
             jerseyname=jerseyname,
             commonname=commonname,
             knownas=knownas,
+            alt_fullname=alt_fullname,
             fullname=fullname
         }
 

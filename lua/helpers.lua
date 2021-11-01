@@ -21,16 +21,160 @@ function is_cm_loaded()
     return false
 end
 
+function get_comp_name_from_objid(_id)
+    local result = string.format("Unknown_%d", _id)
+
+    local cid = COMP_OBJID_CID[_id]
+    if cid == nil then return result end
+
+    local result = COMP_NAMES[cid] or result
+    return result
+end
+
+function get_player_name(playerid)
+    if type(playerid) ~= "number" then
+        playerid = tonumber(playerid)
+    end
+    local playername = ""
+
+    if not playerid then return playername end
+
+    local cached_player_names = gCTManager.game_db_manager:get_cached_player_names()
+    local pname = cached_player_names[playerid]
+    if pname then
+        playername = pname["knownas"] or ""
+    end
+
+    return playername
+end
+
+function get_player_fullname(playerid)
+    if type(playerid) ~= "number" then
+        playerid = tonumber(playerid)
+    end
+    local playername = ""
+
+    if not playerid then return playername end
+
+    local cached_player_names = gCTManager.game_db_manager:get_cached_player_names()
+    local pname = cached_player_names[playerid]
+    if pname then
+        playername = pname["alt_fullname"] or ""
+    end
+
+    return playername
+end
+
 function get_user_clubteamid()
     if not is_cm_loaded() then return 0 end
     local game_db_manager = gCTManager.game_db_manager
-    local memory_manager = gCTManager.memory_manager
 
     local addr = readPointer("pUsersTableFirstRecord")
     if not addr or addr == 0 then return 0 end
 
     local clubteamid = game_db_manager:get_table_record_field_value(addr, "career_users", "clubteamid")
     return clubteamid
+end
+
+function get_pos_name(posid)
+    return POS_TO_NAME[posid] or "INVALID"
+end
+
+function get_player_clubteamrecord(playerid)
+    local game_db_manager = gCTManager.game_db_manager
+    if type(playerid) == 'string' then
+        playerid = tonumber(playerid)
+    end
+
+    -- - 78, International
+    -- - 2136, International Women
+    -- - 76, Rest of World
+    -- - 383, Create Player League
+    local invalid_leagues = {
+        76, 78, 2136, 383
+    }
+
+    local arr_flds = {
+        {
+            name = "playerid",
+            expr = "eq",
+            values = {playerid}
+        }
+    }
+
+    local addr = game_db_manager:find_record_addr(
+        "teamplayerlinks", arr_flds
+    )
+
+    if #addr <= 0 then
+        --self.logger:warning(string.format("No teams for playerid: %d", playerid))
+        return 0
+    end
+
+    local fnIsLeagueValid = function(invalid_leagues, leagueid)
+        for j=1, #invalid_leagues do
+            local invalid_leagueid = invalid_leagues[j]
+            if invalid_leagueid == leagueid then return false end
+        end
+        return true
+    end
+
+    for i=1, #addr do
+        local found_addr = addr[i]
+        local teamid = game_db_manager:get_table_record_field_value(found_addr, "teamplayerlinks", "teamid")
+        local arr_flds_2 = {
+            {
+                name = "teamid",
+                expr = "eq",
+                values = {teamid}
+            }
+        }
+        local found_addr2 = game_db_manager:find_record_addr(
+            "leagueteamlinks", arr_flds_2, 1
+        )[1]
+        local leagueid = game_db_manager:get_table_record_field_value(found_addr2, "leagueteamlinks", "leagueid")
+        if fnIsLeagueValid(invalid_leagues, leagueid) then
+            --self.logger:debug(string.format("found: %X, teamid: %d, leagueid: %d", found_addr, teamid, leagueid))
+            writeQword("pTeamplayerlinksTableCurrentRecord", found_addr)
+            return found_addr
+        end 
+    end
+
+    --self.logger:warning(string.format("No club teams for playerid: %d", playerid))
+    return 0
+end
+
+function get_players_addrs()
+    local result = {}
+
+    local game_db_manager = gCTManager.game_db_manager
+    local memory_manager = gCTManager.memory_manager
+
+    local first_record = game_db_manager.tables["players"]["first_record"]
+    local record_size = game_db_manager.tables["players"]["record_size"]
+    local written_records = game_db_manager.tables["players"]["written_records"]
+
+    local row = 0
+    local current_addr = first_record
+    local last_byte = 0
+    local is_record_valid = true
+
+    while true do
+        if row >= written_records then
+            break
+        end
+        current_addr = first_record + (record_size*row)
+        last_byte = readBytes(current_addr+record_size-1, 1, true)[1]
+        is_record_valid = not (bAnd(last_byte, 128) > 0)
+        if is_record_valid then
+            local playerid = game_db_manager:get_table_record_field_value(current_addr, "players", "playerid")
+
+            result[playerid] = current_addr
+        end
+        row = row + 1
+    end
+
+    return result
 end
 
 function get_playerids_for_team(tid)
