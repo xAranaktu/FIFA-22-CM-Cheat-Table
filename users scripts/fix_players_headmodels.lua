@@ -1553,6 +1553,7 @@ local valid_headmodels = {
     209675, -- Janoi Donacien
     209744, -- Eugenio Mena
     209761, -- Daniel Steres
+    209818, -- Joshua Brenet
     209846, -- Christian Gunter
     209852, -- Brendan Galloway
     209889, -- Raphael Guerriero
@@ -2677,6 +2678,7 @@ local valid_headmodels = {
     240734, -- Matt Oriley
     240740, -- Callum Hudson Odoi
     240786, -- Ali Koiki
+    240833, -- Youssoufa Moukoko
     240863, -- Conor Coventry
     240865, -- Anthony Scully
     240866, -- Reece Hannam
@@ -2876,6 +2878,7 @@ local valid_headmodels = {
     252371, -- Jude Bellingham
     252454, -- Haret Ortega
     252466, -- Devid Bouah
+    252577, -- Joao Ferreira
     252594, -- Isaac Lihadji
     252935, -- Leonardo Fernandez
     252961, -- Tanguy Kouassi
@@ -2920,7 +2923,7 @@ local valid_headmodels = {
     261025, -- Dane Scarlett
     261581, -- David Beckham
     261593, -- Jurgen Kohler
-    262271 -- Diego Milito
+    262271  -- Diego Milito
 }
 
 gCTManager:init_ptrs()
