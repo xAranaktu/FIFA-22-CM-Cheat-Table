@@ -1,3 +1,11 @@
+v22.1.1.4:
+    - Added to "Play As Player -> Create Transfer Offer":
+        - Date
+        - IsLoan
+    - Fixed "Play As Player -> Manager Reputation"
+    - Fixed "Play As Player -> Squad Role"
+    - Replaced "Play As Player -> Create Transfer Offer" script with pointers.
+
 v22.1.1.3:
     - Added TU3, 3 new headmodels to "fix_players_headmodels.lua"
     - Fixed "Play As Player->Create Transfer Offer"
