@@ -1,3 +1,7 @@
+v22.1.1.5:
+    - Added scripts to "users scripts" folder:
+        - "export_transfer_history.lua"
+
 v22.1.1.4:
     - Added to "Play As Player -> Create Transfer Offer":
         - Date
