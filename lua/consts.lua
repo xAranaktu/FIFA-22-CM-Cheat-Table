@@ -81,7 +81,7 @@ AOB_PATTERNS = {
     MatchTODReal = '49 8B C5 B9 02 00 00 00',
 
     AgreeTransferRequest = '44 8B E8 48 8B 89 98 01 00 00',
-    PAPNewOffer = '80 B9 D9 02 00 00 00',
+    PAPNewOffer = '80 B9 01 03 00 00 00',
 
     YAMaxPerReport = '47 8B 44 FE 58',
     VProSkillPoints = '8B 48 04 89 8B 8C 06 00 00',

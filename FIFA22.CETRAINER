@@ -21,7 +21,7 @@
   <CheatEntries>
     <CheatEntry>
       <ID>0</ID>
-      <Description>"v22.1.1.2"</Description>
+      <Description>"v22.1.1.3"</Description>
       <LastState Value="" RealAddress="00000000"/>
       <Color>000040</Color>
       <GroupHeader>1</GroupHeader>
@@ -19999,22 +19999,22 @@ newmem_PAPNewOffer:
   cmp [PAP_NEW_OFFER_DATA], 0
   je code_PAPNewOffer
   mov ebx, [PAP_NEW_OFFER_DATA] // New Team ID
-  mov [rcx+1E8], ebx // New Team ID
+  mov [rcx+210], ebx // New Team ID
 
   mov ebx, [PAP_NEW_OFFER_DATA+4] // Current Team ID
-  mov [rcx+1EC], ebx  // Current Team ID
+  mov [rcx+214], ebx  // Current Team ID
 
   mov ebx, [PAP_NEW_OFFER_DATA+8] // Transfer SUM
-  mov [rcx+1F0], ebx // Transfer SUM
+  mov [rcx+218], ebx // Transfer SUM
 
   mov ebx, [PAP_NEW_OFFER_DATA+C] // wage
-  mov [rcx+1F4], ebx // Wage
+  mov [rcx+21C], ebx // Wage
 
-  mov [rcx+1F8], #20080101 // Date
+  mov [rcx+220], #20080101 // Date
 code_PAPNewOffer:
   popf
   pop RBX
-  cmp byte ptr [rcx+000002D9],00
+  cmp byte ptr [rcx+00000301],00
   jmp ret_PAPNewOffer
 
 $INJECT_PAPNewOffer:
