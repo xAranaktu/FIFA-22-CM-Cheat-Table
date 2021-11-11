@@ -81,7 +81,6 @@ AOB_PATTERNS = {
     MatchTODReal = '49 8B C5 B9 02 00 00 00',
 
     AgreeTransferRequest = '44 8B E8 48 8B 89 98 01 00 00',
-    PAPNewOffer = '80 B9 01 03 00 00 00',
 
     YAMaxPerReport = '47 8B 44 FE 58',
     VProSkillPoints = '8B 48 04 89 8B 8C 06 00 00',
@@ -7084,7 +7083,33 @@ MODE_MANAGERS_OFFSETS = {
     PlayerMoraleManager = 0x998,
     PlayerStatusManager = 0xA18,
     ScoutManager = 0xB38,
+    TransferManager = 0xF18,
     YouthPlayerUtil = 0xF98,
+}
+
+NegotiationsStorageDao_STRUCT = {
+    impl = 0x8
+}
+
+NegotiationsStorageDaoImpl_STRUCT = {
+    CPU_CLUB_HIST_OFF = 0x8,
+    CPU_PLAYER_HIST_OFF = 0x10
+}
+
+CPU_CLUB_TRANSFER_HIST_STRUCT = {
+    size = 0xB0,
+
+    playerid = 0x0,
+    toteamid = 0x4,
+    fromteamid = 0x8
+}
+
+CPU_PLAYER_TRANSFER_HIST_STRUCT = {
+    size = 0xB0,
+
+    playerid = 0x0,
+    toteamid = 0x4,
+    fromteamid = 0x8
 }
 
 IFCEInterface_STRUCT = {
@@ -7121,6 +7146,10 @@ YOUTHPLAYERUTIL_STRUCT = {
     settings_offset = 0x18,
     pot_var_off = 0x798,
     max_display_val_offset = 0x7CC
+}
+
+TRANSFER_MANAGER_STRUCT = {
+    NegotiationsStorageDao_offset = 0x1988
 }
 
 SCOUTMANAGER_STRUCT = {
