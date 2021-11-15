@@ -21,6 +21,21 @@ function is_cm_loaded()
     return false
 end
 
+-- Check if EASTL::Vector is valid and not empty
+function is_vec_valid(addr)
+    local p = readPointer(addr)
+
+    -- nullptr
+    if p == 0 then return false end
+
+    -- mpEnd > mpBegin
+    return readPointer(addr + 8) > p
+end
+
+function get_last_vec_elem(addr_begin, sz)
+    return readPointer(addr_begin + 8) - sz
+end
+
 function get_comp_name_from_objid(_id)
     local result = string.format("Unknown_%d", _id)
 
@@ -29,6 +44,47 @@ function get_comp_name_from_objid(_id)
 
     local result = COMP_NAMES[cid] or result
     return result
+end
+
+function get_team_label_by_id(teamid)
+    local result = ""
+    local record_addr = find_team_by_id(teamid)
+    if record_addr == 0 then
+        result = string.format("%s (ID: %d)", "Unknown", teamid)
+    else
+        local teamname = gCTManager.game_db_manager:get_table_record_field_value(record_addr, "teams", "teamname") or ""
+        result = string.format("%s (ID: %d)", teamname, teamid)
+    end
+
+    return result
+end
+
+function find_team_by_id(teamid)
+    if type(teamid) == 'string' then
+        teamid = tonumber(teamid)
+    end
+
+    local arr_flds = {
+        {
+            name = "teamid",
+            expr = "eq",
+            values = {teamid}
+        }
+    }
+
+    local addr = gCTManager.game_db_manager:find_record_addr(
+        "teams", arr_flds, 1 
+    )
+    if #addr == 0 then 
+        return 0
+    end
+    -- for i=1, #addr do
+    --     self.logger:debug(string.format("found team record at: 0x%X", addr[i]))
+    -- end
+
+    writeQword("pTeamsTableCurrentRecord", addr[1])
+
+    return addr[1]
 end
 
 function get_player_name(playerid)

@@ -297,31 +297,8 @@ function FormManager:get_player_name(playerid)
 end
 
 function FormManager:find_team_by_id(teamid)
-    if type(teamid) == 'string' then
-        teamid = tonumber(teamid)
-    end
-
-    local arr_flds = {
-        {
-            name = "teamid",
-            expr = "eq",
-            values = {teamid}
-        }
-    }
-
-    local addr = self.game_db_manager:find_record_addr(
-        "teams", arr_flds, 1 
-    )
-    if #addr == 0 then 
-        return 0
-    end
-    for i=1, #addr do
-        self.logger:debug(string.format("found team record at: 0x%X", addr[i]))
-    end
-
-    writeQword("pTeamsTableCurrentRecord", addr[1])
-
-    return addr[1]
+    self.logger:debug("find_team_by_id")
+    return find_team_by_id(teamid)
 end
 
 function FormManager:fnCommonDBValGetter(addrs, table_name, field_name, raw)

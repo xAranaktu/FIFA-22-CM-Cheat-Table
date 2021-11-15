@@ -7091,9 +7091,135 @@ NegotiationsStorageDao_STRUCT = {
     impl = 0x8
 }
 
+Action_STRUCT = {
+    size = 0xC,
+
+    action_date = 0x0,
+    action_type = 0x8
+}
+
 NegotiationsStorageDaoImpl_STRUCT = {
     CPU_CLUB_HIST_OFF = 0x8,
-    CPU_PLAYER_HIST_OFF = 0x10
+    CPU_PLAYER_HIST_OFF = 0x10,
+    CPU_CLUB_LOAN_HIST_OFF = 0x18,
+    CPU_PLAYER_LOAN_HIST_OFF = 0x20,
+    USER_CLUB_HIST_OFF = 0x28,
+    USER_CLUB_LOAN_HIST_OFF = 0x30,
+    USER_PLAYER_HIST_OFF = 0x38
+}
+
+USER_CLUB_LOAN_HIST_STRUCT = {
+    size = 0xF8,
+
+    playerid = 0x0,
+    toteamid = 0x4,
+    fromteamid = 0x8,
+    offers_vec = 0x10,
+    requests_vec = 0x30,
+    actions_vec = 0x50
+}
+
+USER_CLUB_TRANSFER_HIST_STRUCT = {
+    size = 0x98,
+
+    playerid = 0x0,
+    toteamid = 0x4,
+    fromteamid = 0x8,
+    offers_vec = 0x10,
+    requests_vec = 0x30,
+    actions_vec = 0x50
+}
+
+USER_PLAYER_TRANSFER_HIST_STRUCT = {
+    size = 0x98,
+
+    playerid = 0x0,
+    toteamid = 0x4,
+    fromteamid = 0x8,
+    seller_accepted = 0xC,
+    buyer_accepted = 0xD,
+    seller_rejected = 0xE,
+    buyer_rejected = 0xF,
+    offers_vec = 0x10,
+    requests_vec = 0x30,
+    actions_vec = 0x50
+}
+
+USER_TRANSFER_OFFER_STRUCT = {
+    size = 0x30,
+
+    exchange_playerid = 0x0,
+    sum = 0xC
+}
+
+USER_TRANSFER_REQUEST_STRUCT = {
+    size = 0x30,
+
+    exchange_playerid = 0x0,
+    sum = 0xC
+}
+
+CPU_TRANSFER_OFFER_STRUCT = {
+    size = 0xC,
+
+    sum = 0x0,
+    date = 0x4
+}
+
+CPU_TRANSFER_REQUEST_STRUCT = {
+    size = 0x14,
+    
+    sum = 0x0,
+    date = 0xC
+}
+
+CPU_LOAN_OFFER_STRUCT = {
+    size = 0x14,
+
+    contract_len = 0x0,
+    fee = 0x4,
+    date = 0x8
+}
+
+CPU_LOAN_REQUEST_STRUCT = {
+    size = 0x14,
+
+    contract_len = 0x0,
+    fee = 0x4,
+    date = 0xC
+}
+
+
+CPU_CLUB_LOAN_HIST_STRUCT = {
+    size = 0xC0,
+
+    playerid = 0x0,
+    toteamid = 0x4,
+    fromteamid = 0x8,
+    offers_vec = 0x38,
+    requests_vec = 0x58,
+    seller_accepted = 0x78,
+    buyer_accepted = 0x79,
+    seller_rejected = 0x7A,
+    buyer_rejected = 0x7B,
+    last_action_idx = 0x7C,
+    actions_arr = 0x80
+}
+
+CPU_PLAYER_LOAN_HIST_STRUCT = {
+    size = 0x98,
+
+    playerid = 0x0,
+    toteamid = 0x4,
+    fromteamid = 0x8,
+    offers_vec = 0x10,
+    requests_vec = 0x30,
+    seller_accepted = 0x50,
+    buyer_accepted = 0x52,
+    seller_rejected = 0x53,
+    buyer_rejected = 0x54,
+    last_action_idx = 0x58,
+    actions_arr = 0x5C
 }
 
 CPU_CLUB_TRANSFER_HIST_STRUCT = {
@@ -7101,7 +7227,16 @@ CPU_CLUB_TRANSFER_HIST_STRUCT = {
 
     playerid = 0x0,
     toteamid = 0x4,
-    fromteamid = 0x8
+    fromteamid = 0x8,
+    offers_vec = 0x20,
+    requests_vec = 0x40,
+    seller_accepted = 0x68,
+    buyer_accepted = 0x69,
+    seller_rejected = 0x6A,
+    buyer_rejected = 0x6B,
+    triggered_rlc = 0x6C,
+    last_action_idx = 0x70,
+    actions_arr = 0x74
 }
 
 CPU_PLAYER_TRANSFER_HIST_STRUCT = {
@@ -7109,7 +7244,12 @@ CPU_PLAYER_TRANSFER_HIST_STRUCT = {
 
     playerid = 0x0,
     toteamid = 0x4,
-    fromteamid = 0x8
+    fromteamid = 0x8,
+    buyer_accepted = 0xC,
+    buyer_rejected = 0xD,
+    seller_accepted_stalls = 0xE,
+    seller_accepted = 0xF,
+    seller_rejected = 0x10
 }
 
 IFCEInterface_STRUCT = {
