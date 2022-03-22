@@ -391,11 +391,13 @@ local valid_headmodels = {
     138412, -- James Milner
     138449, -- Kaka
     138956, -- Giorgio Chiellini
+    139062, -- Willy Caballero
     139068, -- Nani
     139720, -- Vincent Kompany
     139860, -- Jeremy Morel
     140196, -- Yasuhito Endo
     140233, -- Guillermo Ochoa
+    140293, -- Antonio Mirante
     140601, -- Nemanja Vidic
     142707, -- Lisandro Lopez
     142822, -- Jonas Gutierrez
@@ -457,6 +459,7 @@ local valid_headmodels = {
     159145, -- Bafetimbi Gomis
     159261, -- Fabio Quagliarella
     160292, -- Ben Watson
+    161648, -- Hatem Ben Arfa
     161754, -- Javi Garcia
     161805, -- Valon Behrami
     161840, -- Fernando Hierro
@@ -504,6 +507,7 @@ local valid_headmodels = {
     167198, -- Eric Cantona
     167397, -- Falcao Garcia
     167425, -- Abedi Pele
+    167431, -- Gonzalo Castro
     167495, -- Manuel Neuer
     167524, -- Jorge Torresnilo
     167664, -- Gonzalo Higuain
@@ -552,6 +556,7 @@ local valid_headmodels = {
     171579, -- Raul Garcia
     171791, -- Jose Fonte
     171831, -- Michael Mancienne
+    171833, -- Daniel Sturridge
     171877, -- Marek Hamsik
     171896, -- Hugo Ayala
     171897, -- Jose Andres Guardado
@@ -560,6 +565,7 @@ local valid_headmodels = {
     172049, -- Eljero Elia
     172114, -- Diego Valeri
     172143, -- Lasse Schone
+    172175, -- Kevin Mirallas
     172203, -- Fraser Forster
     172316, -- Jorge Andujar Moreno
     172425, -- Souleymane Bamba
@@ -574,6 +580,7 @@ local valid_headmodels = {
     172962, -- Victor Moses
     173030, -- Oscar Trejo
     173337, -- Yasuyuki Konno
+    173373, -- Sergio Romero
     173426, -- Simon Mignolet
     173432, -- Hector Moreno
     173434, -- Pablo Barrera
@@ -584,10 +591,12 @@ local valid_headmodels = {
     173608, -- Joselu
     173673, -- Stephen Quinn
     173731, -- Gareth Bale
+    173735, -- Neil Taylor
     173859, -- Sam Baldock
     173909, -- Kevin Prince Boateng
     174543, -- Claudio Bravo
     175092, -- Maynor Figueroa
+    175314, -- Kevin Mcdonald
     175379, -- Pedro Leon
     175895, -- Vadis Odjidja Ofoe
     175943, -- Dries Mertens
@@ -687,6 +696,7 @@ local valid_headmodels = {
     182521, -- Toni Kroos
     182761, -- Adam Legzdins
     182763, -- Nikica Jelavic
+    182836, -- Andy Carroll
     182888, -- Havard Nordtveit
     182945, -- Max Gradel
     183108, -- Nordin Amrabat
@@ -703,6 +713,7 @@ local valid_headmodels = {
     183394, -- Moussa Sissoko
     183422, -- Jonny Howson
     183427, -- Fabian Delph
+    183465, -- Jack Rodwell
     183491, -- Mathias Jorgensen
     183497, -- Orestis Karnezis
     183512, -- Yuri Berchiche
@@ -714,6 +725,7 @@ local valid_headmodels = {
     183569, -- Eric Choupo Moting
     183574, -- Max Kruse
     183580, -- Nils Petersen
+    183581, -- Jesus Molina
     183617, -- Slaven Bilic
     183622, -- Joachim Low
     183632, -- Robert Tesche
@@ -819,6 +831,7 @@ local valid_headmodels = {
     187043, -- Stefan Johansen
     187072, -- Lars Stindl
     187084, -- Mame Diouf
+    187110, -- Miguel Ponce
     187208, -- Alfredo Saldivar
     187735, -- Alan Dzagoev
     187936, -- Steven Nzonzi
@@ -845,6 +858,7 @@ local valid_headmodels = {
     188657, -- Declan Rudd
     188770, -- Admir Mehmedi
     188802, -- Marcel Schmelzer
+    188829, -- Nicolas Nkoulou
     188836, -- Jason Steele
     188879, -- Alfred Ndiaye
     188942, -- Victor Wanyama
@@ -906,6 +920,7 @@ local valid_headmodels = {
     189881, -- Chris Smalling
     189899, -- Vito Wormgoor
     189945, -- Yoric Ravet
+    189963, -- Wilfried Bony
     190034, -- Thimothee Kolodzieczak
     190042, -- Diego Maradona
     190044, -- Bobby Moore
@@ -927,6 +942,7 @@ local valid_headmodels = {
     190460, -- Christian Eriksen
     190507, -- Xabier Etxeita
     190520, -- Tony Jantschke
+    190531, -- Eliaquim Mangala
     190535, -- Michel Herrero
     190547, -- Kamil Glik
     190549, -- Markus Henriksen
@@ -935,6 +951,7 @@ local valid_headmodels = {
     190560, -- Omar Gonzalez
     190569, -- Stefan Frei
     190584, -- Asier Illarramendiandonegui
+    190653, -- Isaac Brizuela
     190666, -- Manuel Gulde
     190671, -- Mike Frantz
     190717, -- Michail Antonio
@@ -980,6 +997,7 @@ local valid_headmodels = {
     191980, -- Yun Suk Young
     192012, -- Diego Reyes
     192045, -- Luis Rodriguez
+    192114, -- Antonio Briseno
     192119, -- Thibaut Courtois
     192123, -- Chris Wood
     192129, -- Kristoffer Nordfeldt
@@ -1095,6 +1113,7 @@ local valid_headmodels = {
     194932, -- Andros Townsend
     194957, -- Phil Jones
     194958, -- Aaron Mooy
+    194964, -- Nathaniel Mendezlaing
     194996, -- Borja Baston
     195033, -- Mathew Leckie
     195037, -- Danny Batth
@@ -1205,6 +1224,7 @@ local valid_headmodels = {
     199561, -- Manuel Agudo Duran
     199562, -- Ilie Sanchez
     199564, -- Sergio Roberto Carnicer
+    199570, -- Jesus Sanchez
     199575, -- Jordi Masip
     199576, -- Oriol Romeu
     199577, -- Sergi Gomez
@@ -1214,6 +1234,7 @@ local valid_headmodels = {
     199652, -- Dennis Praet
     199667, -- Ramiro Funes Mori
     199669, -- Leandro Gonzalez Perez
+    199692, -- Hiram Mier
     199715, -- Victor Mechin Perez
     199729, -- Daniel Royer
     199761, -- Marcin Kaminski
@@ -1229,6 +1250,7 @@ local valid_headmodels = {
     199952, -- Emre Colak
     199986, -- Anaitz Arbilla
     200054, -- Pedro Obiang
+    200067, -- Zakaria Diallo
     200104, -- Heung Min Son
     200145, -- Casemiro
     200212, -- Michael Esser
@@ -1472,6 +1494,7 @@ local valid_headmodels = {
     205525, -- Bernard Caldeira
     205566, -- Alberto Moreno
     205569, -- James Ward Prowse
+    205590, -- Luis Hernandez
     205600, -- Samuel Umtiti
     205601, -- Christian Atsu
     205670, -- Dwight Gayle
@@ -1544,6 +1567,7 @@ local valid_headmodels = {
     207715, -- Nicolas Lopez
     207725, -- Mike Van Der Hoorn
     207732, -- Roger Marti
+    207783, -- Raymon Gaddis
     207790, -- Kaan Ayhan
     207791, -- Yussuf Poulsen
     207807, -- Ryan Fraser
@@ -1615,6 +1639,7 @@ local valid_headmodels = {
     209744, -- Eugenio Mena
     209761, -- Daniel Steres
     209818, -- Joshua Brenet
+    209840, -- Julian Jeanvier
     209846, -- Christian Gunter
     209852, -- Brendan Galloway
     209889, -- Raphael Guerriero
@@ -1670,6 +1695,7 @@ local valid_headmodels = {
     211234, -- Enzo Fernandez
     211241, -- Ruben Pena
     211256, -- Nicolas Tagliafico
+    211269, -- Guillermo Fernandez
     211300, -- Anthony Martial
     211320, -- Daniele Rugani
     211368, -- Armindo Bangna
@@ -1710,6 +1736,7 @@ local valid_headmodels = {
     212212, -- Dominik Kohr
     212214, -- Augusto Solari
     212218, -- Aymeric Laporte
+    212228, -- Ivan Toney
     212240, -- Kenan Karaman
     212245, -- Yannick Gerhardt
     212249, -- Sebastian Kerk
@@ -1720,6 +1747,7 @@ local valid_headmodels = {
     212404, -- Federico Bernardeschi
     212419, -- Tyrone Mings
     212462, -- Alex Nicolao Telles
+    212466, -- Carlos Cisneros
     212476, -- Alvaro Medran
     212478, -- Gyasi Zardes
     212491, -- Arthur Masuaku
@@ -1757,6 +1785,7 @@ local valid_headmodels = {
     213134, -- Levin Oztunali
     213135, -- Divock Origi
     213209, -- Kellyn Acosta
+    213296, -- Nabil Bentaleb
     213331, -- Jonathan Tah
     213345, -- Kingsley Coman
     213407, -- Matt Macey
@@ -1787,6 +1816,7 @@ local valid_headmodels = {
     213777, -- Iver Fossum
     213905, -- Sam Gallagher
     213937, -- Ager Aketxe
+    213955, -- Sardar Azmoun
     213956, -- Adama Traore
     213991, -- Jefferson Lerma
     214025, -- Cristian Higuita
@@ -1809,6 +1839,7 @@ local valid_headmodels = {
     214649, -- Davor Suker
     214659, -- Nicolas Freire
     214718, -- Martin Rodriguez
+    214727, -- Angel Zaldivar
     214770, -- Diego Gonzales
     214781, -- Silvio Romero
     214944, -- Gerard Gumbau
@@ -1895,6 +1926,7 @@ local valid_headmodels = {
     217647, -- Junya Tanaka
     217648, -- Genki Haraguchi
     217699, -- Islam Slimani
+    217710, -- Martin Barragan
     217714, -- Paul Arriola
     217845, -- Andrew Hjulsager
     218208, -- Cesar Fuentes
@@ -2064,6 +2096,7 @@ local valid_headmodels = {
     223682, -- Alex Granell
     223697, -- Robin Gosens
     223747, -- Stephen Kingsley
+    223816, -- Jonathan Rodriguez
     223848, -- Sergej Milinkovic Savic
     223874, -- Valentin Rongier
     223885, -- Alexander Nubel
@@ -2072,6 +2105,7 @@ local valid_headmodels = {
     223959, -- Lucas Torreira
     223963, -- Cameron Humphreys
     224010, -- Jose Aurelio
+    224013, -- Sergi Canostenes
     224021, -- Sheyi Ojo
     224030, -- Maxime Lopez
     224065, -- Domingo Blanco
@@ -2083,6 +2117,7 @@ local valid_headmodels = {
     224221, -- Joachim Andersen
     224232, -- Nicolo Barella
     224251, -- Robin Zentner
+    224258, -- Kristoffer Ajer
     224263, -- Jonjoe Kenny
     224265, -- Joe Williams
     224293, -- Ruben Neves
@@ -2335,6 +2370,7 @@ local valid_headmodels = {
     228815, -- Tyler Roberts
     228838, -- Eric Remedi
     228941, -- Andre Silva
+    229037, -- Borja Valle
     229038, -- Christian Rivera
     229050, -- Oskar Buur Rasmussen
     229091, -- Bailey Peacock Farrell
@@ -2347,6 +2383,7 @@ local valid_headmodels = {
     229359, -- Jorge Miramon
     229379, -- Luca Delatorre
     229476, -- Waldemar Anton
+    229477, -- Mike Steven Bahre
     229487, -- Lukas Klunter
     229517, -- Toni Villa
     229558, -- Dayot Upamecano
@@ -2408,6 +2445,7 @@ local valid_headmodels = {
     231436, -- Grady Diangana
     231442, -- Marcus Browne
     231443, -- Ousmane Dembele
+    231445, -- Josh Dasilva
     231448, -- Reiss Nelson
     231478, -- Lautaro Martinez
     231485, -- Axel Tuanzebe
@@ -2471,6 +2509,7 @@ local valid_headmodels = {
     232656, -- Theo Hernandez
     232708, -- Milton Valenzuela
     232730, -- Daichi Kamada
+    232757, -- Kyle Scott
     232759, -- Josh Tymon
     232790, -- Hiroki Iikura
     232805, -- Bernardo Fernandes
@@ -2506,6 +2545,7 @@ local valid_headmodels = {
     233225, -- Shogo Taniguchi
     233231, -- Jon Bautista
     233250, -- Yuma Suzuki
+    233260, -- Alexis Vega
     233267, -- Matt Turner
     233306, -- Dean Henderson
     233314, -- Russell Canouse
@@ -2515,6 +2555,7 @@ local valid_headmodels = {
     233493, -- Jorge Sanchez
     233510, -- Tahith Chong
     233512, -- Alin Tosca
+    233606, -- Jesus Angulo
     233705, -- Jacob Sorensen
     233728, -- Mamadou Doucoure
     233731, -- Alexander Isak
@@ -2568,6 +2609,7 @@ local valid_headmodels = {
     234728, -- Laszlo Benes
     234742, -- Harvey Barnes
     234777, -- Zack Steffen
+    234824, -- Yoane Wissa
     234833, -- Florian Muller
     234867, -- Daniel Arzani
     234875, -- Lucas Holer
@@ -2635,6 +2677,7 @@ local valid_headmodels = {
     236498, -- Sam Lammers
     236499, -- Douglas Luiz
     236508, -- Adrian Dieguez
+    236515, -- Alvaro Fernandezllorente
     236529, -- Steven Alzate
     236532, -- Robin Koch
     236583, -- Jiri Pavlenka
@@ -2657,6 +2700,7 @@ local valid_headmodels = {
     237000, -- Reggie Cannon
     237024, -- Gian Luca Itter
     237034, -- Juan Hernandez
+    237043, -- Roberto Alvarado
     237067, -- Pele
     237075, -- Christian Ramirez
     237139, -- Tashan Oakley Boothe
@@ -2711,6 +2755,7 @@ local valid_headmodels = {
     238074, -- Reece James
     238114, -- Carlos Vargas
     238126, -- Jon Guridi
+    238157, -- Mads Roerslev
     238186, -- Marcin Bulka
     238222, -- Felix Beijmo
     238274, -- Florinel Coman
@@ -2743,6 +2788,7 @@ local valid_headmodels = {
     239368, -- Mitchel Bakker
     239380, -- Noa Lang
     239433, -- Nemanja Maksimovic
+    239439, -- Przemyslaw Placheta
     239452, -- Ibrahima Diallo
     239454, -- Brian Figueroa
     239506, -- Sam Hughes
@@ -2760,6 +2806,7 @@ local valid_headmodels = {
     239822, -- Eduardo Tercero
     239837, -- Alexis Macallister
     239890, -- Ozan Kabak
+    239945, -- Fernando Beltran
     239961, -- Juan Esteban Moreno
     239965, -- Jader Valencia
     239970, -- Paulinho Sampaio
@@ -2781,6 +2828,7 @@ local valid_headmodels = {
     240513, -- Ethan Hamilton
     240517, -- Callum Whelan
     240690, -- Nicolas Gonzalez
+    240697, -- Shandon Baptiste
     240734, -- Matt Oriley
     240740, -- Callum Hudson Odoi
     240786, -- Ali Koiki
@@ -2819,6 +2867,7 @@ local valid_headmodels = {
     241487, -- Jesus Ferreira
     241496, -- Timothy Weah
     241497, -- Colin Dagba
+    241523, -- Marcus Forss
     241611, -- Marcelino Garcia Toral
     241612, -- Juan Ramon Muniz
     241643, -- Viktor Johansson
@@ -2869,9 +2918,11 @@ local valid_headmodels = {
     243057, -- Neco Williams
     243184, -- Javi Gracia
     243208, -- Carlos Carvalhal
+    243231, -- Enock Mwepu
     243235, -- Olivier Mbaizo
     243249, -- Jurgen Ekkelenkamp
     243282, -- Dwight Mc Neil
+    243353, -- Bali Mumba
     243386, -- Diego Valencia
     243388, -- Borna Sosa
     243390, -- Ian Carl Poveda
@@ -2900,6 +2951,7 @@ local valid_headmodels = {
     243932, -- David Lennart Phillip
     244068, -- Keven Schlotterbeck
     244191, -- Joseph Anang
+    244196, -- Dominic Thompson
     244288, -- Adam Idah
     244363, -- Daniel Fuzato
     244448, -- Juan Sanchezpurata
@@ -2923,6 +2975,7 @@ local valid_headmodels = {
     245237, -- Ignacio Saavedra
     245278, -- Tomas Tavares
     245279, -- Sergio Reguilon
+    245286, -- Jan Zamburek
     245336, -- Maximilian Kilman
     245367, -- Xavi Simons
     245428, -- Chima Okoroji
@@ -2940,6 +2993,7 @@ local valid_headmodels = {
     246147, -- Mason Greenwood
     246272, -- Marie Katoto
     246401, -- Fabrice Hartmann
+    246402, -- Mads Bidstrup
     246646, -- Maxence Caqueret
     246669, -- Bukayo Saka
     246763, -- Ki Jana Hoever
@@ -2989,7 +3043,9 @@ local valid_headmodels = {
     252238, -- Alan Velasco
     252371, -- Jude Bellingham
     252454, -- Haret Ortega
+    252460, -- Juan Jose Miguel
     252466, -- Devid Bouah
+    252577, -- Joao Ferreira
     252594, -- Isaac Lihadji
     252935, -- Leonardo Fernandez
     252961, -- Tanguy Kouassi
@@ -3005,6 +3061,7 @@ local valid_headmodels = {
     254588, -- Billy Koumetio
     254642, -- Ferenc Puskas
     254796, -- Noni Madueke
+    254807, -- Kwadwo Baah
     254891, -- Jose Andres Martinez
     255110, -- Henry Kessler
     255150, -- Niels Nkounkou
@@ -3034,10 +3091,12 @@ local valid_headmodels = {
     259356, -- Carney Chukwuemeka
     260801, -- Kiyan Prince
     261025, -- Dane Scarlett
+    261336, -- Bidace Philogene
     261581, -- David Beckham
     261593, -- Jurgen Kohler
     261647, -- Andrew Omobamidele
-    262271  -- Diego Milito
+    262271, -- Diego Milito
+    263582 -- Harris Peart
 }
 
 gCTManager:init_ptrs()
