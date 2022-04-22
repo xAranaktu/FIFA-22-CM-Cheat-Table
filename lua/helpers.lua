@@ -624,11 +624,15 @@ function get_player_form_addr(playerid)
 
     local size_of =  PLAYERFORM_STRUCT['size']
     local form_ptr = get_mode_manager_impl_ptr("PlayerFormManager")
-    if not form_ptr then
-        return result
+
+    -- This can be broken because of the third party mods?
+    if (form_ptr) then
+        form_ptr = readPointer(form_ptr + PLAYERFORM_STRUCT['players_form_list_offset'])
     end
 
-    form_ptr = readPointer(form_ptr + PLAYERFORM_STRUCT['players_form_list_offset'])
+    if (not form_ptr) then
+        return result
+    end
 
     local _start = readPointer(form_ptr + PLAYERFORM_STRUCT['_start'])
     local _end = readPointer(form_ptr + PLAYERFORM_STRUCT['_end'])

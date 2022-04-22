@@ -1,12 +1,11 @@
 v22.1.1.6:
     - Fixed:
-        - lua error when player form pointer is broken (you won't be able to edit player form, but rest of the editor should work)
         - "Play As Player -> Manager Reputation"
         - "Play As Player -> Squad Role"
         - "Play As Player -> Create Transfer Offer"
     - Added lua scripts to "users scripts" folder:
         - "extend_user_team_players_contracts.lua"
-    - Removed "Unlock Play Buttons" script which was outdated.
+    - Removed outdated scripts.
 
 v22.1.1.5:
     - Added scripts to "users scripts" folder:
