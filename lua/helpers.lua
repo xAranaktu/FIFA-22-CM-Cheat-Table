@@ -705,7 +705,7 @@ end
 
 function get_players_in_player_growth_system()
     local result = {}
-    local _max = 55
+    local _max = 100
 
     local pgs_ptr = get_mode_manager_impl_ptr("PlayerGrowthManager")
     if not pgs_ptr then
