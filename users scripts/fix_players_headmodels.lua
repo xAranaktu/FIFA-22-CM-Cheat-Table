@@ -2994,6 +2994,7 @@ local valid_headmodels = {
     246272, -- Marie Katoto
     246401, -- Fabrice Hartmann
     246402, -- Mads Bidstrup
+    246430, -- Dusan Vlahovic
     246646, -- Maxence Caqueret
     246669, -- Bukayo Saka
     246763, -- Ki Jana Hoever
